@@ -41,6 +41,9 @@ GEM
     arel (7.1.1)
     builder (3.2.2)
     byebug (9.0.5)
+    ckeditor (4.2.0)
+      cocaine
+      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.8)
@@ -86,6 +89,7 @@ GEM
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
+    orm_adapter (0.5.0)
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -170,6 +174,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  ckeditor (~> 4.2)
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
   jquery-rails
