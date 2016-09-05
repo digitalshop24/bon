@@ -13,7 +13,9 @@
 						<h3><q><%= @post.title %></q></h3>
 						<span class="location">
 						<img src="<%= asset_path('simb/location.png') %>" />
-						<%= @post.location %></span>
+						<div>
+						<%= @post.location.html_safe %>
+						</div></span>
 					</li>
 					<li>
 						<p class="whatIsIt">Оценка</p>
@@ -62,10 +64,10 @@
 		  <strong>Title:</strong>
 		  <%= @post.title %>
 		</p>
-
+		
 		<p>
 		  <strong>Location:</strong>
-		  <%= @post.location %>
+		  <%= @post.location.html_safe %>
 		</p>
 		<p>
 		  <strong>Score:</strong>
