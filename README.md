@@ -1,24 +1,14 @@
-# README
+# Site BON
+# Our staging https://bon-staging.herokuapp.com/
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+For starting project:
 
-Things you may want to cover:
+* Run ```bundle install``` for installing gems
+* ```rake db:create db:migrate db:seed``` for creating database and filling it with sample data
+* ```rails s``` for starting local server
+* Enjoy!
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+For creating post:
+* /posts/new
+For editing post:
+* /posts/:id/edit
