@@ -22,9 +22,12 @@
             </li>
             <li><q><%= post_rest.title %></q></li>
             <li>Стоит отметить дизайн «Delicatessen», который абсолютно точно дфополняет атмосферу домашней неторопливой суеты проходящих дней.</li>
-            <% post_rest.tags.each do |tag|%>
-              <li><a href="">#<%= tag.name %></a></li>
-            <% end %>
+            <ul class="hash">
+              <% post_rest.tags.each do |tag|%>
+                <li><a href="">#<%= tag.name %></a></li>
+              <% end %>
+            </ul>
+            
           </ul>
           <%= link_to 'Читать полностью',post_rest ,class: 'readMore redBtn' %>
           </div>

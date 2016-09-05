@@ -109,6 +109,10 @@ header {
 		align-items: center;
 		width:100%;
 		.imagesWrap {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			min-width: 415px;
 			img {
 				max-width:124px;
 				max-height:140px;
@@ -216,12 +220,18 @@ footer {
 						font-family:$mirBd;
 						font-size: 26px;
 					}
-					&:nth-child(4) {
+
+
+				}
+				.hash {
+					li {
+						font-size:18px;
+						font-family:$mir;
+						text-transform: lowercase;
 						a {
 							color:$blue;
 						}
 					}
-
 				}
 
 			}
