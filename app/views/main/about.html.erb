@@ -1,0 +1,141 @@
+<%= render 'header' %>
+
+<section class="helloAbout">
+	<div class="mainWrapper">
+		<div class="hiWrapper">
+			<div class="BonImgWrapp">
+				<img src="<%= asset_path('about/bonAbout.png') %>" />
+			</div>
+			<div class="wrapContent">
+
+				<div class="textWrap">
+					<div class="overlay"></div>
+					<div class="content">
+						<article>Привет!</article>
+						<span>Я Бон. Я составляю рейтинг и пишу рецензии на общественные места и мероприятия Москвы, куда хорошо сходить со своим питомцем.</span>
+						<ul class="hash">
+							<li><a href="">#хештег</a></li>
+							<li><a href="">#ресторан</a></li>
+							<li><a href="">#непростопес</a></li>
+							<li><a href="">#bon</a></li>
+							<li><a href="">#вкуснаяеда</a></li>
+							<li><a href="">#здесьбылbon</a></li>
+						</ul>
+					</div>
+					
+				</div>
+				<div class="social">
+					<div class="sn">
+					<article>Рассказать друзьям</article>
+					<ul>
+						<li>
+							<a href="">
+							<img src="<%= asset_path('simb/fb.png') %>" />
+							</a>
+						</li>
+						<li>
+							<a href="">
+							<img src="<%= asset_path('simb/twi.png') %>" />
+							</a>
+						</li>
+						<li>
+							<a href="">
+							<img src="<%= asset_path('simb/vk.png') %>" />
+							</a>
+						</li>
+					</ul>
+					</div>
+					<button class="redBtn">
+						Написать мне
+					</button>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</section>
+<section class="categoryAbout">
+	<div class="mainWrapper">
+	<ul class="categoryWrap">
+		<% @categories = @categories.sort {|a, q| q[:name] <=> a[:name]} %>
+		<% @categories.each do |category|%>
+		<li class="cat">
+			<div class="sideText">
+				
+				<article><%= category.name %></article>
+				
+				<span><%= category.description %></span>
+				<ul class="hash">
+					<li><a href="">#хештег</a></li>
+					<li><a href="">#ресторан</a></li>
+					<li><a href="">#непростопес</a></li>
+					<li><a href="">#bon</a></li>
+					<li><a href="">#вкуснаяеда</a></li>
+					<li><a href="">#здесьбылbon</a></li>
+				</ul>
+			</div>
+			<div class="sideImg">
+				<%= link_to category do %>
+				<%= image_tag category.bon_img_type.url %>
+				<% end %>
+			</div>
+		</li>
+		<% end %>
+		<!-- <li class="cat">
+			<div class="sideText">
+				<article>Праздники</article>
+				<span>Я как и вы люблю вкусно поесть в хорошей обстановке. Я часто выбираюсь в какое-нибудь заведение за новым гастрономическим опытом. Правда не все рестораны и кафе готовы принять меня в качестве своего гостя. Поэтому мы с хозяйкой и решили составить список заведений, которые рады видеть у себя в гостях, например, пса.
+				</span>
+				<ul class="hash">
+					<li><a href="">#хештег</a></li>
+					<li><a href="">#ресторан</a></li>
+					<li><a href="">#непростопес</a></li>
+					<li><a href="">#bon</a></li>
+					<li><a href="">#вкуснаяеда</a></li>
+					<li><a href="">#здесьбылbon</a></li>
+				</ul>
+			</div>
+			<div class="sideImg">
+				<img src="<%= asset_path('about/bonHollidays.png') %>" />
+			</div>
+		</li>
+		<li class="cat">
+			<div class="sideText">
+				<article>Прогулки</article>
+				<span>Я как и вы люблю вкусно поесть в хорошей обстановке. Я часто выбираюсь в какое-нибудь заведение за новым гастрономическим опытом. Правда не все рестораны и кафе готовы принять меня в качестве своего гостя. Поэтому мы с хозяйкой и решили составить список заведений, которые рады видеть у себя в гостях, например, пса.
+				</span>
+				<ul class="hash">
+					<li><a href="">#хештег</a></li>
+					<li><a href="">#ресторан</a></li>
+					<li><a href="">#непростопес</a></li>
+					<li><a href="">#bon</a></li>
+					<li><a href="">#вкуснаяеда</a></li>
+					<li><a href="">#здесьбылbon</a></li>
+				</ul>
+			</div>
+			<div class="sideImg">
+				<img src="<%= asset_path('about/bonWalks.png') %>" />
+			</div>
+		</li>
+		<li class="cat">
+			<div class="sideText">
+				<article>Путешествия</article>
+				<span>Я как и вы люблю вкусно поесть в хорошей обстановке. Я часто выбираюсь в какое-нибудь заведение за новым гастрономическим опытом. Правда не все рестораны и кафе готовы принять меня в качестве своего гостя. Поэтому мы с хозяйкой и решили составить список заведений, которые рады видеть у себя в гостях, например, пса.
+				</span>
+				<ul class="hash">
+					<li><a href="">#хештег</a></li>
+					<li><a href="">#ресторан</a></li>
+					<li><a href="">#непростопес</a></li>
+					<li><a href="">#bon</a></li>
+					<li><a href="">#вкуснаяеда</a></li>
+					<li><a href="">#здесьбылbon</a></li>
+				</ul>
+			</div>
+			<div class="sideImg">
+				<img src="<%= asset_path('about/bonTravels.png') %>" />
+			</div>
+		</li> -->
+	</ul>
+	</div>
+</section>
+<%= render 'footer' %>

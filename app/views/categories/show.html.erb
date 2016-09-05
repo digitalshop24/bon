@@ -1,0 +1,33 @@
+<%= render 'main/header' %>
+
+<section class="redCatInfo">
+	<div class="mainWrapper">
+		<div class="redWrap">
+			<div class="imgWrap">
+				<%= image_tag @category.bon_img_type.url %>
+			</div>
+			<div class="infoWrap">
+				<article><%= @category.name %></article>
+				<span><%= @category.description %></span>
+				<ul class="filter">
+					<li>
+						<a href="">
+						<img src="<%= asset_path('simb/newSm.png') %>" />
+						<span>Недавние</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+						<img src="<%= asset_path('simb/bestSm.png') %>" />
+						<span>Рейтинг лучших</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</section>
+
+<%= render 'main/posts' %>
+
+<%= render 'main/footer' %>

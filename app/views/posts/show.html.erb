@@ -1,0 +1,83 @@
+<%= render 'main/header' %>
+
+<section class="postCarouselSec">
+	<div class="postCarousel">
+		<div class="item" style="background-image:url(<%= asset_path(@post.image.url) %>);"></div>
+	</div>
+	<div class="mainWrapper">
+		<div class="postInfo">
+			<div class="info">
+				<ul class="aboutParth">
+					<li>
+						<p class="whatIsIt"><%#= @post.category.name %></p>
+						<h3><q><%= @post.title %></q></h3>
+						<span class="location">
+						<img src="<%= asset_path('simb/location.png') %>" />
+						<%= @post.location %></span>
+					</li>
+					<li>
+						<p class="whatIsIt">Оценка</p>
+						<span class="vote">
+							<%= @post.score %> <img src="<%= asset_path('simb/vote.png') %>">
+						</span>
+					</li>
+				</ul>
+			</div>
+			<div class="social">
+				<div class="sn">
+				<article>Рассказать друзьям</article>
+				<ul>
+					<li>
+						<a href="">
+						<img src="<%= asset_path('simb/fb.png') %>" />
+						</a>
+					</li>
+					<li>
+						<a href="">
+						<img src="<%= asset_path('simb/twi.png') %>" />
+						</a>
+					</li>
+					<li>
+						<a href="">
+						<img src="<%= asset_path('simb/vk.png') %>" />
+						</a>
+					</li>
+				</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="postBody">
+	<div class="mainWrapper">
+		<p><strong>Тэги:</strong></p>
+		<ul>
+			<% @post.tags.each do |tag|%>
+				<li><a href="">#<%= tag.name %></a></li>
+			<% end %>
+		</ul>
+		<br/>
+		<p>
+		  <strong>Title:</strong>
+		  <%= @post.title %>
+		</p>
+
+		<p>
+		  <strong>Location:</strong>
+		  <%= @post.location %>
+		</p>
+		<p>
+		  <strong>Score:</strong>
+		  <%= @post.score %>
+		</p>
+
+		<p>
+		  <strong>Category:</strong>
+		  <%= @post.category.name %>
+		</p>
+	</div>
+</section>
+
+
+<%= render 'main/footer' %>

@@ -1,0 +1,20 @@
+<header>
+	<div class="mainWrapper">
+		<div class="headerContent">
+			<div class="imagesWrap">
+				
+				<% @categories.each do |category|%>
+				<%= link_to category do %>
+				<%= image_tag category.bon_img_type.url %>
+				<% end %>
+				<% end %>
+			</div>
+			<div class="logoWrap">
+				<%= link_to root_path do %>
+				<img src="<%= asset_path('simb/logo.png') %>"/>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	
+</header>
