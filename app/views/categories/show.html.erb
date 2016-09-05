@@ -8,7 +8,7 @@
 			</div>
 			<div class="infoWrap">
 				<article><%= @category.name %></article>
-				<span><%= @category.description %></span>
+				<span><%= @category.description.html_safe %></span>
 				<ul class="filter">
 					<li>
 						<a href="">
