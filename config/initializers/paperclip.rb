@@ -1,12 +1,5 @@
-# Paperclip::Attachment.default_options[:url] = ':s3_domain_url'
-# Paperclip::Attachment.default_options[:path] = '/:class/:attachment/:id_partition/:style/:filename'
-# Paperclip::Attachment.default_options[:s3_host_name] = 's3-us-west-2.amazonaws.com'
-
 Paperclip.interpolates(:s3_missing_url) do |attachment, style|
   "#{attachment.s3_protocol(style, true)}//#{attachment.s3_host_name}/#{attachment.bucket_name}/noimage/:class/:attachment/missing_#{style}"
-end
-Paperclip.interpolates(:post_s3_missing_url) do |attachment, style|
-  "#{attachment.s3_protocol(style, true)}//#{attachment.s3_host_name}/#{attachment.bucket_name}/noimage/:class/:attachment/#{attachment.instance.origin}_#{style}.jpeg"
 end
 Paperclip::Attachment.default_options.update(
   convert_options: { medium: '-quality 80 -strip', small: '-quality 80 -strip', thumb: '-quality 80 -strip' },
@@ -16,8 +9,9 @@ Paperclip::Attachment.default_options.update(
   url: ":s3_domain_url",
   default_url: ":s3_missing_url.jpg",
   s3_credentials: {
-    bucket: ENV['S3_BUCKET_NAME'],
-    access_key_id: ENV['AWS_ACCESS_KEY_ID'],
-    secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
-  }
+    bucket: Rails.application.secrets.aws["s3_bucket_name"],
+    access_key_id: Rails.application.secrets.aws["access_key_id"],
+    secret_access_key: Rails.application.secrets.aws["secret_access_key"],
+  },
+  s3_region: 'eu-central-1'
 )
