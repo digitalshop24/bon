@@ -1,15 +1,13 @@
-<%= render 'main/header' %>
-
 <section class="postCarouselSec">
 	<div class="postCarousel">
-		<div class="item" style="background-image:url(<%= asset_path(@post.image.url) %>);"></div>
+		<div class="item" style="background-image:url(<%= asset_path(@post.preview_url) %>);"></div>
 	</div>
 	<div class="mainWrapper">
 		<div class="postInfo">
 			<div class="info">
 				<ul class="aboutParth">
 					<li>
-						<p class="whatIsIt"><%#= @post.category.name %></p>
+						<p class="whatIsIt"><%= @post.category.name %></p>
 						<h3><q><%= @post.title %></q></h3>
 						<span class="location">
 						<img src="<%= asset_path('simb/location.png') %>" />
@@ -55,8 +53,8 @@
 	<div class="mainWrapper">
 		<p><strong>Тэги:</strong></p>
 		<ul>
-			<% @post.tags.each do |tag|%>
-				<li><a href="">#<%= tag.name %></a></li>
+			<% @post.tag_list.each do |tag|%>
+				<li><a href="javascript:void(0)">#<%= tag %></a></li>
 			<% end %>
 		</ul>
 		<br/>
@@ -79,7 +77,17 @@
 		  <%= @post.category.name %>
 		</p>
 	</div>
+
+  <div class="aboutPostSection">
+    <h3><%= @post.about_section.title %></h3>
+    <p><%= @post.about_section.description %></p>
+    <%= form_for @post.about_section do |form| %>
+      <%= form.cktext_area :description, cols: 40, class: 'someclass', ckeditor: { language: 'ru'} %>
+    <% end %>
+    <%= submit_tag 'save' %>
+  </div>
+
+  <% @post.post_sections.each do |ps| %>
+
+  <% end %>
 </section>
-
-
-<%= render 'main/footer' %>

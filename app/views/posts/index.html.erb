@@ -1,4 +1,3 @@
-<%= render 'main/header' %>
 <div class="mainWrapper">
 
 </div>
@@ -9,7 +8,7 @@
       <% @posts.each do |post_rest|%>
       <div class="item">
         <div class="slideWrapper">
-          <div class="imgSide" style="background-image:url(<%= asset_path(post_rest.image.url) %>); " ></div>
+          <div class="imgSide" style="background-image:url(<%= asset_path(post_rest.preview_url) %>); " ></div>
           <div class="contentSide">
           <ul class="aboutEvent">
             <li>
@@ -46,6 +45,3 @@
     </div>
   </div>
 </section>
-
-
-<%= render 'main/footer' %>

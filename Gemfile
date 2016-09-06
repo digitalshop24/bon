@@ -22,6 +22,13 @@ gem 'rails_admin', '>= 1.0.0.rc'
 gem 'devise'
 gem 'rolify'
 gem 'cancancan'
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'rails_admin_tag_list'
+### TEMPLATES
+gem 'slim-rails'
+
+### FORM BUILDERS
+gem 'bootstrap_form'
 
 group :development, :test do
   gem 'byebug', platform: :mri

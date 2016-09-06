@@ -1,22 +1,40 @@
 class Post < ApplicationRecord
 	belongs_to :category
-	has_many :taggings
-  	has_many :tags, through: :taggings
+	has_many :post_sections, dependent: :destroy
+  has_many :images, as: :imageable, dependent: :destroy
+  # has_many :comments, dependent: :destroy
 
-	has_attached_file :image, styles: { medium: "700x465#", small: "400x266#", thumb: "160x106#" }, default_url: ":s3_missing_url"
-  	validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+  accepts_nested_attributes_for :images, allow_destroy: true
+  accepts_nested_attributes_for :post_sections, allow_destroy: true
 
-  	validates :category, :title, presence: true
+  acts_as_taggable
 
+	scope :to_slider, -> { where(to_slider: true) }
 
-  	rails_admin do
+  after_create :create_about_section
+
+	validates :category, :title, presence: true
+
+	rails_admin do
 		edit do
 	      field :status, :enum do 
 	        enum do
 	          ['public', 'draft']
 	        end
 	      end
-	      fields :title, :location, :score, :category, :image
-	    end
-	end
+	      fields :title, :to_slider, :location, :score, :category, :tag_list, :images, :post_sections
+		end
+  end
+
+  def preview_url
+    images.any? ? images.first.image.url : "http://s3-eu-central-1.amazonaws.com/bonapplication/noimage/posts/images/missing_original.jpg"
+  end
+
+  def about_section
+    post_sections.first
+  end
+
+  def create_about_section
+    post_sections.create(title: 'О заведении')
+  end
 end

@@ -1,4 +1,9 @@
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require jquery.remotipart
 //= require ckeditor/init
+//= require slick.min
+//= require custom
+//= require bon
+//= require_tree ./bon/posts
+//= require_tree ./bon/categories
