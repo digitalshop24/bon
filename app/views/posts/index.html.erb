@@ -6,7 +6,7 @@
   <div class="mainWrapper">
 
     <div class="eventCarousel">
-      <% @post_rest.each do |post_rest|%>
+      <% @posts.each do |post_rest|%>
       <div class="item">
         <div class="slideWrapper">
           <div class="imgSide" style="background-image:url(<%= asset_path(post_rest.image.url) %>); " ></div>

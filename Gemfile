@@ -10,8 +10,18 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'simple_form', '~> 3.3', '>= 3.3.1'
-gem 'paperclip', '~> 5.1'
+gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
+gem 'rmagick'
 gem 'ckeditor', '~> 4.2'
+
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
+
+gem 'devise'
+gem 'rolify'
+gem 'cancancan'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
