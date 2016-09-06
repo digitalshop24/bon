@@ -9,13 +9,9 @@ class Ability
       can :dashboard
       can :manage, :all
     elsif user.has_role?(:subscriber)
-      can :access, :rails_admin
-      can :dashboard
-      can :manage, :all
+      can :read, :all
     elsif user.has_role?(:editor)
-      can :access, :rails_admin
-      can :dashboard
-      can :manage, :all
+      can :read, :all
     else
       can :read, :all
     end

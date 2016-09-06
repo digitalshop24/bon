@@ -1,6 +1,8 @@
 $(document).ready(function() {
 	$('.eventCarousel').slick({
-		arrows:false
+		arrows: false,
+		autoplay: true,
+		dots: true
 	});
-	
 });
+
