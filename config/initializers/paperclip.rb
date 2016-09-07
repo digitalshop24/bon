@@ -9,9 +9,9 @@ Paperclip::Attachment.default_options.update(
   url: ":s3_domain_url",
   default_url: ":s3_missing_url.jpg",
   s3_credentials: {
-    bucket: Rails.application.secrets.aws["s3_bucket_name"],
-    access_key_id: Rails.application.secrets.aws["access_key_id"],
-    secret_access_key: Rails.application.secrets.aws["secret_access_key"],
+    bucket: ENV["S3_BUCKET_NAME"],
+    access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+    secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
   },
   s3_region: 'eu-central-1'
 )
