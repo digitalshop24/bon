@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @categories = Category.all
+    @post_sections = @post.post_sections
   end
 
   # GET /posts/new

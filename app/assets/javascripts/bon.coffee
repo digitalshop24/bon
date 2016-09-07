@@ -1,6 +1,6 @@
 @Bon ||=
-  Shared: {}
   Posts: {}
+  PostSections: {}
   Categories: {}
 
 Bon.init = ->

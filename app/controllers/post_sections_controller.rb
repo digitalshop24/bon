@@ -1,22 +1,27 @@
 class PostSectionsController < ApplicationController
-  before_action :fetch_category
-  before_action :fetch_post
+ # before_action :fetch_post
   before_action :fetch_post_section, only: [:edit, :update, :destroy]
+  #before_action :fetch_category
+
 
   def new
+    @post = Post.find(params[:post_id])
     @post_section = @post.post_sections.build
   end
 
   def edit
+    @post = Post.find(params[:post_id])
   end
 
   def create
-    @post_section = @post.post_sections.build(@post_section_params)
+    @post = Post.find(params[:post_id])
+    @post_section = @post.post_sections.build(post_section_params)
     @post_section.save
   end
 
   def update
-    @post_section.assign_attributes(ad_params)
+    @post = Post.find(params[:post_id])
+    @post_section.assign_attributes(post_section_params)
     @post_section.save
   end
 
@@ -27,27 +32,23 @@ class PostSectionsController < ApplicationController
   private
 
   def fetch_post_section
-    @post_section = @post.post_sections.find(params[:id])
+    @post_section = PostSection.find(params[:id])
   end
 
   def fetch_post
-    @post = @campaign.ad_units.find(params[:ad_unit_id])
+    @post = Post.find(params[:id]) || @post_section.post
   end
 
-  def fetch_campaign
-    @campaign = current_user.campaigns.find(params[:campaign_id])
+  def fetch_category
+    @category = @post.category
   end
 
-  def ad_params
-    params.require(:ad).permit(
-        :x, :y, :width, :height,
+  def post_section_params
+    params.require(:post_section).permit(
         :title,
-        :image,
-        :remote_image_url,
-        :image_cache,
-        :destination_url,
         :description,
-        :has_description
+        :has_description,
+        :score
     )
   end
 end

@@ -5,4 +5,5 @@ class PostSection < ApplicationRecord
 	# validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
 	validates :post, presence: true
+	validates :score, :inclusion => { :in => 0..5, :message => "Оценка от 0 до 5" }
 end

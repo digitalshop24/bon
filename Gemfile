@@ -30,6 +30,9 @@ gem 'slim-rails'
 ### FORM BUILDERS
 gem 'bootstrap_form'
 
+### STYLES
+gem 'bootstrap-sass'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end

@@ -14,6 +14,7 @@ class Post < ApplicationRecord
   after_create :create_about_section
 
 	validates :category, :title, presence: true
+  validates :score, :inclusion => { :in => 0..5, :message => "Оценка от 0 до 5" }
 
 	rails_admin do
 		edit do
@@ -32,6 +33,10 @@ class Post < ApplicationRecord
 
   def about_section
     post_sections.first
+  end
+
+  def other_post_sections
+    post_sections.offset(1)
   end
 
   def create_about_section

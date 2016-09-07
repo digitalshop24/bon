@@ -58,36 +58,7 @@
 			<% end %>
 		</ul>
 		<br/>
-		<p>
-		  <strong>Title:</strong>
-		  <%= @post.title %>
-		</p>
-		
-		<p>
-		  <strong>Location:</strong>
-		  <%= @post.location.html_safe %>
-		</p>
-		<p>
-		  <strong>Score:</strong>
-		  <%= @post.score %>
-		</p>
-
-		<p>
-		  <strong>Category:</strong>
-		  <%= @post.category.name %>
-		</p>
 	</div>
-
-  <div class="aboutPostSection">
-    <h3><%= @post.about_section.title %></h3>
-    <p><%= @post.about_section.description %></p>
-    <%= form_for @post.about_section do |form| %>
-      <%= form.cktext_area :description, cols: 40, class: 'someclass', ckeditor: { language: 'ru'} %>
-    <% end %>
-    <%= submit_tag 'save' %>
-  </div>
-
-  <% @post.post_sections.each do |ps| %>
-
-  <% end %>
 </section>
+
+<%= render 'post_sections/post_sections' %>

@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   devise_for :users
 
 	resources :categories
-	resources :posts
-	resources :post_sections
+	resources :posts do
+		resources :post_sections
+  end
+
 
 	get '/about', to: 'main#about'
 	root 'posts#index'
