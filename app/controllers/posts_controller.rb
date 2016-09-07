@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    @post_rest =  Post.where(:category => Category.find(1))
+    #@post_rest =  Post.where(:category => Category.find(1))
     @categories = Category.all
   end
 
@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @categories = Category.all
+    @post_sections = @post.post_sections
   end
 
   # GET /posts/new
@@ -72,6 +73,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :location, :score, :image, :category_id, {:tag_ids => []})
+      params.require(:post).permit(:title, :location, :score, :image, :category_id, :status, :tag_list)
     end
 end

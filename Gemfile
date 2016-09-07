@@ -10,8 +10,29 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'simple_form', '~> 3.3', '>= 3.3.1'
-gem 'paperclip', '~> 5.1'
+gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
+gem 'rmagick'
 gem 'ckeditor', '~> 4.2'
+gem 'dotenv-rails', :groups => [:development, :test]
+
+gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'rails_admin', '>= 1.0.0.rc'
+
+gem 'devise'
+gem 'rolify'
+gem 'cancancan'
+gem 'acts-as-taggable-on', '~> 4.0'
+gem 'rails_admin_tag_list'
+### TEMPLATES
+gem 'slim-rails'
+
+### FORM BUILDERS
+gem 'bootstrap_form'
+
+### STYLES
+gem 'bootstrap-sass'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end

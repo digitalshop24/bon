@@ -8,7 +8,7 @@
 	
 				<div class="brick">
 				<%= link_to post do  %>
-				<div class="imgParth" style="background-image:url(<%= asset_path(post.image.url) %>);" ></div>
+				<div class="imgParth" style="background-image:url(<%= asset_path(post.preview_url) %>);" ></div>
 				<% end %>
 				<ul class="aboutParth">
 					<li>

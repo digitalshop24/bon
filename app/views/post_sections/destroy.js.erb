@@ -1,0 +1,4 @@
+$('#post_section_<%= @post_section.id %>').parent('.postInfo').fadeOut().remove();
+if($('.post_sections_list .post_section').length == 0) {
+  $('#no_post_sections').removeClass('hidden');
+}
