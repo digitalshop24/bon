@@ -1,0 +1,28 @@
+= bootstrap_form_for(@post, html: { multipart: true }, remote: true) do |f|
+  .info
+    ul.aboutParth
+      li
+        p.whatIsIt
+          = f.select :category_id,
+                  options_from_collection_for_select(Category.all, :id, :name, @post.category_id)
+        p
+          = f.text_field :title
+        p
+          = f.text_field :description
+        p
+          = f.text_field :tag_list
+        p
+          = f.select :status, ['publish', 'draft']
+        span.location
+          img src="= asset_path('simb/location.png')"
+          div
+            = f.text_field :location
+      li
+        p.whatIsIt Оценка
+        span.vote
+          = f.number_field :score
+          img src="= asset_path('simb/vote.png') ">
+  .card-action.clearfix.white
+    .text-right
+      => link_to 'cancel', 'javascript:void(0)', class: 'btn btn-default btn-link btn-cancel'
+      = f.primary

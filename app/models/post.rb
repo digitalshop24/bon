@@ -10,6 +10,8 @@ class Post < ApplicationRecord
   acts_as_taggable
 
 	scope :to_slider, -> { where(to_slider: true) }
+  scope :published, -> { where(status: 'publish') }
+  scope :drafted, -> { where(status: 'draft') }
 
   after_create :create_about_section
 

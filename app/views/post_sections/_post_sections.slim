@@ -1,8 +1,9 @@
 #post_sections_container.mainWrapper
   .post_sections_list
     = render @post_sections
-  #new_post_section_container
-    #link_to_create_new_post_section.clearfix
-      span#no_post_sections.no_post_sections class="#{@post_sections.any? ? 'hidden' : ''}" = 'Добавить новую секцию?'
-      .text-center
-        = link_to 'Добавить', new_post_post_section_path(@post), :class => 'btn btn-success', remote: true
+  - if current_user && current_user.has_role?(:admin)
+    #new_post_section_container
+      #link_to_create_new_post_section.clearfix
+        span#no_post_sections.no_post_sections class="#{@post_sections.any? ? 'hidden' : ''}" = 'Добавить новую секцию?'
+        .text-center
+          = link_to 'Добавить', new_post_post_section_path(@post), :class => 'btn btn-success', remote: true

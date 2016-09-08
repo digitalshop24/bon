@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:edit, :update, :destroy, :new, :create]
+  before_filter :require_admin, only: [:edit, :update, :destroy, :new, :create]
 
   # GET /posts
   # GET /posts.json
@@ -44,15 +46,8 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
-    end
+    @post.assign_attributes(post_params)
+    @post.save
   end
 
   # DELETE /posts/1
@@ -66,6 +61,13 @@ class PostsController < ApplicationController
   end
 
   private
+
+    def require_admin
+      unless current_user && current_user.has_role?(:admin)
+        redirect_to root_path
+      end
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])

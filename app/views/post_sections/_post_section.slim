@@ -8,11 +8,12 @@
         p.whatIsIt Оценка
         span.vote = post_section.score
           img src="= asset_path('simb/vote.png')"
-    .card-action.clearfix
-      .pull-left
-        = link_to 'редактировать', edit_post_post_section_path(@post, post_section), class: 'btn btn-link btn-icon',
-                id: "edit_post_section_link_#{post_section.id}", remote: true
-        .br
-        = link_to 'удалить', post_post_section_path(@post, post_section), class: 'btn btn-link btn-icon',
-                data: {confirm: 'Вы увеерены?'},
-                method: :delete, remote: true
+    - if current_user && current_user.has_role?(:admin)
+      .card-action.clearfix
+        .pull-left
+          = link_to 'редактировать', edit_post_post_section_path(@post, post_section), class: 'btn btn-link btn-icon',
+                  id: "edit_post_section_link_#{post_section.id}", remote: true
+          .br
+          = link_to 'удалить', post_post_section_path(@post, post_section), class: 'btn btn-link btn-icon',
+                  data: {confirm: 'Вы увеерены?'},
+                  method: :delete, remote: true

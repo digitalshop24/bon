@@ -1,7 +1,7 @@
 class PostSectionsController < ApplicationController
- # before_action :fetch_post
   before_action :fetch_post_section, only: [:edit, :update, :destroy]
-  #before_action :fetch_category
+  before_filter :authenticate_user!
+  before_filter :require_admin
 
 
   def new
@@ -30,6 +30,12 @@ class PostSectionsController < ApplicationController
   end
 
   private
+
+  def require_admin
+    unless current_user && current_user.has_role?(:admin)
+      redirect_to root_path
+    end
+  end
 
   def fetch_post_section
     @post_section = PostSection.find(params[:id])

@@ -1,0 +1,7 @@
+<% if @post.errors.any? %>
+  $("#edit_post_<%= @post.id %>").replaceWith("<%= j render 'form' %>");
+  new Bon.Posts.PostFormHandler("<%= @post.id %>");
+<% else %>
+  $("#edit_post_<%= @post.id %>").remove();
+  $("#post_<%= @post.id %>").parent().replaceWith("<%= j render @post %>");
+<% end %>

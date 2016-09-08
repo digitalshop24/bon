@@ -4,7 +4,7 @@
 	</div>
 	<div class="mainWrapper">
 		<div class="postInfo">
-			<div class="info">
+			<div class="info" id="post_<%= @post.id %>">
 				<ul class="aboutParth">
 					<li>
 						<p class="whatIsIt"><%= @post.category.name %></p>
@@ -22,6 +22,14 @@
 						</span>
 					</li>
 				</ul>
+        <% if current_user && current_user.has_role?(:admin) %>
+          <div class="card-action clearfix">
+            <div class="pull-left">
+              <%= link_to 'редактировать', edit_post_path(@post), class: 'btn btn-link btn-icon',
+                          id: "edit_post_link_#{@post.id}", remote: true %>
+            </div>
+          </div>
+        <% end %>
 			</div>
 			<div class="social">
 				<div class="sn">
@@ -50,7 +58,7 @@
 </section>
 
 <section class="postBody">
-	<div class="mainWrapper">
+	<div class="mainWrapper postTags">
 		<p><strong>Тэги:</strong></p>
 		<ul>
 			<% @post.tag_list.each do |tag|%>

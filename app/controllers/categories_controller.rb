@@ -7,6 +7,22 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def sort_by_date
+    @categories = Category.all
+    @category = Category.find(params[:category_id])
+    @posts = Post.where(category: @category).order(updated_at: :desc)
+    puts @posts.map(&:updated_at)
+    render :show
+  end
+
+  def sort_by_score
+    @categories = Category.all
+    @category = Category.find(params[:category_id])
+    @posts = Post.where(category: @category).order('score IS NULL, score DESC')
+
+    render :show
+  end
+
   # GET /categories/1
   # GET /categories/1.json
   def show

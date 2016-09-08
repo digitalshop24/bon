@@ -1,0 +1,2 @@
+$('#post_<%= @post.id %>').parent().prepend('<%= j render 'form' %>');
+new Bon.Posts.PostFormHandler('<%= @post.id %>');

@@ -1,0 +1,19 @@
+.postInfo
+  .info#post_5
+    ul.aboutParth
+      li
+        p.whatIsIt = @post.category.name
+        h3
+          q = @post.title
+        span.location
+          img src="= asset_path('simb/location.png')"
+          div = @post.location.html_safe
+      li
+        p.whatIsIt Оценка
+        span.vote = @post.score
+        img src="= asset_path('simb/vote.png') ">
+    - if current_user && current_user.has_role?(:admin)
+    .card-action.clearfix
+      .pull-left
+        = link_to 'редактировать', edit_post_path(@post), class: 'btn btn-link btn-icon',
+                id: "edit_post_link_#{@post.id}", remote: true
