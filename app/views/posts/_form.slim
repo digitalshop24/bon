@@ -8,8 +8,6 @@
         p
           = f.text_field :title
         p
-          = f.text_field :description
-        p
           = f.text_field :tag_list
         p
           = f.select :status, ['publish', 'draft']
@@ -22,6 +20,9 @@
         span.vote
           = f.number_field :score
           img src="= asset_path('simb/vote.png') ">
+  p
+    = f.cktext_area :description, cols: 40, class: 'ckeditor', ckeditor: { language: 'ru'}
+
   .card-action.clearfix.white
     .text-right
       => link_to 'cancel', 'javascript:void(0)', class: 'btn btn-default btn-link btn-cancel'
