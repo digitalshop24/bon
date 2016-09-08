@@ -3,10 +3,10 @@
 		<div class="headerContent">
 			<div class="imagesWrap">
 				
-				<% @categories.each do |category|%>
-				<%= link_to category do %>
-				<%= image_tag category.bon_img_type.url %>
-				<% end %>
+				<% Category.all.each do |category|%>
+				  <%= link_to category do %>
+				    <%= image_tag category.bon_img_type.url %>
+				  <% end %>
 				<% end %>
 			</div>
 			<div class="logoWrap">
