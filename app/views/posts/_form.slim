@@ -2,7 +2,6 @@
   .info
     ul.aboutParth
       li
-<<<<<<< 27e92371ca9daf2bea4e45011947f6c29d284580
         div.full
           p
             | Название
@@ -29,14 +28,16 @@
             p
               | Оценка
               = f.number_field :score, hide_label: true
-          div.uu
-            p
-              | В слайдер на главной
-              = f.check_box :to_slider, hide_label: true
         div.full
           p 
             | Адрес
             = f.text_field :location, hide_label: true
+        div.full
+          p
+            = f.check_box :to_slider, label: 'В слайдер на главной'
+        .full
+          p
+            = f.file_field :preview, label: 'Превью'
     .card-action.white.text-center
       => link_to 'Отменить', 'javascript:void(0)', class: 'btn btn-default btn-link btn-cancel'
       = f.primary('Редактировать')

@@ -4,5 +4,11 @@ $(document).ready(function() {
 		autoplay: true,
 		dots: true
 	});
+
+    $('.postCarousel').slick({
+        arrows: false,
+        autoplay: true,
+        dots: true
+    });
 });
 

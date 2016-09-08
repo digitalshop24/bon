@@ -13,6 +13,10 @@ class Post < ApplicationRecord
   scope :published, -> { where(status: 'publish') }
   scope :drafted, -> { where(status: 'draft') }
 
+  has_attached_file :preview, styles: { medium: "700x465#", small: "400x266#", thumb: "160x106#" },
+                    default_url: ":s3_missing_url.jpg"
+  validates_attachment_content_type :preview, content_type: /\Aimage\/.*\z/
+
   after_create :create_about_section
 
 	validates :category, :title, presence: true

@@ -1,6 +1,8 @@
 <section class="postCarouselSec">
 	<div class="postCarousel">
-		<div class="item" style="background-image:url(<%= asset_path(@post.preview_url) %>);"></div>
+    <% 3.times do |n| %>
+		  <div class="item" style="background-image:url(<%= asset_path(@post.preview_url) %>);"></div>
+    <% end %>
 	</div>
 	<div class="mainWrapper">
 		<div class="postInfo">
