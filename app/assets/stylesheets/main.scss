@@ -60,6 +60,7 @@ $peaceSans:peaceSans;
 body {
 	font-family:$mir;
 }
+
 .redBtn {
 	background-color: $red;
 	color:#fff;
@@ -109,6 +110,7 @@ header {
 	background-position:center;
 	background-size: cover;
 	background-repeat: no-repeat;
+
 	.headerContent {
 		display: flex;
 		justify-content: space-between;
@@ -514,17 +516,40 @@ footer {
 		box-shadow: 2px 5px 20px 0px rgba(126,129,140,1);
 	}
     .post_section {
-        width:80%;
-        margin-left: 100px;
-        position: relative;
-        padding:50px;
+    	width:100%;
+    	max-width:850px;
+    	margin: auto;
+        .aboutParth {
+        	width:100%;
+        	padding:0;
+        	flex-direction: row-reverse;
+        	justify-content: space-between;
+        	li {
+        		&:nth-child(1) {
+					max-width:50em;
+					width: 100%;
+					h3 {
+						margin-bottom:10px;
+					}
+					p {
+						font-size:18px;
+						strong {
+							font-family:$mirBd;
+						}
+					}
+					img {
+						margin-top:20px;
+						max-width: 100%;
+    					height: auto !important;
+    					display: block;
+					}
+        		}
+        	}
+        }
     }
 
     .edit_post_section {
-        width:80%;
-        margin-left: 100px;
-        position: relative;
-        padding:50px;
+       margin: auto;
     }
 }
 

@@ -5,7 +5,7 @@
         h3 data='post_section-title' = post_section.title
         p.whatIsIt data='post_section-description' = raw post_section.description
       li
-        p.whatIsIt Оценка
+        p.whatIsIt
         span.vote = post_section.score
           img src="= asset_path('simb/vote.png')"
     - if current_user && current_user.has_role?(:admin)
