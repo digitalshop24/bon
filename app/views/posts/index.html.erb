@@ -6,6 +6,7 @@
   <div class="mainWrapper">
 
     <div class="eventCarousel">
+      <% if Category.any? && Post.where(:category => Category.find(1)).any?%>
       <% @post_rest.each do |post_rest|%>
       <div class="item">
         <div class="slideWrapper">
@@ -30,6 +31,7 @@
           </div>
         </div>
       </div>
+      <% end %>
       <% end %>
     </div>
   </div>
