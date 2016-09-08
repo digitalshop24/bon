@@ -90,9 +90,18 @@ ul {
 }
 
 .postTags {
-  width: 80%;
-  margin-top: 30px;
-  margin-left: 230px;
+  width: 100%;
+  max-width:850px;
+  margin:30px 0 30px auto;
+  display: flex;
+  li {
+  	font-size:18px;
+  	font-family:$mirBd;
+  	color:$blue;
+  }
+  li:not(:last-child) {
+  	margin-right:20px;
+  }
 }
 
 .inputRound {
@@ -505,6 +514,9 @@ footer {
 	display: flex;
     justify-content: space-between;
     align-items: center;
+    &:not(:last-child) {
+    	margin-bottom:30px;
+    }
 	.info {
 		max-width:620px;
 		width:100%;
@@ -533,12 +545,12 @@ footer {
 					}
 					p {
 						font-size:18px;
+						margin:10px 0;
 						strong {
 							font-family:$mirBd;
 						}
 					}
 					img {
-						margin-top:20px;
 						max-width: 100%;
     					height: auto !important;
     					display: block;
@@ -552,12 +564,55 @@ footer {
        margin: auto;
     }
 }
+.editPostForm {
+	max-width:620px;
+	width:100%;
+	.aboutParth {
+		li {
+			display: flex;
+			flex-wrap: wrap;
+			margin: auto;
+			.full {
+				width:100%;
+				input {
+					width:100%;
+				}
+			}
+			.multi {
+				width:100%;
+				display: flex;
+				justify-content: space-between;
+				
+				div.uu {
+					align-self:stretch;
+					input {
+						min-width:auto;
+					}
+				}
+			}
+			input {
+				min-width:220px;
+			}
+
+		}
+	}
+}
 
 .new_post_section {
   width:80%;
   margin-left: 100px;
   position: relative;
   padding:50px;
+}
+.linksWrap {
+	display: flex;
+	.btnLinks {
+		margin:0 20px 0 0;
+		padding:10px 0;
+		color:$red;
+		transition:color .4s;
+		display: block;
+	}
 }
 
 .redCatInfo {

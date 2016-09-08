@@ -58,14 +58,12 @@
 </section>
 
 <section class="postBody">
-	<div class="mainWrapper postTags">
-		<p><strong>Тэги:</strong></p>
-		<ul>
+	<div class="mainWrapper ">
+		<ul class="postTags">
 			<% @post.tag_list.each do |tag|%>
 				<li><a href="javascript:void(0)">#<%= tag %></a></li>
 			<% end %>
 		</ul>
-		<br/>
 	</div>
 </section>
 

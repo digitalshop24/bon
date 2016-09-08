@@ -11,7 +11,7 @@
       li
         p.whatIsIt Оценка
         span.vote = @post.score
-        img src="= asset_path('simb/vote.png') ">
+        img src="simb/vote.png">
     - if current_user && current_user.has_role?(:admin)
     .card-action.clearfix
       .pull-left
