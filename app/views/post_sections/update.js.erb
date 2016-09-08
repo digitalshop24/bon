@@ -1,0 +1,7 @@
+<% if @post_section.errors.any? %>
+  $("#edit_post_section_<%= @post_section.id %>").replaceWith("<%= j render 'form' %>");
+  new Bon.PostSections.PostSectionFormHandler("<%= @post_section.id %>");
+<% else %>
+  $("#edit_post_section_<%= @post_section.id %>").remove();
+  $("#post_section_<%= @post_section.id %>").parent().replaceWith("<%= j render @post_section %>");
+<% end %>

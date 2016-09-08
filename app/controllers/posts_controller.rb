@@ -5,8 +5,11 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    @post_rest =  Post.where(:category => Category.find(1))
     @categories = Category.all
+    if Category.any? && Post.where(:category => Category.find(1)).any? 
+        @post_rest =  Post.where(:category => Category.find(1))
+    end
+
   end
 
   # GET /posts/1

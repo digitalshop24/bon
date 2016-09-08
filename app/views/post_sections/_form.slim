@@ -1,0 +1,14 @@
+= bootstrap_form_for([@post, @post_section],
+        html: { multipart: true },
+        remote: true) do |f|
+  .form-floating
+    fieldset
+      = f.text_field :title
+      = f.number_field :score
+      = f.cktext_area :description, cols: 40, class: 'ckeditor', ckeditor: { language: 'ru'}
+
+  .card-action.clearfix.white
+    .text-right
+      => link_to 'cancel', 'javascript:void(0)', class: 'btn btn-default btn-link btn-cancel'
+      = f.primary
+
