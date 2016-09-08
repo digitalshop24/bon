@@ -2,6 +2,7 @@
   .info
     ul.aboutParth
       li
+<<<<<<< 27e92371ca9daf2bea4e45011947f6c29d284580
         div.full
           p
             | Название
@@ -9,7 +10,7 @@
         div.full
           p
             | Описание
-            = f.text_field :description, hide_label: true
+            = f.cktext_area :description, hide_label: true, class: 'ckeditor'
         div.full
           p
             | Тэги
@@ -28,6 +29,10 @@
             p
               | Оценка
               = f.number_field :score, hide_label: true
+          div.uu
+            p
+              | В слайдер на главной
+              = f.check_box :to_slider, hide_label: true
         div.full
           p 
             | Адрес

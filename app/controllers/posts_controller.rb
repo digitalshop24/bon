@@ -7,7 +7,6 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    #@post_rest =  Post.where(:category => Category.find(1))
     @categories = Category.all
   end
 
@@ -16,6 +15,8 @@ class PostsController < ApplicationController
   def show
     @categories = Category.all
     @post_sections = @post.post_sections
+    @comments = @post.comments.limit(5).order(created_at: :desc)
+    @posts = Post.where(category: @post.category.id).limit(2)
   end
 
   # GET /posts/new

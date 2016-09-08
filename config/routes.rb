@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   end
 	resources :posts do
 		resources :post_sections
+    resource :comments
   end
 
 

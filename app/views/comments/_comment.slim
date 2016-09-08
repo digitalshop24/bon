@@ -1,0 +1,11 @@
+.row
+  .col-sm-2
+    .thumbnail
+      img.img-responsive.user-photo src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"
+  .col-sm-10
+    .panel.panel-default
+      .panel-heading
+        strong = comment.name + " "
+        span.text-muted = comment.created_at
+      .panel-body
+        = comment.text
