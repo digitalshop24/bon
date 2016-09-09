@@ -40,6 +40,9 @@
             img src="#{@post.preview.url}" id="previewTarget"
           p
             = f.file_field :preview, label: 'Превью'
+        .full
+          #previewImages
+          = file_field_tag "images[]", type: :file, :class => 'file', :id =>"imagesUpload", multiple: true, label: 'Изображения'
     .card-action.white.text-center
       => link_to 'Отменить', 'javascript:void(0)', class: 'btn btn-default btn-link btn-cancel'
       = f.primary('Редактировать')

@@ -48,6 +48,13 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1.json
   def update
     @post.assign_attributes(post_params)
+
+    if params[:images]
+      params[:images].each { |image|
+        @post.images.create(image: image)
+      }
+    end
+
     @post.save
   end
 
