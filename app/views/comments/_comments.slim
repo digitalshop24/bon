@@ -1,6 +1,6 @@
 .mainWrapper
+	h3 Комментарии к посту
 	.coommentsList
-		h3 Комментарии к посту
 		- @comments.each do |comment|
 			= render 'comments/comment', comment: comment
 
