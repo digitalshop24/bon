@@ -1,7 +1,6 @@
-.mainWrapper.container
-  h3 style="margin:auto; width:60%;" Комментарии к посту
-  br
-  .comments_list
-    - @comments.each do |comment|
-      = render 'comments/comment', comment: comment
+.mainWrapper
+	.coommentsList
+		h3 Комментарии к посту
+		- @comments.each do |comment|
+			= render 'comments/comment', comment: comment
 
