@@ -1,0 +1,24 @@
+<div id="myModal" class="modal fade invitationModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <img class="logo" src="<%= asset_path('modals/bonLogo.png') %>" />
+        <div class="closeCustom">
+          <img  data-dismiss="modal" src="<%= asset_path('modals/close.png') %>"/>
+        </div>
+        
+      </div>
+      <div class="modal-body">
+        <%= bootstrap_form_for(Invitation.new) do |f| %>
+          <%= f.text_field :name, hide_label: true, placeholder: 'Ваше имя' %>
+          <%= f.email_field :email, hide_label: true, placeholder: 'Ваша почта' %>
+          <%= f.text_field :message, hide_label: true, placeholder: 'Комментрарий' %>
+          <%= f.button :submit, class:"redBtn" %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

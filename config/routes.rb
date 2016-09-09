@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 		resources :post_sections
     resource :comments
   end
-
+  resources :invitations, only: [:create]
 
 	get '/about', to: 'main#about'
 	root 'posts#index'
