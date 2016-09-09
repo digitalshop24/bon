@@ -762,8 +762,12 @@ footer {
 @media (min-width: 768px) {
 .invitationModal {
 	.modal-dialog {
-		width:500px;
+		width:400px;
 		margin: 80px auto;
+	}
+	.modal-body {
+		padding:15px 60px 40px;
+		text-align: center;
 	}
 	.modal-header {
 		position: relative;
