@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap-sprockets
 //= require jquery.remotipart
 //= require ckeditor/init
 //= require slick.min
