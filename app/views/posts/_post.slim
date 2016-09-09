@@ -15,5 +15,5 @@
     - if current_user && current_user.has_role?(:admin)
     .card-action.clearfix
       .pull-left
-        = link_to 'редактировать', edit_post_path(@post), class: 'btn btn-link btn-icon',
+        = link_to 'Редактировать', edit_post_path(@post), class: 'btn btn-link btn-icon',
                 id: "edit_post_link_#{@post.id}", remote: true

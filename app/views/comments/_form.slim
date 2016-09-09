@@ -2,7 +2,9 @@
 	.commentForm
 	  h3 Оставьте комментарий:
 	  = bootstrap_form_for([@post, Comment.new], html: {multipart: true}, remote: true) do |f|
-	      = f.text_field :name, :class => 'form-control', hide_label: true, placeholder: 'Ваше Имя'
-	      = f.email_field :email, :class => 'form-control', hide_label:true, placeholder: 'Почта'
-	      = f.text_area :text, :class => 'form-control', hide_label:true, placeholder: 'Текст комментария',rows:5
-	      = f.submit 'Оставить комментарий', :class => 'redBtn', label: 'Написать'
+	  		.line
+	  			.left
+	      			= f.text_field :name, :class => 'form-control', hide_label: true, placeholder: 'Ваше Имя',wrapper:false
+	      			= f.email_field :email, :class => 'form-control', hide_label:true, placeholder: 'Почта',wrapper:false
+	    	= f.text_area :text, :class => 'form-control', hide_label:true, placeholder: 'Текст комментария',rows:5
+	    	= f.submit 'Оставить комментарий', :class => 'redBtn', label: 'Написать'
