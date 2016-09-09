@@ -1,11 +1,12 @@
 <div class="mainWrapper">
 
 </div>
+<%= @posts.to_slider.count %>
 <section class="eventCarouselSec">
   <div class="mainWrapper">
 
     <div class="eventCarousel">
-      <% @posts.each do |post_rest|%>
+      <% @posts.to_slider.each do |post_rest|%>
       <div class="item">
         <div class="slideWrapper">
           <div class="imgSide" style="background-image:url(<%= asset_path(post_rest.preview_url) %>); " ></div>
@@ -25,7 +26,7 @@
             </ul>
             
           </ul>
-          <%= link_to 'Читать полностью',post_rest ,class: 'readMore redBtn' %>
+          <%= link_to 'Читать полностью', post_rest ,class: 'readMore redBtn' %>
           </div>
         </div>
       </div>

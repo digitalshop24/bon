@@ -37,6 +37,8 @@
             = f.check_box :to_slider, label: 'В слайдер на главной'
         .full
           p
+            img src="#{@post.preview.url}" id="previewTarget"
+          p
             = f.file_field :preview, label: 'Превью'
     .card-action.white.text-center
       => link_to 'Отменить', 'javascript:void(0)', class: 'btn btn-default btn-link btn-cancel'
