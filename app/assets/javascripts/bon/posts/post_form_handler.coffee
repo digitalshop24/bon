@@ -9,6 +9,7 @@ class Bon.Posts.PostFormHandler
 
     @_formSubmitHandler()
     @_cancelBtnHandler()
+    @_previewPreviewHandler()
     @_previewImageHandler()
 
   _formSubmitHandler: ->
@@ -22,7 +23,7 @@ class Bon.Posts.PostFormHandler
       @$form.remove()
       @$oldContent.show()
 
-  _previewImageHandler: ->
+  _previewPreviewHandler: ->
     $('#post_preview').on 'change', (event) =>
       files = event.target.files
       image = files[0]
@@ -33,4 +34,16 @@ class Bon.Posts.PostFormHandler
         console.log(img)
         $('#previewTarget').attr('src', img.src)
       reader.readAsDataURL(image)
+
+  _previewImageHandler: ->
+    $("#imagesUpload").on 'change', (event) =>
+      files = event.target.files
+      if (files && files[0])
+        for file in files
+          reader = new FileReader()
+          reader.onload = (file) =>
+            image_html = new Image()
+            image_html.src = file.target.result
+            $('#previewImages').append(image_html)
+          reader.readAsDataURL(file)
 
