@@ -156,7 +156,6 @@ footer {
 			width:370px;
 
 			.shape {
-
 				p {
 					text-align: center;
 					margin-bottom:10px;
@@ -203,9 +202,10 @@ footer {
 		.slideWrapper {
 			display: flex;
 			justify-content: space-between;
+			align-items: stretch;
 			.imgSide {
 				width:60%;
-				height:400px;
+				min-height:400px;
 				background-color:#f3f3f3;
 				background-size: cover;
 				background-position:center;
@@ -269,6 +269,7 @@ footer {
 				color:$black07;
 				cursor: pointer;
 			}
+			min-width: 370px;
 			width:49%;
 			border-radius:10px;
 			margin-bottom:25px;
@@ -574,6 +575,15 @@ footer {
 			margin: auto;
 			max-width:100%;
 			.full {
+				&:not(:last-child){
+					margin-bottom:30px;
+				}
+				.form-group {
+					margin-bottom:0;
+				}
+				p {
+					color:$red;
+				}
 				width:100%;
 				input {
 					width:100%;
@@ -711,6 +721,7 @@ footer {
 	font-size:18px;
 	padding:20px 50px;
 	border-radius:10px;
+	box-shadow: 2px 2px 2px #e2e2e2;
 	&:not(:last-child) {
 		margin-bottom:10px;
 	}
@@ -718,7 +729,7 @@ footer {
 		background-color:#f8fffa;
 	}
 	&:nth-child(2n-1) {
-		background-color:#fffff4;
+		background-color:rgba(237,230,255,0.2);
 	}
 	span {
 		font-size:16px;
@@ -782,4 +793,18 @@ footer {
 		}
 	}
 }
+}
+
+.prew {
+	max-width:100%;
+}
+.previewImages {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top:15px;
+	img {
+		max-width:160px;
+		height: 160px;	
+		object-fit:cover;
+	}
 }
