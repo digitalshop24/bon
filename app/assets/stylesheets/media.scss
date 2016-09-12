@@ -1,0 +1,52 @@
+@media screen and (max-width:1200px) {
+	.mainWrapper {
+		max-width:800px;
+	}
+	.bricksSec {
+		.bricksWrap {
+			align-items: stretch;
+			justify-content: space-around;
+			.brick {
+				.imgParth {
+					height: 250px;
+				}
+			}
+		}
+	}
+	.eventCarouselSec {
+		.eventCarousel {
+			.slideWrapper {
+				.imgSide {
+					min-height:200px;
+				}
+				.aboutEvent { 
+					li {
+						&:nth-child(2) {
+							font-size: 22px;
+						}
+						&:nth-child(3) {
+							font-size:16px;
+						}
+					}
+				}
+				.readMore {
+					margin-top:20px;
+				}
+			}
+			
+		}
+	}
+	footer {
+		.contentWrap {
+			flex-wrap: wrap;
+			.socialWrap {
+				width:100%;
+				justify-content: center;
+				.shape {
+					margin:0 20px 50px;
+				}
+			}
+
+		}
+	}
+}
