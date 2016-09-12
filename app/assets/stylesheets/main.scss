@@ -65,13 +65,21 @@ body {
 	background-color: $red;
 	color:#fff;
 	padding:15px 20px;
+	border:2px solid transparent;
 	border-radius:50px;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-family:$peaceSans;
 	font-size:12px;
 	letter-spacing:1px;
-	border:0;
+	transition:background-color .4s,color .4s,border .4s;
+	&.readMore {
+		&:hover {
+			border:2px solid $red;
+			color:#000;
+			background-color:transparent;
+		}
+	}
 }
 
 ul {
@@ -111,7 +119,9 @@ ul {
 	padding:8px 12px;
 	text-align: center;
 }
-
+.mobHeader {
+	display: none;
+}
 header {
 	padding:20px 0;
 	box-shadow: 0px 3px 5px -1px rgba(171,171,171,0.56);
@@ -119,7 +129,6 @@ header {
 	background-position:center;
 	background-size: cover;
 	background-repeat: no-repeat;
-
 	.headerContent {
 		display: flex;
 		justify-content: space-between;
@@ -154,7 +163,6 @@ footer {
 			display: flex;
 			justify-content: space-between;
 			width:370px;
-
 			.shape {
 				p {
 					text-align: center;
@@ -166,7 +174,6 @@ footer {
 				li {
 					&:not(:first-child):not(:last-child) {
 						padding:0 10px;
-
 					}
 				}
 			}
@@ -177,6 +184,13 @@ footer {
 		li {
 			&:not(:first-child):not(:last-child) {
 				padding:0 20px;
+			}
+			a {
+				color: #000;
+				transition:color .4s;
+				&:hover {
+					color:$red;
+				}
 			}
 		}
 	}
@@ -269,7 +283,7 @@ footer {
 				color:$black07;
 				cursor: pointer;
 			}
-			min-width: 370px;
+			min-width: 310px;
 			width:49%;
 			border-radius:10px;
 			margin-bottom:25px;
@@ -610,9 +624,9 @@ footer {
 }
 
 .new_post_section {
-  width:80%;
-  margin-left: 100px;
-  position: relative;
+  width:100%;
+  margin: auto;
+  max-width:800px;
   padding:50px;
 }
 .linksWrap {

@@ -1,4 +1,4 @@
-<header>
+<header class="desctop">
 	<div class="mainWrapper">
 		<div class="headerContent">
 			<div class="imagesWrap">
@@ -18,3 +18,33 @@
 	</div>
 	
 </header>
+
+<div class="mobHeader">
+	<div class="mainWrapper">
+		<div class="headerContent">
+			<div class="logo">
+				<%= link_to root_path do %>
+					<img src="<%= asset_path('simb/logoMob.png') %>"/>
+				<% end %>
+			</div>
+			<div class="cllps">
+				<label for="ac">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</label>
+			</div>
+		</div>
+		<input id="ac" name="accordion" type="checkbox" />
+		<ul class="cllpsShowHide">
+			<% Category.all.each do |category|%>
+			<li>
+				<%= link_to category do %>
+					<%= category.name %>
+				<% end %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
