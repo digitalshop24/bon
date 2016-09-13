@@ -118,6 +118,27 @@ ul {
 	border-radius:50px;
 	padding:8px 12px;
 	text-align: center;
+	&:-webkit-autofill {
+		-webkit-box-shadow: inset 0 0 0 50px #fff !important;
+		-webkit-text-fill-color: #000 !important;
+		color: #000 !important;
+	}
+}
+.enterBtn {
+	display: block;
+	border:2px solid $red;
+	color:#fff;
+	background-color: $red;
+	font-size:18px;
+	width:100%;
+	border-radius:50px;
+	padding:5px 12px;
+	text-align: center;
+	transition:color .4s,background-color .4s;
+	&:hover {
+		background-color: transparent;
+		color:#000;
+	}
 }
 .mobHeader {
 	display: none;
@@ -825,4 +846,63 @@ footer {
 		height: 160px;	
 		object-fit:cover;
 	}
+}
+
+.authPage {
+	padding:50px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	.enterBtn {
+		margin:10px 0;
+	}
+	.linksBtns {
+		display: flex;
+		justify-content: space-around;
+		max-width:280px;
+		width:100%;
+		transition:color .4s;
+		a {
+			color:#000;
+			&:hover {
+				color:$red;
+			}
+		}
+	}
+}
+.authInputsWrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	.inputRound {
+		margin:10px 0;
+		width:100%;
+		min-width:280px;
+	}
+	
+}
+.thankU {
+	font-size:22px;
+	text-align: center;
+	padding:10px 0;
+}
+
+@media screen and (min-width:768px) {
+	.authPage {
+		min-height: calc(100vh - 350px);
+	}
+
+
+}
+.newPostWrapper {
+	h1 {
+		margin: 80px auto 0;
+    	width: 580px;
+	}
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 }
