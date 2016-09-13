@@ -1,0 +1,44 @@
+<section class="eventCarouselSec">
+  <div class="mainWrapper">
+
+    <div class="eventCarousel">
+      <% @posts_unlim.to_slider.each do |post_rest|%>
+      <div class="item">
+        <div class="slideWrapper">
+          <div class="imgSide" style="background-image:url(<%= asset_path(post_rest.preview_url) %>); " ></div>
+          <div class="contentSide">
+          <ul class="aboutEvent">
+            <li>
+              <a href="/categories/<%= post_rest.category_id %>">
+                <%= post_rest.category.name %>
+              </a>
+            </li>
+            <li><q><%= post_rest.title %></q></li>
+            <li>Стоит отметить дизайн «Delicatessen», который абсолютно точно дфополняет атмосферу домашней неторопливой суеты проходящих дней.</li>
+            <ul class="hash">
+              <% post_rest.tags.each do |tag|%>
+                <li><a href="">#<%= tag.name %></a></li>
+              <% end %>
+            </ul>
+            
+          </ul>
+          <%= link_to 'Читать полностью', post_rest ,class: 'readMore redBtn' %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+  <%= render 'main/posts' %>
+<section class="aboutSec">
+  <div class="mainWrapper">
+    <div class="aboutInfo">
+      <h3>О проекте</h3>
+      <img src="<%= asset_path('simb/bone.png') %>" />
+      <p>Я Бон. Я составляю рейтинг и пишу рецензии на заведения Москвы, куда хорошо сходить со своим питомцем.</p>
+    </div>
+  </div>
+</section>
+
+
