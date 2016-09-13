@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   resources :invitations, only: [:create]
 
 	get '/about', to: 'main#about'
-	root 'posts#index'
+	root 'main#main'
 end

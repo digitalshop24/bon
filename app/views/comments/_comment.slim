@@ -4,6 +4,7 @@
     span.text-muted = comment.created_at
   .commentBody
     = comment.text
-  .navFooter
-  	a Редактировать
-  	a Удалить
+  - if current_user && current_user.has_role?(:admin)
+	  .navFooter
+	  	a Редактировать
+	  	a Удалить

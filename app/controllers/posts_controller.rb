@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, only: [:edit, :update, :destroy, :new, :create]
+  before_filter :authenticate_user!, only: [:index, :edit, :update, :destroy, :new, :create]
   before_filter :require_admin, only: [:edit, :update, :destroy, :new, :create]
 
   # GET /posts
@@ -32,7 +32,6 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -44,8 +43,6 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
   def update
     @post.assign_attributes(post_params)
 
@@ -58,8 +55,6 @@ class PostsController < ApplicationController
     @post.save
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @post.destroy
     respond_to do |format|
@@ -76,12 +71,10 @@ class PostsController < ApplicationController
       end
     end
 
-    # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
       params.require(:post).permit(:title, :location, :score, :preview, :category_id, :status,
                                    :tag_list, :to_slider, :description)
