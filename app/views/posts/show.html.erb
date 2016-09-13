@@ -1,15 +1,19 @@
-<%= render 'main/header' %>
-
 <section class="postCarouselSec">
 	<div class="postCarousel">
-		<div class="item" style="background-image:url(<%= asset_path(@post.image.url) %>);"></div>
+    <% if @post.images.any? %>
+      <% @post.images.each do |image| %>
+        <div class="item" style="background-image:url(<%= asset_path(image.image.url) %>);"></div>
+      <% end %>
+    <% else %>
+        <div class="item" style="background-image:url(<%= asset_path(@post.preview_url) %>);"></div>
+    <% end %>
 	</div>
 	<div class="mainWrapper">
 		<div class="postInfo">
-			<div class="info">
+			<div class="info" id="post_<%= @post.id %>">
 				<ul class="aboutParth">
 					<li>
-						<p class="whatIsIt"><%#= @post.category.name %></p>
+						<p class="whatIsIt"><%= @post.category.name %></p>
 						<h3><q><%= @post.title %></q></h3>
 						<span class="location">
 						<img src="<%= asset_path('simb/location.png') %>" />
@@ -24,6 +28,14 @@
 						</span>
 					</li>
 				</ul>
+        <% if current_user && current_user.has_role?(:admin) %>
+          <div class="card-action clearfix">
+            <div class="pull-left">
+              <%= link_to 'редактировать', edit_post_path(@post), class: 'btn btn-link btn-icon',
+                          id: "edit_post_link_#{@post.id}", remote: true %>
+            </div>
+          </div>
+        <% end %>
 			</div>
 			<div class="social">
 				<div class="sn">
@@ -52,34 +64,17 @@
 </section>
 
 <section class="postBody">
-	<div class="mainWrapper">
-		<p><strong>Тэги:</strong></p>
-		<ul>
-			<% @post.tags.each do |tag|%>
-				<li><a href="">#<%= tag.name %></a></li>
+	<div class="mainWrapper ">
+		<ul class="postTags">
+			<% @post.tag_list.each do |tag|%>
+				<li><a href="javascript:void(0)">#<%= tag %></a></li>
 			<% end %>
 		</ul>
-		<br/>
-		<p>
-		  <strong>Title:</strong>
-		  <%= @post.title %>
-		</p>
-		
-		<p>
-		  <strong>Location:</strong>
-		  <%= @post.location.html_safe %>
-		</p>
-		<p>
-		  <strong>Score:</strong>
-		  <%= @post.score %>
-		</p>
-
-		<p>
-		  <strong>Category:</strong>
-		  <%= @post.category.name %>
-		</p>
 	</div>
 </section>
 
+<%= render 'post_sections/post_sections' %>
+<%= render 'comments/form', post: @post %>
+<%= render 'comments/comments' %>
 
-<%= render 'main/footer' %>
+<%= render 'main/posts' %>

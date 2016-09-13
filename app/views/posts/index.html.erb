@@ -1,51 +1,26 @@
-<%= render 'main/header' %>
-<div class="mainWrapper">
-
-</div>
-<section class="eventCarouselSec">
+<section class="allPosts">
   <div class="mainWrapper">
+    <h1>Все посты</h1>
+    <ul class="titleAllPost">
+      <li>Название:</li>
+      <li>Адрес:</li>
+      <li>Отметка: </li>
+      <li></li>
+      <li></li>
 
-    <div class="eventCarousel">
-      <% @post_rest.each do |post_rest|%>
-      <div class="item">
-        <div class="slideWrapper">
-          <div class="imgSide" style="background-image:url(<%= asset_path(post_rest.image.url) %>); " ></div>
-          <div class="contentSide">
-          <ul class="aboutEvent">
-            <li>
-              <a href="/categories/<%= post_rest.category_id %>">
-                <%= post_rest.category.name %>
-              </a>
-            </li>
-            <li><q><%= post_rest.title %></q></li>
-            <li>Стоит отметить дизайн «Delicatessen», который абсолютно точно дфополняет атмосферу домашней неторопливой суеты проходящих дней.</li>
-            <ul class="hash">
-              <% post_rest.tags.each do |tag|%>
-                <li><a href="">#<%= tag.name %></a></li>
-              <% end %>
-            </ul>
-            
-          </ul>
-          <%= link_to 'Читать полностью',post_rest ,class: 'readMore redBtn' %>
-          </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
+    </ul>
+    <% @posts.each do |post|%>
+    <ul class="listAllPost">
+      <li>
+        <%= link_to post do %>
+          <%= post.title %>
+        <% end %>
+      </li>
+      <li><%= post.location %></li>
+      <li><%= post.score %></li>
+      <li><%= link_to 'Редактировать пост', edit_post_path(post) %></li>
+      <li><%= link_to 'Удалить пост', post, :method => :delete, :confirm => "Вы уверены?" %></li>
+    </ul>
+    <% end %>
   </div>
 </section>
-
-<%= render 'main/posts' %>
-
-<section class="aboutSec">
-  <div class="mainWrapper">
-    <div class="aboutInfo">
-      <h3>О проекте</h3>
-      <img src="<%= asset_path('simb/bone.png') %>" />
-      <p>Я Бон. Я составляю рейтинг и пишу рецензии на заведения Москвы, куда хорошо сходить со своим питомцем.</p>
-    </div>
-  </div>
-</section>
-
-
-<%= render 'main/footer' %>

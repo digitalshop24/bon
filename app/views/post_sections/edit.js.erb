@@ -1,0 +1,5 @@
+$('#post_section_<%= @post_section.id %>').parent().append('<%= j render 'form' %>');
+new Bon.PostSections.PostSectionFormHandler('<%= @post_section.id %>');
+CKEDITOR.replace('post_section_description',{
+  toolbar:'Basic'
+});

@@ -1,0 +1,3 @@
+<% if @comment.errors.empty? %>
+  $('.coommentsList').prepend("<%= j render @comment %>");
+<% end %>

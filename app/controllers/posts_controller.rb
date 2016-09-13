@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:index, :edit, :update, :destroy, :new, :create]
+  before_filter :require_admin, only: [:edit, :update, :destroy, :new, :create]
 
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
-    @post_rest =  Post.where(:category => Category.find(1))
     @categories = Category.all
   end
 
@@ -13,6 +14,9 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @categories = Category.all
+    @post_sections = @post.post_sections
+    @comments = @post.comments.limit(5).order(created_at: :desc)
+    @posts = Post.where(category: @post.category.id).limit(2)
   end
 
   # GET /posts/new
@@ -28,7 +32,6 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -40,22 +43,18 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    @post.assign_attributes(post_params)
+
+    if params[:images]
+      params[:images].each { |image|
+        @post.images.create(image: image)
+      }
     end
+
+    @post.save
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
     @post.destroy
     respond_to do |format|
@@ -65,13 +64,19 @@ class PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
+    def require_admin
+      unless current_user && current_user.has_role?(:admin)
+        redirect_to root_path
+      end
+    end
+
     def set_post
       @post = Post.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :location, :score, :image, :category_id, {:tag_ids => []})
+      params.require(:post).permit(:title, :location, :score, :preview, :category_id, :status,
+                                   :tag_list, :to_slider, :description)
     end
 end

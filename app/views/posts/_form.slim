@@ -1,0 +1,39 @@
+= bootstrap_form_for(@post, html: { multipart: true, class: "editPostForm" }, remote: true) do |f|
+  .info
+    ul.aboutParth
+      li
+        .full
+          p Название
+          = f.text_field :title, hide_label: true
+        .full
+          p Описание
+          = f.cktext_area :description, hide_label: true, class: 'ckeditor'
+        .full
+          p Тэги
+          = f.text_field :tag_list, hide_label: true
+        .multi.full
+          .uu
+            p Категории
+            = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name, @post.category_id), hide_label: true
+          .uu
+            p Статус
+            = f.select :status, ['publish', 'draft'], hide_label: true
+          .uu
+            p Оценка
+            = f.number_field :score, hide_label: true
+        .full
+          p Адрес
+          = f.text_field :location, hide_label: true
+        .full
+          = f.check_box :to_slider, label: 'В слайдер на главной'
+        .full 
+          p Превью
+          = f.file_field :preview, hide_label: true
+          img src="#{@post.preview.url}" id="previewTarget" class="prew"
+        .full
+          p Загрузка галереи
+          = file_field_tag "images[]", type: :file, :class => 'file', :id =>"imagesUpload", multiple: true
+          #previewImages.previewImages
+    .card-action.white.text-center
+      => link_to 'Отменить', 'javascript:void(0)', class: 'btn btn-default btn-link btn-cancel'
+      = f.primary('Ок')

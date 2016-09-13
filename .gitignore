@@ -9,9 +9,13 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*
-/tmp/*
 !/log/.keep
-!/tmp/.keep
+/tmp
 
-# Ignore Byebug command history file.
+/config/database.yml
+/public/uploads
+/public/capybara.html
+/public/system
+.env
+.idea/
 .byebug_history

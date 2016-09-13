@@ -60,17 +60,30 @@ $peaceSans:peaceSans;
 body {
 	font-family:$mir;
 }
+
 .redBtn {
 	background-color: $red;
 	color:#fff;
 	padding:15px 20px;
+	border:2px solid transparent;
 	border-radius:50px;
 	text-decoration: none;
 	text-transform: uppercase;
 	font-family:$peaceSans;
 	font-size:12px;
 	letter-spacing:1px;
-	border:0;
+	transition:background-color .4s,color .4s,border .4s;
+	cursor: pointer;
+	&:hover,&:focus {
+		color:#fff;
+	}
+	&.readMore {
+		&:hover {
+			border:2px solid $red;
+			color:#000;
+			background-color:transparent;
+		}
+	}
 }
 
 ul {
@@ -88,16 +101,78 @@ ul {
 	margin: auto;
 }
 
+.postTags {
+  width: 100%;
+  max-width:850px;
+  margin:30px 0 30px auto;
+  display: flex;
+  li {
+  	font-size:18px;
+  	font-family:$mirBd;
+  	color:$blue;
+  }
+  li:not(:last-child) {
+  	margin-right:20px;
+  }
+}
+
 .inputRound {
 	display: block;
 	border:2px solid $red;
 	border-radius:50px;
 	padding:8px 12px;
 	text-align: center;
+	color:#000;
+	&:-webkit-autofill {
+		-webkit-box-shadow: inset 0 0 0 50px #fff !important;
+		-webkit-text-fill-color: #000 !important;
+		color: #000 !important;
+	}
 }
+.enterBtn {
+	display: block;
+	border:2px solid $red;
+	color:#fff;
+	background-color: $red;
+	font-size:18px;
+	width:100%;
+	border-radius:50px;
+	padding:5px 12px;
+	text-align: center;
+	transition:color .4s,background-color .4s;
+	&:hover {
+		background-color: transparent;
+		color:#000;
+	}
+}
+.mobHeader {
+	display: none;
+}
+.adminWrap {
+	background-color:$red;
+	padding:5px 0;
 
+}
+.adminNav {
+	display: flex;
+	justify-content: flex-end;
+	a {
+		color: #fff;
+		&:hover,&:focus {
+			color: #fff;
+		}
+	}
+	li:not(:last-child) {
+		margin-right:20px;
+	}
+}
+.allPosts {
+	h1 {
+		margin:50px 0 20px;
+	}
+}
 header {
-	padding:20px 0;
+	padding:10px 0;
 	box-shadow: 0px 3px 5px -1px rgba(171,171,171,0.56);
 	background-image:asset-url("header/bg.png");
 	background-position:center;
@@ -137,9 +212,7 @@ footer {
 			display: flex;
 			justify-content: space-between;
 			width:370px;
-
 			.shape {
-
 				p {
 					text-align: center;
 					margin-bottom:10px;
@@ -150,7 +223,6 @@ footer {
 				li {
 					&:not(:first-child):not(:last-child) {
 						padding:0 10px;
-
 					}
 				}
 			}
@@ -161,6 +233,13 @@ footer {
 		li {
 			&:not(:first-child):not(:last-child) {
 				padding:0 20px;
+			}
+			a {
+				color: #000;
+				transition:color .4s;
+				&:hover {
+					color:$red;
+				}
 			}
 		}
 	}
@@ -186,9 +265,10 @@ footer {
 		.slideWrapper {
 			display: flex;
 			justify-content: space-between;
+			align-items: stretch;
 			.imgSide {
 				width:60%;
-				height:400px;
+				min-height:400px;
 				background-color:#f3f3f3;
 				background-size: cover;
 				background-position:center;
@@ -244,7 +324,7 @@ footer {
 	.bricksWrap {
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		align-items: stretch;
 		flex-wrap: wrap;
 		.brick {
 			a {
@@ -252,17 +332,21 @@ footer {
 				color:$black07;
 				cursor: pointer;
 			}
+			min-width: 310px;
 			width:49%;
 			border-radius:10px;
 			margin-bottom:25px;
 			box-shadow: 0px 3px 5px -1px rgba(171,171,171,0.56);
 			.imgParth {
+				box-shadow: inset 1px 1px 50px rgba(0,0,0,.05);
 				width:100%;
 				height:300px;
 				background-color:#f3f3f3;
 				background-size: cover;
 				background-position:center;
 				border-radius:10px 10px 0 0;
+				background-image: linear-gradient(#8b9da9, #fff6e4);
+    			box-shadow: inset 0 0 100px hsla(0,0%,0%,.3)
 			}
 			
 		}
@@ -486,10 +570,11 @@ footer {
 .postCarousel {
 	.item {
 		width:100%;
-		height:35vh;
+		height:60vh;
 		min-height:350px;
 		background-size: cover;
 		background-position:center;
+		box-shadow: inset 0px 0px 100px hsla(0,0%,0%,.2);
 	}
 }
 
@@ -497,8 +582,11 @@ footer {
 	display: flex;
     justify-content: space-between;
     align-items: center;
+    &:not(:last-child) {
+    	margin-bottom:30px;
+    }
 	.info {
-		max-width:520px;
+		max-width:620px;
 		width:100%;
 		margin:-100px 0 0 0;
 		background-color: #fff;
@@ -506,14 +594,108 @@ footer {
 		position: relative;
 		padding:50px;
 		box-shadow: 2px 5px 20px 0px rgba(126,129,140,1);
+	}
+    .post_section {
+    	width:100%;
+    	max-width:850px;
+    	margin: auto;
+        .aboutParth {
+        	width:100%;
+        	padding:0;
+        	flex-direction: row-reverse;
+        	justify-content: space-between;
+        	li {
+        		&:nth-child(1) {
+					max-width:50em;
+					width: 100%;
+					h3 {
+						margin-bottom:10px;
+					}
+					p {
+						font-size:18px;
+						margin:10px 0;
+						strong {
+							font-family:$mirBd;
+						}
+					}
+					img {
+						max-width: 100%;
+    					height: auto !important;
+    					display: block;
+					}
+        		}
+        	}
+        }
+    }
 
+    .edit_post_section {
+       margin: auto;
+    }
+}
+.editPostForm {
+	max-width:620px;
+	width:100%;
+	.aboutParth {
+		li {
+			display: flex;
+			flex-wrap: wrap;
+			margin: auto;
+			max-width:100%;
+			.full {
+				&:not(:last-child){
+					margin-bottom:30px;
+				}
+				.form-group {
+					margin-bottom:0;
+				}
+				p {
+					color:$red;
+				}
+				width:100%;
+				input {
+					width:100%;
+				}
+			}
+			.multi {
+				width:100%;
+				display: flex;
+				justify-content: space-between;
+				
+				div.uu {
+					align-self:stretch;
+					input {
+						min-width:auto;
+					}
+				}
+			}
+			input {
+				min-width:220px;
+			}
+
+		}
 	}
 }
 
+.new_post_section {
+  width:100%;
+  margin: auto;
+  max-width:800px;
+  padding:50px;
+}
+.linksWrap {
+	display: flex;
+	.btnLinks {
+		margin:0 20px 0 0;
+		padding:10px 0;
+		color:$red;
+		transition:color .4s;
+		display: block;
+	}
+}
 
 .redCatInfo {
 	background-color:$redFon;
-	max-height:350px;
+	// max-height:350px;
 	margin-bottom:100px;
 	.redWrap {
 		display: flex;
@@ -565,5 +747,200 @@ footer {
 				}
 			}
 		}
+	}
+}
+
+.well {
+  //width: 55%;
+}
+.coommentsList {
+	margin:20px auto 40px;
+	h3 {
+		margin-bottom:20px;
+	}
+}
+
+.commentForm {
+	margin:40px 0;
+	h3 {
+		margin-bottom:20px;
+	}
+	.line {
+		display: flex;
+		justify-content: space-between;
+		.left {
+			width:70%;
+			display: flex;
+			.form-group {
+				width:49%;
+				margin-right:20px;
+			}	
+		}
+		
+	}
+	.redBtn {
+		margin-top:10px;
+	}
+}
+.commentWrap {
+	display: flex;
+	flex-direction: column;
+	font-size:18px;
+	padding:20px 50px;
+	border-radius:10px;
+	box-shadow: 2px 2px 2px #e2e2e2;
+	&:not(:last-child) {
+		margin-bottom:10px;
+	}
+	&:nth-child(2n) {
+		background-color:#f8fffa;
+	}
+	&:nth-child(2n-1) {
+		background-color:rgba(237,230,255,0.2);
+	}
+	span {
+		font-size:16px;
+	}
+	strong {
+		font-family:$mirBd;
+		font-size:26px;
+		color:$red;
+		margin-right:20px;
+	}
+	.heading {
+		border-bottom: 1px solid #e3e3e3;
+		margin-bottom:15px;
+	}
+	.navFooter {
+		display: flex;
+		margin-top:10px;
+		a {
+			margin-right:20px;
+			color:#777;
+			transition:color .4s;
+			&:hover {
+				color:$red;
+			}
+		}
+	}
+}
+.editSubPost {
+	text-align: right;
+	margin-top:20px;
+}
+
+
+
+.invitationModal {
+	.modal-header {
+		border-bottom: 0;
+	}
+}
+
+@media (min-width: 768px) {
+.invitationModal {
+	.modal-dialog {
+		width:400px;
+		margin: 80px auto;
+	}
+	.modal-body {
+		padding:15px 60px 40px;
+		text-align: center;
+	}
+	.modal-header {
+		position: relative;
+		img.logo {
+			margin: -60px auto 0;
+    		display: block;
+		}
+		.closeCustom {
+			position: absolute;
+			right:-75px;
+			top: 0px;
+		}
+	}
+}
+}
+
+.prew {
+	max-width:100%;
+}
+.previewImages {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top:15px;
+	img {
+		max-width:160px;
+		height: 160px;	
+		object-fit:cover;
+	}
+}
+
+.authPage {
+	padding:50px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	.enterBtn {
+		margin:10px 0;
+	}
+	.linksBtns {
+		display: flex;
+		justify-content: space-around;
+		max-width:280px;
+		width:100%;
+		transition:color .4s;
+		a {
+			color:#000;
+			&:hover {
+				color:$red;
+			}
+		}
+	}
+}
+.authInputsWrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	.inputRound {
+		margin:10px 0;
+		width:100%;
+		min-width:280px;
+	}
+	
+}
+.thankU {
+	font-size:22px;
+	text-align: center;
+	padding:10px 0;
+}
+
+@media screen and (min-width:768px) {
+	.authPage {
+		min-height: calc(100vh - 350px);
+	}
+	.newPostWrapper {
+		h1 {
+			margin: 80px auto 0;
+	    	width: 580px;
+		}
+	}
+
+
+}
+.newPostWrapper {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+.titleAllPost,
+.listAllPost {
+	display: flex;
+	li {
+		flex:1 1;
 	}
 }

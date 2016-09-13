@@ -1,0 +1,231 @@
+@media screen and (max-width:1200px) {
+	.mainWrapper {
+		max-width:800px;
+	}
+	.bricksSec {
+		.bricksWrap {
+			align-items: stretch;
+			justify-content: space-around;
+			.brick {
+				.imgParth {
+					height: 250px;
+				}
+			}
+		}
+	}
+	.eventCarouselSec {
+		.eventCarousel {
+			.slideWrapper {
+				.imgSide {
+					min-height:200px;
+				}
+				.aboutEvent { 
+					li {
+						&:nth-child(2) {
+							font-size: 22px;
+						}
+						&:nth-child(3) {
+							font-size:16px;
+						}
+					}
+				}
+				.readMore {
+					margin-top:20px;
+				}
+			}
+			
+		}
+	}
+	footer {
+		.contentWrap {
+			flex-wrap: wrap;
+			.socialWrap {
+				width:100%;
+				justify-content: center;
+				flex-wrap: wrap;
+				.shape {
+					margin:0 20px 50px;
+				}
+			}
+
+		}
+	}
+}
+
+@media screen and (max-width:768px) {
+	.desctop {
+		display: none;
+	}
+	.eventCarouselSec {
+		margin:0 0 50px;
+	}
+	.bricksSec {
+		.bricksWrap {
+			.brick {
+				width:100%;
+			}
+		}
+	}
+	.mobHeader {
+		display: block;
+		margin:30px 0 50px;
+		.headerContent {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		input[type=checkbox] {
+			display: none;
+		}
+		.cllpsShowHide {
+			z-index:-5;
+			position: relative;
+			height:0;
+			padding:0;
+			overflow: hidden;
+			transition:all .4s;
+			li {
+				text-transform: capitalize;
+				&:not(:last-child) {
+					margin-right:20px;
+				}
+				a {
+					color: #000;
+				}
+			}
+		}
+		input:checked ~ .cllpsShowHide {
+			margin-top:20px;
+			border-top:1px solid #424242;
+			display: flex;
+			padding:10px 0;
+			z-index:1;
+			height: auto;
+			position: relative;
+		}
+
+		label {
+			span {
+				width:26px;
+				height:3px;
+				background-color: #000;
+				display: block;
+				&:not(:last-child){
+					margin-bottom:3px;
+				}
+
+			}
+		}
+	}
+	
+	.mainWrapper {
+		max-width:95vw;
+	}
+	.redCatInfo {
+		.redWrap {
+			.imgWrap {
+				display: none;
+			}
+		}
+	}
+	.eventCarouselSec {
+		.eventCarousel {
+			.slideWrapper{
+				flex-direction: column;
+				.imgSide {
+					width:100%;
+					min-height:300px;
+				}
+				.contentSide {
+					width:100%;
+					margin-top:15px;
+				}
+			}
+		}
+	}
+	.aboutParth {
+		padding:15px;
+		.whatIsIt {
+			font-size:14px;
+		}
+		li:nth-child(1) {
+
+			h3 {
+				margin-top:5px;
+				font-size:20px;
+			}
+		}
+		.vote {
+			font-size:52px;
+			display: flex;
+			align-items: center;
+			img {
+				max-width:30px;
+				margin: auto;
+			}
+		}
+	}
+	.post_section {
+		.aboutParth {
+			li {
+				&:nth-child(2) {
+					display: none;
+				}
+			}
+		}
+	}
+	.postInfo {
+		flex-wrap: wrap;
+		justify-content: center;
+		.info {
+			padding:10px;
+		}
+		.social {
+			text-align: center;
+			margin-top:20px;
+		}
+		.aboutParth {
+			li {
+				&:nth-child(1) {
+					width:100%;
+				}
+			}
+		}
+	}
+	.new_post_section {
+	  width:100%;
+	  margin:0;
+	  padding:0;
+	}
+	.commentForm {
+		.line {
+			.left {
+				width: 100%;
+				flex-direction: column;
+				.form-group {
+					width:100%;
+				}
+			}
+		}
+	}
+	.commentWrap {
+		padding:20px;
+	}
+	footer {
+		.contentWrap {
+			justify-content: center;
+			.navWrap {
+				width:100%;
+				justify-content: center;
+				margin-bottom:30px;
+				text-align: center;
+				li {
+					flex:1;
+					&:not(:first-child):not(:last-child) {
+						padding:0;
+					}
+				}
+			}
+		}
+	}
+}

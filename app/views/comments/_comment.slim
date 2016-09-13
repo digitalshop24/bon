@@ -1,0 +1,10 @@
+.commentWrap
+  .heading
+    strong = comment.name + " "
+    span.text-muted = comment.created_at
+  .commentBody
+    = comment.text
+  - if current_user && current_user.has_role?(:admin)
+	  .navFooter
+	  	a Редактировать
+	  	a Удалить

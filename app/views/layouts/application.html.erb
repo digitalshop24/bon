@@ -9,6 +9,22 @@
   </head>
 
   <body>
+    
+    <% if current_user && current_user.has_role?(:admin) %>
+      <div class="adminWrap">
+        <div class="mainWrapper">
+          <ul class="adminNav">
+            <li><%= link_to 'Добавить пост', new_post_path() %></li>
+            <li><%= link_to 'Список постов', posts_path %></li>
+            <li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= render 'main/header' %>
     <%= yield %>
+
+    <%= render 'main/footer' %>
+    <%= render 'modals/booking' %>
   </body>
 </html>
