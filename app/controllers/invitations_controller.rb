@@ -1,6 +1,7 @@
 class InvitationsController < ApplicationController
 	def create
 		@invitation = Invitation.create(invitation_params)
+        render json: { status: :ok }
 	end
 
 	private

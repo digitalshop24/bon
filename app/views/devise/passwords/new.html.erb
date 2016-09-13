@@ -1,0 +1,15 @@
+<div class="authPage">
+	<h2>Восстановление пароля</h2>
+
+	<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+	  <%= f.error_notification %>
+		<div class="authInputsWrap">
+	   		<%= f.input :email, required: true, autofocus: true,label:false,placeholder:"Почта", input_html: { class: 'inputRound' } %>
+	  	</div>
+	    <%= f.submit "Сбросить новый пароль", class: 'enterBtn' %>
+	<% end %>
+
+	<div class="linksBtns">
+		<%= link_to "Войти", new_session_path(resource_name) %>
+	</div>
+</div>

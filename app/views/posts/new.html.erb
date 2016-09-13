@@ -1,15 +1,8 @@
 
 <div class="mainWrapper">
-<h1>New Post</h1>
+<div class="newPostWrapper">
+	<h1>Новый пост</h1>
 
-
-
-<%= render 'form', post: @post %>
-<br/><br/>
-
-<%= link_to 'Все категории', categories_path %><br/>
-<%= link_to 'Добавить категорию', new_category_path %>
-<br/><br/>
-
-<%= link_to 'Все посты', posts_path %>
+	<%= render 'form', post: @post %>
+</div>
 </div>
