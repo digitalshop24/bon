@@ -299,6 +299,9 @@ footer {
 						quotes: "\00ab" "\00bb";
 						font-family:$mirBd;
 						font-size: 26px;
+						a {
+							color: #000;
+						}
 					}
 
 
@@ -957,6 +960,7 @@ footer {
 
 .eventCarousel {
 	.slick-dots {
+		position: relative;
 		li {
 			button {
 				&:before,&:after {
