@@ -364,6 +364,12 @@ footer {
 		text-transform: uppercase;
 		font-family:$peaceSans;
 		font-size:16px;
+		a {
+			color:$black07;
+			&:hover, &:focus{
+				color:$black07;
+			}
+		}
 	}
 	.vote {
 		margin-top:10px;
@@ -695,12 +701,15 @@ footer {
 
 .redCatInfo {
 	background-color:$redFon;
-	// max-height:350px;
+	
+	
 	margin-bottom:100px;
 	.redWrap {
 		display: flex;
+		height:400px;
 		justify-content: space-between;
-		padding:50px 0;
+		padding:15px 0;
+		align-items: center;
 		.imgWrap {
 			margin: auto;
 		}
@@ -857,6 +866,7 @@ footer {
 			position: absolute;
 			right:-75px;
 			top: 0px;
+			cursor: pointer;
 		}
 	}
 }
@@ -942,5 +952,17 @@ footer {
 	display: flex;
 	li {
 		flex:1 1;
+	}
+}
+
+.eventCarousel {
+	.slick-dots {
+		li {
+			button {
+				&:before,&:after {
+					font-size:32px;
+				}
+			}
+		}
 	}
 }

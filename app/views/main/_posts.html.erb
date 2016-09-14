@@ -19,7 +19,7 @@
 						
 						
 						</p>
-						<h3><q><%= post.title %></q></h3>
+						<h3><%= link_to post do  %><%= post.title %><% end %></h3>
 						<span class="location">
 						<img src="<%= asset_path('simb/location.png') %>" />
 						<%= post.location %></span>
