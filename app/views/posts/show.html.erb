@@ -13,7 +13,12 @@
 			<div class="info" id="post_<%= @post.id %>">
 				<ul class="aboutParth">
 					<li>
-						<p class="whatIsIt"><%= @post.category.name %></p>
+						
+						<p class="whatIsIt">
+							<a href="/categories/<%= @post.category_id %>">
+							<%= @post.category.name %>
+							</a>
+						</p>
 						<h3><q><%= @post.title %></q></h3>
 						<span class="location">
 						<img src="<%= asset_path('simb/location.png') %>" />
