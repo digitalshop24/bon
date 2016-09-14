@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     get '/sort_by_score', to: 'categories#sort_by_score'
   end
 	resources :posts do
+    delete 'image/:id' => 'posts#destroy_image', as: 'destroy_image'
 		resources :post_sections
     resource :comments
   end

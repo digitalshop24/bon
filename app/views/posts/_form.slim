@@ -33,7 +33,17 @@
         .full
           p Загрузка галереи
           = file_field_tag "images[]", type: :file, :class => 'file', :id =>"imagesUpload", multiple: true
-          #previewImages.previewImages
+          #previewImages
+          p 
+            label Загруженные изображения
+            - @post.images.each do |image|
+              div id="post_image_#{image.id}"
+                .media-left
+                  = link_to image_tag(image.image.url(:thumb), class: 'media-object'), image.image.url, target: '_blank'
+                .media-body style="margin-top: 7px;"
+                  = link_to 'удалить', post_destroy_image_path(@post, image), class: 'btn btn-danger', data: {confirm: 'Вы уверены?'}, method: :delete, remote: true
+                br
+
     .card-action.white.text-center
       => link_to 'Отменить', 'javascript:void(0)', class: 'btn btn-default btn-link btn-cancel'
       = f.primary('Ок')
