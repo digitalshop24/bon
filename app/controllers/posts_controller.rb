@@ -55,6 +55,12 @@ class PostsController < ApplicationController
     @post.save
   end
 
+  def destroy_image
+    @image = Image.find(params[:id])
+    @image.destroy
+    render 'posts/destroy_image'
+  end
+
   def destroy
     @post.destroy
     respond_to do |format|

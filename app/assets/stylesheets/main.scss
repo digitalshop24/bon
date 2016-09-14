@@ -878,7 +878,7 @@ footer {
 .prew {
 	max-width:100%;
 }
-.previewImages {
+#previewImages {
 	display: flex;
 	flex-wrap: wrap;
 	margin-top:15px;
@@ -886,6 +886,7 @@ footer {
 		max-width:160px;
 		height: 160px;	
 		object-fit:cover;
+		margin-left: 10px;
 	}
 }
 
