@@ -422,7 +422,30 @@ footer {
 		}
 	}
 }
-
+.postCarouselSec {
+	.postCarousel {
+		.slick-dots{
+			top: 20px;
+			right: 20px;
+			text-align: right;
+			li {
+				button {
+					&:before,&:after {
+						font-size: 40px;
+						color:#fff;
+					}
+				}
+				&.active {
+					button {
+						&:before,&:after {
+							color:#fff;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
 
 
