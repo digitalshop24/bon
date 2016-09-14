@@ -1,13 +1,13 @@
 $(document).ready(function() {
 	$('.eventCarousel').slick({
 		arrows: false,
-		autoplay: true,
+		autoplay: false,
 		dots: true
 	});
 
     $('.postCarousel').slick({
         arrows: false,
-        autoplay: true,
+        autoplay: false,
         dots: true
     });
 
