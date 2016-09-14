@@ -14,7 +14,7 @@
         <%= bootstrap_form_for(Invitation.new, remote: true) do |f| %>
           <%= f.text_field :name, hide_label: true, placeholder: 'Ваше имя' %>
           <%= f.email_field :email, hide_label: true, placeholder: 'Ваша почта' %>
-          <%= f.text_field :message, hide_label: true, placeholder: 'Комментрарий' %>
+          <%= f.text_area :message, hide_label: true, placeholder: 'Комментарий' %>
           <%= f.submit "Отправить", class:"redBtn" %>
         <% end %>
       </div>

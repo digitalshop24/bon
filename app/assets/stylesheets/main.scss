@@ -390,6 +390,7 @@ footer {
 				font-family:$mirBd;
 				font-size:25px;
 				quotes: "\00ab" "\00bb";
+				margin: 10px 0 0;
 			}
 			.location {
 				margin-top:50px;
@@ -563,6 +564,9 @@ footer {
 		}
 		.sideImg {
 			padding:0 30px;
+			img {
+				max-width:100%;
+			}
 		}
 		&:nth-child(2n) {
 			flex-direction: row-reverse;
@@ -847,6 +851,14 @@ footer {
 	.modal-header {
 		border-bottom: 0;
 	}
+	.closeCustom {
+		cursor: pointer;
+	}
+	.modal-body {
+		textarea {
+			max-width: 278px;
+		}
+	}
 }
 
 @media (min-width: 768px) {
@@ -869,7 +881,6 @@ footer {
 			position: absolute;
 			right:-75px;
 			top: 0px;
-			cursor: pointer;
 		}
 	}
 }
