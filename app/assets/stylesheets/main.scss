@@ -322,7 +322,18 @@ footer {
 	}
 }
 
+@media (min-width: 768px) {
+	.bricksSec {
+		.bricksWrap {
+			&.tagsPage {
+				.brick {
+					min-width:550px;
+				}
+			}
+		}
+	}
 
+}
 .bricksSec {
 	.bricksWrap {
 		display: flex;
@@ -680,6 +691,7 @@ footer {
         	justify-content: space-between;
         	li {
         		&:nth-child(1) {
+        			flex-direction: column;
 					max-width:50em;
 					width: 100%;
 					h3 {
