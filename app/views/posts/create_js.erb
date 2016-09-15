@@ -1,0 +1,11 @@
+<% if @post.errors.any? %>
+    $('#new_post').replaceWith('<%= j render 'form' %>');
+    new Bon.PostSections.PostSectionFormHandler('new_post');
+<% else %>
+    $('#link_to_create_new_post').show();
+    $('#new_post').remove();
+    $('.posts_list').append("<%= j render @post %>");
+    if($('.posts_list .post').length > 0) {
+    $('#no_ads').postdClass('hidden');
+    }
+<% end %>

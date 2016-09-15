@@ -1,4 +1,4 @@
-= bootstrap_form_for(@post, html: { multipart: true, class: "editPostForm" }, remote: true) do |f|
+= bootstrap_form_for(@post, html: { multipart: true, class: "editPostForm" }) do |f|
   .info
     ul.aboutParth
       li
@@ -9,7 +9,7 @@
           p Описание
           = f.cktext_area :description, hide_label: true, class: 'ckeditor'
         .full
-          p Тэги
+          p Тэги (введите необходимые тэги через запятую)
           = f.text_field :tag_list, hide_label: true
         .multi.full
           .uu
@@ -29,7 +29,8 @@
         .full 
           p Превью
           = f.file_field :preview, hide_label: true
-          img src="#{@post.preview.url}" id="previewTarget" class="prew"
+          - if @post.preview.present?
+            img src="#{@post.preview_url}" id="previewTarget" class="prew"
         .full
           p Загрузка галереи
           = file_field_tag "images[]", type: :file, :class => 'file', :id =>"imagesUpload", multiple: true
