@@ -8,7 +8,16 @@ $(document).ready(function() {
     $('.postCarousel').slick({
         arrows: true,
         autoplay: false,
-        dots: false
+        dots: false,
+        responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                arrows:false,
+                dots:true
+              }
+            }
+        ]
     });
    
     $('#new_invitation').on("ajax:success", function(data, status, xhr) {

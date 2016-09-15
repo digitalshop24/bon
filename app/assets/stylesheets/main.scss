@@ -154,18 +154,24 @@ ul {
 
 }
 .adminNav {
-	display: flex;
-	justify-content: flex-end;
-	a {
-		color: #fff;
-		&:hover,&:focus {
+	display: none;
+}
+@media (min-width: 768px) {
+	.adminNav {
+		display: flex;
+		justify-content: flex-end;
+		a {
 			color: #fff;
+			&:hover,&:focus {
+				color: #fff;
+			}
+		}
+		li:not(:last-child) {
+			margin-right:20px;
 		}
 	}
-	li:not(:last-child) {
-		margin-right:20px;
-	}
 }
+
 .allPosts {
 	h1 {
 		margin:50px 0 20px;
@@ -478,6 +484,8 @@ footer {
 					&:before,&:after {
 						font-size: 40px;
 						color:#fff;
+						border-radius: 50%;
+						background-color: #fff;
 					}
 				}
 				&.active {

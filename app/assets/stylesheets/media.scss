@@ -128,10 +128,22 @@
 			margin-top:20px;
 			border-top:1px solid #424242;
 			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
 			padding:10px 0;
 			z-index:1;
 			height: auto;
 			position: relative;
+			&.adminNavMob {
+				margin-top:0px;
+			}
+			li {
+				background-color: #e2e2e2;
+				padding:5px;
+				margin:5px;
+				border-radius:10px;
+			}
 		}
 
 		label {
