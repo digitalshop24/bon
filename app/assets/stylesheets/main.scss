@@ -426,8 +426,9 @@ footer {
 	.postCarousel {
 		.slick-dots{
 			top: 20px;
-			right: 20px;
-			text-align: right;
+		    right: 20px;
+		    bottom: auto;
+		    width: auto;
 			li {
 				button {
 					&:before,&:after {
@@ -990,6 +991,34 @@ footer {
 	display: flex;
 	li {
 		flex:1 1;
+		padding:20px;
+	}
+	&.allCat {
+		li {
+			flex:1 1 auto;
+		}
+		li:nth-child(2) {
+			max-width:60%;
+			width:100%;
+		}
+	}
+}
+.listAllPost {
+	border-radius:10px;
+	transition:background-color 1s,box-shadow 1s;
+	box-shadow: 2px 2px 2px #e2e2e2;
+	border:1px solid transparent;
+	&:not(:last-child) {
+		margin-bottom:10px;
+	}
+	&:nth-child(2n) {
+		background-color:#f8fffa;
+	}
+	&:nth-child(2n-1) {
+		background-color:rgba(237,230,255,0.2);
+	}
+	&:hover {
+		box-shadow: 1px 1px 3px #424242;
 	}
 }
 

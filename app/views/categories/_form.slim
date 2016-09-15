@@ -1,0 +1,16 @@
+= bootstrap_form_for(@category, html: { multipart: true, class: "editPostForm" }) do |f|
+  .info
+    ul.aboutParth
+      li
+        .full
+          p Название
+          = f.text_field :name, hide_label: true
+        .full
+          p Описание
+          = f.cktext_area :description, hide_label: true, class: 'ckeditor'
+        .full 
+          = f.file_field :bon_img_type, label: "Загрузить фото..."
+          - if @category.bon_img_type.present?
+            img src="#{@category.bon_img_type}" id="previewTarget" class="prew"
+  .card-action.white.text-center 
+      = f.primary('Ок')
