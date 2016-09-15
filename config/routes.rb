@@ -17,5 +17,6 @@ Rails.application.routes.draw do
   get 'tags/:name' => 'tags#show', as: 'show_tag'
 
 	get '/about', to: 'main#about'
+  get '/invitations', to: 'main#invitations'
 	root 'main#main'
 end
