@@ -1,8 +1,12 @@
 class Bon.Posts.PostFormHandler
   constructor: (postFormId) ->
     @postFormId = postFormId
-    @$form = $("#edit_post_#{postFormId}")
-    @$oldContent = $("#post_#{postFormId}")
+    if @postFormId
+      @$form = $("#edit_post_#{postFormId}")
+      @$oldContent = $("#post_#{postFormId}")
+    else
+      @$form = $("new_post")
+      @$oldContent = $("#post")
 
     @$postTitleField = @$form.find("[name='post[title]']")
     @$descriptionField = @$form.find("[name='post[description]']")
@@ -31,7 +35,6 @@ class Bon.Posts.PostFormHandler
       reader.onload = (file) =>
         img = new Image()
         img.src = file.target.result
-        console.log(img)
         $('#previewTarget').attr('src', img.src)
       reader.readAsDataURL(image)
 
