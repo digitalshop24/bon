@@ -328,19 +328,9 @@ footer {
 	}
 }
 
-@media (min-width: 768px) {
-	.bricksSec {
-		.bricksWrap {
-			&.tagsPage {
-				.brick {
-					min-width:550px;
-				}
-			}
-		}
-	}
 
-}
 .bricksSec {
+	width:100%;
 	.bricksWrap {
 		display: flex;
 		justify-content: space-between;
@@ -979,12 +969,10 @@ footer {
 #previewImages {
 	display: flex;
 	flex-wrap: wrap;
-	margin-top:15px;
 	img {
-		max-width:160px;
-		height: 160px;	
+		max-width:145px;
+		height: 145px;	
 		object-fit:cover;
-		margin-left: 10px;
 	}
 }
 

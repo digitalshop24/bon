@@ -36,8 +36,9 @@
         .full
           p Загрузка галереи
           = file_field_tag "images[]", type: :file, :class => 'file', :id =>"imagesUpload", multiple: true
-          #previewImages
+          
           label Загруженные изображения
+          #previewImages
           .mediaWrap
             - @post.images.each do |image|
               .mediaItem id="post_image_#{image.id}"
