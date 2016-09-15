@@ -11,9 +11,10 @@ Rails.application.routes.draw do
 	resources :posts do
     delete 'image/:id' => 'posts#destroy_image', as: 'destroy_image'
 		resources :post_sections
-    resource :comments
+    resources :comments
   end
   resources :invitations, only: [:create]
+  get 'tags/:name' => 'tags#show', as: 'show_tag'
 
 	get '/about', to: 'main#about'
 	root 'main#main'

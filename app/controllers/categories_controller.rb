@@ -1,10 +1,15 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:index, :edit, :update, :destroy, :new, :create]
 
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    if current_user.has_role?(:admin)
+      @categories = Category.all
+    else
+      redirect_to root_path
+    end
   end
 
   def sort_by_date

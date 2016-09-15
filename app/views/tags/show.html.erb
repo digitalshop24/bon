@@ -1,0 +1,46 @@
+<section>
+  <div class="mainWrapper">
+    <h1 class="text-center">#<%= @tag.name %></h1>
+  </div>
+</section>
+
+<section class="bricksSec">
+  <div class="mainWrapper">
+    <div class="bricksWrap">
+      <% @posts.each do |post|%>
+        <%# unless post.badge.nil? %>
+        <!-- ДОБАВИТЬ ПОЛЕ СЕЛЕКТ (new // best) В ПОСТ -->
+        <%# end %>
+
+        <div class="brick">
+        <%= link_to post do  %>
+        <div class="imgParth" style="background-image:url(<%= asset_path(post.preview_url) %>);" ></div>
+        <% end %>
+        <ul class="aboutParth">
+          <li>
+            <p class="whatIsIt">
+            <a href="/categories/<%= post.category_id %>">
+              <%= post.category.name %>
+            </a>
+
+
+            </p>
+            <h3><%= link_to post do  %><%= post.title %><% end %></h3>
+            <span class="location">
+            <img src="<%= asset_path('simb/location.png') %>" />
+            <%= post.location %></span>
+          </li>
+          <li>
+            <p class="whatIsIt">Оценка</p>
+            <span class="vote">
+              <%= post.score %> <img src="<%= asset_path('simb/vote.png') %>">
+            </span>
+          </li>
+        </ul>
+
+        </div>
+
+      <% end %>
+    </div>
+  </div>
+</section>
