@@ -31,6 +31,8 @@
           = f.file_field :preview, hide_label: true
           - if @post.preview.present?
             img src="#{@post.preview_url}" id="previewTarget" class="prew"
+          -else
+            img src="" id="previewTarget" class="prew"
         .full
           p Загрузка галереи
           = file_field_tag "images[]", type: :file, :class => 'file', :id =>"imagesUpload", multiple: true

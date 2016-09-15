@@ -36,7 +36,14 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    @post.save
+
+
+    if @post.save && params[:images]
+      params[:images].each { |image|
+        @post.images.create(image: image)
+      }
+    end
+
     redirect_to @post
   end
 
