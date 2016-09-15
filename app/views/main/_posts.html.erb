@@ -12,23 +12,27 @@
 				<% end %>
 				<ul class="aboutParth">
 					<li>
-						<p class="whatIsIt">
-						<a href="/categories/<%= post.category_id %>">
-							<%= post.category.name %>
-						</a>
+						<div class="left">
+							<p class="whatIsIt">
+								<a href="/categories/<%= post.category_id %>">
+								<%= post.category.name %></a>
+							</p>
+							<h3><%= link_to post do  %><%= post.title %><% end %></h3>
+						</div>
+						<div class="right">
+							
+							<p class="whatIsIt">Оценка</p>
 						
-						
-						</p>
-						<h3><%= link_to post do  %><%= post.title %><% end %></h3>
-						<span class="location">
-						<img src="<%= asset_path('simb/location.png') %>" />
-						<%= post.location %></span>
+							<span class="vote">
+								<%= post.score %> <img src="<%= asset_path('simb/vote.png') %>">
+							</span>
+						</div>
 					</li>
 					<li>
-						<p class="whatIsIt">Оценка</p>
-						<span class="vote">
-							<%= post.score %> <img src="<%= asset_path('simb/vote.png') %>">
-						</span>
+					<span class="location">
+						<img src="<%= asset_path('simb/location.png') %>" />
+						<%= post.location %></span>
+						
 					</li>
 				</ul>
 				

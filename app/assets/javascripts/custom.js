@@ -6,14 +6,17 @@ $(document).ready(function() {
 	});
 
     $('.postCarousel').slick({
-        arrows: false,
+        arrows: true,
         autoplay: false,
-        dots: true
+        dots: false
     });
-
+   
     $('#new_invitation').on("ajax:success", function(data, status, xhr) {
-        // $(this).text('<span>Ваша заявка отправлена. Спасибо!</span>');
-        $(this).html('<span class="thankU">Ваша заявка отправлена.<br/> Спасибо!</span>');
+        var email=$("#invitation_email").val();
+        if (email.length > 3) {
+            $(".err").css("display", "none");
+            $(this).html('<span class="thankU">Ваша заявка отправлена.<br/> Спасибо!</span>');
+        } else $(".err").css("display", "block"); 
     });
     $('#new_invitation').on("ajax:error", function(xhr, status, error) {
         $('#reportalert').text('Failed.');

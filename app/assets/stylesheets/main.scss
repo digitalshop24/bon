@@ -330,7 +330,11 @@ footer {
 		align-items: stretch;
 		flex-wrap: wrap;
 		.brick {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 			a {
+				width:100%;
 				text-decoration: none;
 				color:$black07;
 				cursor: pointer;
@@ -362,6 +366,8 @@ footer {
 	padding:20px;
 	display: flex;
 	justify-content: space-between;
+	flex-direction: column;
+	height:100%;
 	.whatIsIt {
 		color:$black07;
 		text-transform: uppercase;
@@ -385,7 +391,12 @@ footer {
 	}
 	li {
 		&:nth-child(1) {
-			max-width:70%;
+			display: flex;
+			justify-content: space-between;
+			margin-bottom:15px;
+			.left {
+				max-width:400px;
+			}
 			h3 {
 				font-family:$mirBd;
 				font-size:25px;
@@ -424,6 +435,29 @@ footer {
 }
 .postCarouselSec {
 	.postCarousel {
+		.slick-prev,
+		.slick-next {
+			background-color: #fff;
+			border-radius:50%;
+			width:50px;
+			height:50px;
+			z-index: 2;
+			background-position:center;
+			background-repeat: no-repeat;
+			border-radius:50%;
+			&:before {
+				display: none;
+			}
+
+		}
+		.slick-prev {
+			left:20px;
+			background-image:asset-url("simb/prev.png");
+		}
+		.slick-next {
+			right: 20px;
+			background-image:asset-url("simb/next.png");
+		}
 		.slick-dots{
 			top: 20px;
 		    right: 20px;
@@ -585,6 +619,9 @@ footer {
 		.sideText {
 			max-width:470px;
 			padding:0 30px;
+			a {
+				color: #000;
+			}
 		}
 		.sideImg {
 			padding:0 30px;
@@ -985,7 +1022,11 @@ footer {
 	flex-direction: column;
 	align-items: center;
 }
-
+.err {
+	display: none;
+	color:$red;
+	text-align: left;
+}
 .titleAllPost,
 .listAllPost {
 	display: flex;
@@ -1032,5 +1073,28 @@ footer {
 				}
 			}
 		}
+	}
+}
+.mediaWrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+.mediaItem {
+
+	position: relative;
+	.destroy {
+		background-color: #fff;
+		color:$red;
+		border-radius:50%;
+		line-height:0;
+		width:20px;
+		height:20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		position: absolute;
+		top: 10px;
+		right:10px;
 	}
 }

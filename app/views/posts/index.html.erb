@@ -19,7 +19,7 @@
       <li><%= post.location %></li>
       <li><%= post.score %></li>
       <li><%= link_to 'Редактировать', edit_post_path(post) %></li>
-      <li><%= link_to 'Удалить пост', post, :method => :delete, :confirm => "Вы уверены?" %></li>
+      <li><%= link_to 'Удалить пост', post, :method => :delete, data: {confirm: 'Вы уверены?'} %></li>
     </ul>
     <% end %>
   </div>
