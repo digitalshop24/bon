@@ -6,6 +6,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Bon"/>
+    <meta property="og:image" content="<%= asset_path('/about/bonAbout.png') %>"/>
+    <meta property="og:description" content="#bon - not just a dog!"/>
+    <meta property="og:url" content="https://bon-staging.herokuapp.com/">
     <link rel="shortcut icon" href="<%= asset_path('favicon.png') %>"" type="image/x-icon">
   </head>
 
@@ -30,5 +35,6 @@
 
     <%= render 'main/footer' %>
     <%= render 'modals/booking' %>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
   </body>
 </html>
