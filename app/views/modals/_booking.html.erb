@@ -11,6 +11,7 @@
         
       </div>
       <div class="modal-body">
+        <div class="err">Почта - обязательное поле...</div>
         <%= bootstrap_form_for(Invitation.new, remote: true) do |f| %>
           <%= f.text_field :name, hide_label: true, placeholder: 'Ваше имя' %>
           <%= f.email_field :email, hide_label: true, placeholder: 'Ваша почта' %>

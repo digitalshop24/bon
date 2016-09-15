@@ -15,7 +15,7 @@
           <%= category.name %>
         <% end %>
       </li>
-      <li><%= category.description %></li>
+      <li><%= category.description.html_safe  %></li>
       <li><%= link_to 'Редактировать', edit_category_path(category) %></li>
     </ul>
     <% end %>

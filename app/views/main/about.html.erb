@@ -60,9 +60,9 @@
 		<li class="cat">
 			<div class="sideText">
 				
-				<article><%= category.name %></article>
+				<article><%= link_to category do %> <%= category.name %><% end %></article>
 				
-				<span><%= category.description %></span>
+				<span><%= category.description.html_safe %></span>
 			</div>
 			<div class="sideImg">
 				<%= link_to category do %>
