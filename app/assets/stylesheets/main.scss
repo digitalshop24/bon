@@ -414,17 +414,16 @@ footer {
 				quotes: "\00ab" "\00bb";
 				margin: 10px 0 0;
 			}
-			.location {
-				margin-top:50px;
-				display: flex;
-				align-items: center;
-				// font-family:$mir;
-				img {
-					margin-right:20px;
-				}
-				
-			}	
+
 		}
+		.location {
+			display: flex;
+			align-items: center;
+			img {
+				margin-right:20px;
+			}
+			
+		}	
 	}
 }
 // COMPONENT \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
