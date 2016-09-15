@@ -30,6 +30,14 @@ $(document).ready(function() {
     $('#new_invitation').on("ajax:error", function(xhr, status, error) {
         $('#reportalert').text('Failed.');
     });
+    if (isSafari()) {
+        $('.aboutParth').css("height","auto");
+    }
+    $('#new_invitation')
+    function isSafari() {
+        return /^((?!chrome).)*safari/i.test(navigator.userAgent);
+    }
+    
 
 });
 

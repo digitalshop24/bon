@@ -379,11 +379,13 @@ footer {
 }
 
 //////////////////////////// COMPONENT
+
 .aboutParth {
 	padding:20px;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
+	height: 100%; 
 	.whatIsIt {
 		color:$black07;
 		text-transform: uppercase;
@@ -431,6 +433,12 @@ footer {
 		}	
 	}
 }
+// @media screen and ( -webkit-min-device-pixel-ratio : 0 )	 { 
+//   .aboutParth { 
+//     height:auto;
+//   } 
+// }
+
 // COMPONENT \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 .aboutSec {
