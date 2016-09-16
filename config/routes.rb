@@ -13,10 +13,10 @@ Rails.application.routes.draw do
 		resources :post_sections
     resources :comments
   end
-  resources :invitations, only: [:create]
+  resources :invitations, only: [:create, :destroy]
   get 'tags/:name' => 'tags#show', as: 'show_tag'
 
 	get '/about', to: 'main#about'
-  get '/invitations', to: 'main#invitations'
+  get '/invitations', to: 'main#invitations', as: 'invitations_main'
 	root 'main#main'
 end

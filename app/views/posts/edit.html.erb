@@ -5,3 +5,7 @@
 	<%= render 'form', post: @post %>
 </div>
 </div>
+
+<script>
+  new Bon.Posts.PostFormHandler(<%= @post.id %>);
+</script>
