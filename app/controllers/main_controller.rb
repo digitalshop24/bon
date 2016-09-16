@@ -4,7 +4,7 @@ class MainController < ApplicationController
 		@categories = Category.all
 	end
 	def main
-		@posts = Post.order("created_at desc").limit(4)
+		@posts = Post.published.order("created_at desc").limit(4)
 		@posts_unlim = Post.all
 	end
 	

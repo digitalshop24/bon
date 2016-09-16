@@ -18,7 +18,7 @@
       			Без сообщения
       		<% end %>
       	  </li>
-      	  <li><%= link_to 'Удалить пост' %></li>
+      	  <li><%= link_to 'Удалить пост', invitation_path(invitation), :method => :delete, data: {confirm: 'Вы уверены?'}  %></li>
 	    </ul>
 	    <% end %>
 	</div>

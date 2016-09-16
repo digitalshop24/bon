@@ -20,7 +20,7 @@ class PostsController < ApplicationController
     @categories = Category.all
     @post_sections = @post.post_sections
     @comments = @post.comments.limit(5).order(created_at: :desc)
-    @posts = Post.where(category: @post.category.id)
+    @posts = Post.published.where(category: @post.category.id)
   end
 
   # GET /posts/new
