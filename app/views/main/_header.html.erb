@@ -50,9 +50,11 @@
 			<li><%= link_to 'Добавить пост', new_post_path() %></li>
             <li><%= link_to 'Список постов', posts_path %></li>
             <li><%= link_to 'Список категорий', categories_path %></li>
-            <li><%= link_to 'Заявки', "/invitations" %></li>
-            
-            <li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to 'Заявки', invitations_main_path %></li>
+            <li><%= link_to 'Подписки', subscriptions_main_path %></li>
+
+
+      <li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
 		</ul>
 
 

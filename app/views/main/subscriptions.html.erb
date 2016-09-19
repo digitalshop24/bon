@@ -1,0 +1,11 @@
+<section class="allPosts">
+	<div class="mainWrapper">
+		<h1>Заявки на подписку</h1>
+		<% @subscriptions.each do |subscription|%>
+	    <ul class="listAllPost">
+	      <li><%= subscription.email %></li>
+        <li><%= link_to 'Удалить запись', subscription_path(subscription), :method => :delete, data: {confirm: 'Вы уверены?'}  %></li>
+	    </ul>
+	    <% end %>
+	</div>
+</section>
