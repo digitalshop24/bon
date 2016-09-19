@@ -24,7 +24,11 @@
 				</div>
 				<div class="shape">
 					<p>Подпишитесь на новые обзоры!</p>
-					<input type="mail" class="inputRound" name="" placeholder="Введите e-mail" />
+          <%= form_for Subscription.new, :html => {:style => 'display:inline-flex; margin-left: 20px;'}, :remote => true do |f| %>
+              <%= f.text_field :email, :class => "inputRound", placeholder: "Введите e-mail" %>
+              <%= f.submit "Отправить", :class => "redBtn", style: "margin-left:5px; padding: 0px 6px;", remote: true%>
+          <% end %>
+
 				</div>
 			</div>
 			<ul class="navWrap">
