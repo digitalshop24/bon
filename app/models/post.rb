@@ -20,7 +20,7 @@ class Post < ApplicationRecord
   after_create :create_about_section
 
 	validates :category, :title, presence: true
-  validates :score, :inclusion => { :in => 0..5, :message => "Оценка от 0 до 5" }
+  validates :score, inclusion: { in: 0..5, message: "Оценка от 0 до 5", allow_blank: true }
 
 	rails_admin do
 		edit do
