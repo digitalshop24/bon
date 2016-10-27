@@ -14,9 +14,9 @@ gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
 gem 'rmagick'
 gem 'ckeditor', '~> 4.2'
-gem 'dotenv-rails', :groups => [:development, :test]
+gem 'dotenv-rails', groups: [:development, :test]
 
-gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'remotipart', git: 'https://github.com/mshibuya/remotipart.git'
 gem 'rails_admin', '>= 1.0.0.rc'
 
 gem 'devise'

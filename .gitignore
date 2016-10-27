@@ -16,6 +16,6 @@
 /public/uploads
 /public/capybara.html
 /public/system
-.env
+.env*
 .idea/
 .byebug_history
