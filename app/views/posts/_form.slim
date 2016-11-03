@@ -7,7 +7,7 @@
           = f.text_field :title, hide_label: true
         .full
           p Описание
-          = f.cktext_area :description, hide_label: true, class: 'ckeditor'
+          = f.text_area :description, hide_label: true
         .full
           p Тэги (введите необходимые тэги через запятую)
           = f.text_field :tag_list, hide_label: true

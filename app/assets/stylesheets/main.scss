@@ -297,6 +297,9 @@ footer {
 					font-size:18px;
 					&:not(:last-child) {
 						margin-bottom:10px;
+						a {
+							color: #000;
+						}
 					}
 					&:nth-child(1) {
 						font-family:$peaceSans;
@@ -309,9 +312,6 @@ footer {
 						quotes: "\00ab" "\00bb";
 						font-family:$mirBd;
 						font-size: 26px;
-						a {
-							color: #000;
-						}
 					}
 
 
