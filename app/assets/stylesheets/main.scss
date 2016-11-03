@@ -101,6 +101,38 @@ ul {
 	margin: auto;
 }
 
+.horizontalMenu {
+	display: flex;
+	margin: 2rem auto;
+	& .burger i {
+		font-size: 3.2rem;
+		color: #CCCCCC;
+		&:hover {
+			color: #C7C7C7;
+		}
+	}
+	.linksWrapper {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.linksBlock {
+		display: flex;
+		justify-content: space-around;
+		width: 70%;
+		max-width: 700px;
+		font-size: 1.8rem;
+		a {
+			color: #2D2D2D;
+			text-decoration: underline;
+		}
+		a:hover{
+			color:#000;
+		}
+	}
+}
+
 .postTags {
   width: 100%;
   max-width:850px;

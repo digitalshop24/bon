@@ -24,6 +24,7 @@ gem 'rolify'
 gem 'cancancan'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'rails_admin_tag_list'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 ### TEMPLATES
 gem 'slim-rails'
 
