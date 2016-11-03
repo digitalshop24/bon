@@ -9,11 +9,16 @@ Rails.application.routes.draw do
     get '/sort_by_score', to: 'categories#sort_by_score'
   end
 	resources :posts do
+    delete 'image/:id' => 'posts#destroy_image', as: 'destroy_image'
 		resources :post_sections
-    resource :comments
+    resources :comments
   end
-  resources :invitations, only: [:create]
+  resources :invitations, only: [:create, :destroy]
+  resources :subscriptions, only: [:create, :destroy]
+  get 'tags/:name' => 'tags#show', as: 'show_tag'
 
 	get '/about', to: 'main#about'
+  get '/invitations', to: 'main#invitations', as: 'invitations_main'
+  get '/subscriptions', to: 'main#subscriptions', as: 'subscriptions_main'
 	root 'main#main'
 end

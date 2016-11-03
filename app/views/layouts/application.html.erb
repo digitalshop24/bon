@@ -6,6 +6,13 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Bon"/>
+    <meta property="og:image" content="<%= asset_path('/about/bonAbout.png') %>"/>
+    <meta property="og:description" content="#bon - not just a dog!"/>
+    <meta property="og:url" content="https://bon-staging.herokuapp.com/">
+    <link rel="shortcut icon" href="<%= asset_path('favicon.png') %>"" type="image/x-icon">
   </head>
 
   <body>
@@ -16,8 +23,12 @@
           <ul class="adminNav">
             <li><%= link_to 'Добавить пост', new_post_path() %></li>
             <li><%= link_to 'Список постов', posts_path %></li>
+            <li><%= link_to 'Список категорий', categories_path %></li>
+            <li><%= link_to 'Заявки', invitations_main_path %></li>
+            <li><%= link_to 'Подписки', subscriptions_main_path %></li>
+
             <li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
-          </div>
+          </ul>
         </div>
       </div>
     <% end %>
@@ -26,5 +37,7 @@
 
     <%= render 'main/footer' %>
     <%= render 'modals/booking' %>
+    <%= render 'modals/subscribe' %>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
   </body>
 </html>

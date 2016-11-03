@@ -1,0 +1,2 @@
+$('#comment_<%= @comment.id %>').append('<%= j render 'form' %>');
+new Bon.Comments.CommentFormHandler('<%= @comment.id %>');

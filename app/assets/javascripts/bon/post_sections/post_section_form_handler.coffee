@@ -1,6 +1,5 @@
 class Bon.PostSections.PostSectionFormHandler
   constructor: (postSectionFormId) ->
-    # new Enzymic.Shared.ThemeInitials()._formControlInitials()
     @postSectionFormId = postSectionFormId
 
     if postSectionFormId == 'new_post_section'

@@ -154,18 +154,24 @@ ul {
 
 }
 .adminNav {
-	display: flex;
-	justify-content: flex-end;
-	a {
-		color: #fff;
-		&:hover,&:focus {
+	display: none;
+}
+@media (min-width: 768px) {
+	.adminNav {
+		display: flex;
+		justify-content: flex-end;
+		a {
 			color: #fff;
+			&:hover,&:focus {
+				color: #fff;
+			}
+		}
+		li:not(:last-child) {
+			margin-right:20px;
 		}
 	}
-	li:not(:last-child) {
-		margin-right:20px;
-	}
 }
+
 .allPosts {
 	h1 {
 		margin:50px 0 20px;
@@ -299,6 +305,9 @@ footer {
 						quotes: "\00ab" "\00bb";
 						font-family:$mirBd;
 						font-size: 26px;
+						a {
+							color: #000;
+						}
 					}
 
 
@@ -321,13 +330,18 @@ footer {
 
 
 .bricksSec {
+	width:100%;
 	.bricksWrap {
 		display: flex;
 		justify-content: space-between;
 		align-items: stretch;
 		flex-wrap: wrap;
 		.brick {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 			a {
+				width:100%;
 				text-decoration: none;
 				color:$black07;
 				cursor: pointer;
@@ -355,15 +369,24 @@ footer {
 }
 
 //////////////////////////// COMPONENT
+
 .aboutParth {
 	padding:20px;
 	display: flex;
 	justify-content: space-between;
+	flex-direction: column;
+	height: 100%; 
 	.whatIsIt {
 		color:$black07;
 		text-transform: uppercase;
 		font-family:$peaceSans;
 		font-size:16px;
+		a {
+			color:$black07;
+			&:hover, &:focus{
+				color:$black07;
+			}
+		}
 	}
 	.vote {
 		margin-top:10px;
@@ -376,25 +399,36 @@ footer {
 	}
 	li {
 		&:nth-child(1) {
-			max-width:70%;
+			display: flex;
+			justify-content: space-between;
+			margin-bottom:15px;
+			.left {
+				max-width:400px;
+			}
 			h3 {
 				font-family:$mirBd;
 				font-size:25px;
 				quotes: "\00ab" "\00bb";
+				margin: 10px 0 0;
 			}
-			.location {
-				margin-top:50px;
-				display: flex;
-				align-items: center;
-				// font-family:$mir;
-				img {
-					margin-right:20px;
-				}
-				
-			}	
+
 		}
+		.location {
+			display: flex;
+			align-items: center;
+			img {
+				margin-right:20px;
+			}
+			
+		}	
 	}
 }
+// @media screen and ( -webkit-min-device-pixel-ratio : 0 )	 { 
+//   .aboutParth { 
+//     height:auto;
+//   } 
+// }
+
 // COMPONENT \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 .aboutSec {
@@ -412,7 +446,56 @@ footer {
 		}
 	}
 }
+.postCarouselSec {
+	.postCarousel {
+		.slick-prev,
+		.slick-next {
+			background-color: #fff;
+			border-radius:50%;
+			width:50px;
+			height:50px;
+			z-index: 2;
+			background-position:center;
+			background-repeat: no-repeat;
+			border-radius:50%;
+			&:before {
+				display: none;
+			}
 
+		}
+		.slick-prev {
+			left:20px;
+			background-image:asset-url("simb/prev.png");
+		}
+		.slick-next {
+			right: 20px;
+			background-image:asset-url("simb/next.png");
+		}
+		.slick-dots{
+			top: 20px;
+		    right: 20px;
+		    bottom: auto;
+		    width: auto;
+			li {
+				button {
+					&:before,&:after {
+						font-size: 40px;
+						color:#fff;
+						border-radius: 50%;
+						background-color: #fff;
+					}
+				}
+				&.active {
+					button {
+						&:before,&:after {
+							color:#fff;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
 
 
@@ -551,9 +634,15 @@ footer {
 		.sideText {
 			max-width:470px;
 			padding:0 30px;
+			a {
+				color: #000;
+			}
 		}
 		.sideImg {
 			padding:0 30px;
+			img {
+				max-width:100%;
+			}
 		}
 		&:nth-child(2n) {
 			flex-direction: row-reverse;
@@ -606,6 +695,7 @@ footer {
         	justify-content: space-between;
         	li {
         		&:nth-child(1) {
+        			flex-direction: column;
 					max-width:50em;
 					width: 100%;
 					h3 {
@@ -695,12 +785,15 @@ footer {
 
 .redCatInfo {
 	background-color:$redFon;
-	// max-height:350px;
+	
+	
 	margin-bottom:100px;
 	.redWrap {
 		display: flex;
+		height:400px;
 		justify-content: space-between;
-		padding:50px 0;
+		padding:15px 0;
+		align-items: center;
 		.imgWrap {
 			margin: auto;
 		}
@@ -835,6 +928,14 @@ footer {
 	.modal-header {
 		border-bottom: 0;
 	}
+	.closeCustom {
+		cursor: pointer;
+	}
+	.modal-body {
+		textarea {
+			max-width: 278px;
+		}
+	}
 }
 
 @media (min-width: 768px) {
@@ -865,13 +966,12 @@ footer {
 .prew {
 	max-width:100%;
 }
-.previewImages {
+#previewImages {
 	display: flex;
 	flex-wrap: wrap;
-	margin-top:15px;
 	img {
-		max-width:160px;
-		height: 160px;	
+		max-width:145px;
+		height: 145px;	
 		object-fit:cover;
 	}
 }
@@ -936,11 +1036,79 @@ footer {
 	flex-direction: column;
 	align-items: center;
 }
-
+.err {
+	display: none;
+	color:$red;
+	text-align: left;
+}
 .titleAllPost,
 .listAllPost {
 	display: flex;
 	li {
 		flex:1 1;
+		padding:20px;
+	}
+	&.allCat {
+		li {
+			flex:1 1 auto;
+		}
+		li:nth-child(2) {
+			max-width:60%;
+			width:100%;
+		}
+	}
+}
+.listAllPost {
+	border-radius:10px;
+	transition:background-color 1s,box-shadow 1s;
+	box-shadow: 2px 2px 2px #e2e2e2;
+	border:1px solid transparent;
+	&:not(:last-child) {
+		margin-bottom:10px;
+	}
+	&:nth-child(2n) {
+		background-color:#f8fffa;
+	}
+	&:nth-child(2n-1) {
+		background-color:rgba(237,230,255,0.2);
+	}
+	&:hover {
+		box-shadow: 1px 1px 3px #424242;
+	}
+}
+
+.eventCarousel {
+	.slick-dots {
+		position: relative;
+		li {
+			button {
+				&:before,&:after {
+					font-size:32px;
+				}
+			}
+		}
+	}
+}
+.mediaWrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+.mediaItem {
+
+	position: relative;
+	.destroy {
+		background-color: #fff;
+		color:$red;
+		border-radius:50%;
+		line-height:0;
+		width:20px;
+		height:20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		position: absolute;
+		top: 10px;
+		right:10px;
 	}
 }

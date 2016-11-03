@@ -1,23 +1,43 @@
 $(document).ready(function() {
 	$('.eventCarousel').slick({
 		arrows: false,
-		autoplay: true,
+		autoplay: false,
 		dots: true
 	});
 
     $('.postCarousel').slick({
-        arrows: false,
-        autoplay: true,
-        dots: true
+        arrows: true,
+        autoplay: false,
+        dots: false,
+        responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                arrows:false,
+                dots:true
+              }
+            }
+        ]
     });
-
+   
     $('#new_invitation').on("ajax:success", function(data, status, xhr) {
-        // $(this).text('<span>Ваша заявка отправлена. Спасибо!</span>');
-        $(this).html('<span class="thankU">Ваша заявка отправлена.<br/> Спасибо!</span>');
+        var email=$("#invitation_email").val();
+        if (email.length > 3) {
+            $(".err").css("display", "none");
+            $(this).html('<span class="thankU">Ваша заявка отправлена.<br/> Спасибо!</span>');
+        } else $(".err").css("display", "block"); 
     });
     $('#new_invitation').on("ajax:error", function(xhr, status, error) {
         $('#reportalert').text('Failed.');
     });
+    if (isSafari()) {
+        $('.aboutParth').css("height","auto");
+    }
+    $('#new_invitation')
+    function isSafari() {
+        return /^((?!chrome).)*safari/i.test(navigator.userAgent);
+    }
+    
 
 });
 

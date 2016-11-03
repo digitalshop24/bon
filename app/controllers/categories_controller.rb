@@ -1,24 +1,28 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:index, :edit, :update, :destroy, :new, :create]
 
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    if current_user.has_role?(:admin)
+      @categories = Category.all
+    else
+      redirect_to root_path
+    end
   end
 
   def sort_by_date
     @categories = Category.all
     @category = Category.find(params[:category_id])
-    @posts = Post.where(category: @category).order(updated_at: :desc)
-    puts @posts.map(&:updated_at)
+    @posts = Post.published.where(category: @category).order(updated_at: :desc)
     render :show
   end
 
   def sort_by_score
     @categories = Category.all
     @category = Category.find(params[:category_id])
-    @posts = Post.where(category: @category).order('score IS NULL, score DESC')
+    @posts = Post.published.where(category: @category).order('score IS NULL, score DESC')
 
     render :show
   end
@@ -27,7 +31,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @categories = Category.all
-    @posts = Post.where(category: @category)
+    @posts = Post.published.where(category: @category)
   end
 
   # GET /categories/new

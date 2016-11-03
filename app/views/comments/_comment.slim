@@ -1,4 +1,4 @@
-.commentWrap
+.commentWrap id="comment_#{comment.id}"
   .heading
     strong = comment.name + " "
     span.text-muted = comment.created_at
@@ -6,5 +6,5 @@
     = comment.text
   - if current_user && current_user.has_role?(:admin)
 	  .navFooter
-	  	a Редактировать
-	  	a Удалить
+	  	= link_to 'Редактировать', edit_post_comment_path(@post, comment), remote: true
+	  	= link_to 'Удалить', post_comment_path(@post, comment), data: {confirm: 'Вы уверены?'}, method: :delete, remote: true

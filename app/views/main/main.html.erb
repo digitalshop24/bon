@@ -5,7 +5,7 @@
       <% @posts_unlim.to_slider.each do |post_rest|%>
       <div class="item">
         <div class="slideWrapper">
-          <div class="imgSide" style="background-image:url(<%= asset_path(post_rest.preview_url) %>); " ></div>
+          <a href="/posts/<%= post_rest.id %>" class="imgSide" style="background-image:url(<%= asset_path(post_rest.preview_url) %>); " ></a>
           <div class="contentSide">
           <ul class="aboutEvent">
             <li>
@@ -13,11 +13,13 @@
                 <%= post_rest.category.name %>
               </a>
             </li>
-            <li><q><%= post_rest.title %></q></li>
+            <li>
+              <a href="/posts/<%= post_rest.id %>"><%= post_rest.title %></a>
+            </li>
             <li>Стоит отметить дизайн «Delicatessen», который абсолютно точно дфополняет атмосферу домашней неторопливой суеты проходящих дней.</li>
             <ul class="hash">
-              <% post_rest.tags.each do |tag|%>
-                <li><a href="">#<%= tag.name %></a></li>
+              <% post_rest.tag_list.each do |tag|%>
+                  <li><%= link_to "##{tag}", show_tag_path(tag) %></li>
               <% end %>
             </ul>
             

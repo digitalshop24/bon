@@ -1,5 +1,5 @@
 <section class="helloAbout">
-	<div class="mainWrapper">
+	<div class="mainWrapper full">
 		<div class="hiWrapper">
 			<div class="BonImgWrapp">
 				<img src="<%= asset_path('about/bonAbout.png') %>" />
@@ -12,40 +12,43 @@
 						<article>Привет!</article>
 						<span>Я Бон. Я составляю рейтинг и пишу рецензии на общественные места и мероприятия Москвы, куда хорошо сходить со своим питомцем.</span>
 						<ul class="hash">
-							<li><a href="">#хештег</a></li>
-							<li><a href="">#ресторан</a></li>
-							<li><a href="">#непростопес</a></li>
-							<li><a href="">#bon</a></li>
-							<li><a href="">#вкуснаяеда</a></li>
-							<li><a href="">#здесьбылbon</a></li>
+							<li><%= link_to "#хештег", show_tag_path("хештег") %></li>
+							<li><%= link_to "#ресторан", show_tag_path("ресторан") %></li>
+							<li><%= link_to "#непростопес", show_tag_path("непростопес") %></li>
+							<li><%= link_to "#bon", show_tag_path("bon") %></li>
+							<li><%= link_to "#вкуснаяеда", show_tag_path("вкуснаяеда") %></li>
+							<li><%= link_to "#здесьбылbon", show_tag_path("здесьбылbon") %></li>
 						</ul>
 					</div>
 					
 				</div>
+
+
+
 				<div class="social">
 					<div class="sn">
 					<article>Рассказать друзьям</article>
-					<ul>
+					<ul class="a2a_kit">
 						<li>
-							<a href="">
+							<a class="a2a_button_facebook">
 							<img src="<%= asset_path('simb/fb.png') %>" />
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a class="a2a_button_twitter">
 							<img src="<%= asset_path('simb/twi.png') %>" />
 							</a>
 						</li>
 						<li>
-							<a href="">
+							<a class="a2a_button_vk">
 							<img src="<%= asset_path('simb/vk.png') %>" />
 							</a>
 						</li>
 					</ul>
 					</div>
-					<button class="redBtn">
+					<a href="" class="redBtn" data-toggle="modal" data-target="#myModal">
 						Написать мне
-					</button>
+					</a>
 				</div>
 			</div>
 			
@@ -60,17 +63,9 @@
 		<li class="cat">
 			<div class="sideText">
 				
-				<article><%= category.name %></article>
+				<article><%= link_to category do %> <%= category.name %><% end %></article>
 				
-				<span><%= category.description %></span>
-				<ul class="hash">
-					<li><a href="">#хештег</a></li>
-					<li><a href="">#ресторан</a></li>
-					<li><a href="">#непростопес</a></li>
-					<li><a href="">#bon</a></li>
-					<li><a href="">#вкуснаяеда</a></li>
-					<li><a href="">#здесьбылbon</a></li>
-				</ul>
+				<span><%= category.description.html_safe %></span>
 			</div>
 			<div class="sideImg">
 				<%= link_to category do %>

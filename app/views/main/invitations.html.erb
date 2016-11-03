@@ -1,0 +1,25 @@
+<section class="allPosts">
+	<div class="mainWrapper">
+		<h1>Заявки от пользователей</h1>
+		<% @invitations.each do |invitation|%>
+	    <ul class="listAllPost">
+	      <li>
+      		<% if !invitation.name.empty? %>
+      			<%= invitation.name %>
+      		<% else %>
+      			Без имени
+      		<% end %>
+	      </li>
+	      <li><%= invitation.email %></li>
+	      <li>
+	      	<% if !invitation.message.empty? %>
+      			<%= invitation.message %>
+      		<% else %>
+      			Без сообщения
+      		<% end %>
+      	  </li>
+      	  <li><%= link_to 'Удалить пост', invitation_path(invitation), :method => :delete, data: {confirm: 'Вы уверены?'}  %></li>
+	    </ul>
+	    <% end %>
+	</div>
+</section>

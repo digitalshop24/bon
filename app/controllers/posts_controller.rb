@@ -6,8 +6,12 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
-    @categories = Category.all
+    if current_user.has_role?(:admin)
+      @posts = Post.all
+      @categories = Category.all
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /posts/1
@@ -16,7 +20,7 @@ class PostsController < ApplicationController
     @categories = Category.all
     @post_sections = @post.post_sections
     @comments = @post.comments.limit(5).order(created_at: :desc)
-    @posts = Post.where(category: @post.category.id).limit(2)
+    @posts = Post.published.where(category: @post.category.id)
   end
 
   # GET /posts/new
@@ -32,15 +36,15 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+
+
+    if @post.save && params[:images]
+      params[:images].each { |image|
+        @post.images.create(image: image)
+      }
     end
+
+    redirect_to @post
   end
 
   def update
@@ -53,6 +57,19 @@ class PostsController < ApplicationController
     end
 
     @post.save
+    redirect_to @post
+  end
+
+  def destroy_image
+    @image = Image.find(params[:id])
+    @image.destroy
+    render 'posts/destroy_image'
+  end
+
+  def destroy_image
+    @image = Image.find(params[:id])
+    @image.destroy
+    render 'posts/destroy_image'
   end
 
   def destroy
