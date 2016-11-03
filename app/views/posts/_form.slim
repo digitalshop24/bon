@@ -10,7 +10,7 @@
           = f.text_area :description, hide_label: true
         .full
           p Тэги (введите необходимые тэги через запятую)
-          = f.text_field :tag_list, hide_label: true
+          = f.text_field :tag_list, hide_label: true, value: (f.object.tag_list.join(', ') if f.object.tag_list.present?)
         .multi.full
           .uu
             p Категории
