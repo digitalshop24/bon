@@ -12,30 +12,39 @@
     <meta property="og:image" content="<%= asset_path('/about/bonAbout.png') %>"/>
     <meta property="og:description" content="#bon - not just a dog!"/>
     <meta property="og:url" content="https://bon-staging.herokuapp.com/">
-    <link rel="shortcut icon" href="<%= asset_path('favicon.png') %>"" type="image/x-icon">
+    <link rel="shortcut icon" href="<%= asset_path('favicon.png') %>" type="image/x-icon">
   </head>
 
   <body>
+    <div class="ui sidebar menu inverted vertical bon-sidebar">
+      <%= link_to root_path do %>
+        <img src="<%= asset_path('simb/logoMobWhite.png') %>"/>
+      <% end %>
+      <a class="item">
+        Рестораны
+      </a>
+      <a class="item">
+        Дома и квартиры
+      </a>
+      <a class="item">
+        Бла бла 3
+      </a>
+    </div>
     
-    <% if current_user && current_user.has_role?(:admin) %>
-      <div class="adminWrap">
-        <div class="mainWrapper">
-          <ul class="adminNav">
-            <li><%= link_to 'Добавить пост', new_post_path() %></li>
-            <li><%= link_to 'Список постов', posts_path %></li>
-            <li><%= link_to 'Список категорий', categories_path %></li>
-            <li><%= link_to 'Заявки', invitations_main_path %></li>
-            <li><%= link_to 'Подписки', subscriptions_main_path %></li>
-
-            <li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
-          </ul>
+    <div class="pusher">
+      <% if current_user && current_user.has_role?(:admin) %>
+        <div class="adminWrap">
+          <div class="mainWrapper">
+            <ul class="adminNav">
+              <%= render 'main/admin_menu' %>
+            </ul>
+          </div>
         </div>
-      </div>
-    <% end %>
-    <%= render 'main/header' %>
-    <%= yield %>
-
-    <%= render 'main/footer' %>
+      <% end %>
+      <%= render 'main/header' %>
+      <%= yield %>
+      <%= render 'main/footer' %>
+    </div>
     <%= render 'modals/booking' %>
     <%= render 'modals/subscribe' %>
     <script async src="https://static.addtoany.com/menu/page.js"></script>

@@ -5,7 +5,9 @@
 //= require ckeditor/init
 //= require slick.min
 
+//= require semantic-ui/sidebar
 //= require custom
+//= require new
 
 //= require bon
 //= require_tree ./bon/posts

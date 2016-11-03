@@ -101,6 +101,38 @@ ul {
 	margin: auto;
 }
 
+.horizontalMenu {
+	display: flex;
+	margin: 2rem auto;
+	& .burger i {
+		font-size: 3.2rem;
+		color: #CCCCCC;
+		&:hover {
+			color: #C7C7C7;
+		}
+	}
+	.linksWrapper {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.linksBlock {
+		display: flex;
+		justify-content: space-around;
+		width: 70%;
+		max-width: 700px;
+		font-size: 1.8rem;
+		a {
+			color: #2D2D2D;
+			text-decoration: underline;
+		}
+		a:hover{
+			color:#000;
+		}
+	}
+}
+
 .postTags {
   width: 100%;
   max-width:850px;
@@ -143,6 +175,10 @@ ul {
 	&:hover {
 		background-color: transparent;
 		color:#000;
+	}
+	&.fixedBtn{
+		width:200px;
+		margin-left: 30px;
 	}
 }
 .mobHeader {
@@ -293,6 +329,9 @@ footer {
 					font-size:18px;
 					&:not(:last-child) {
 						margin-bottom:10px;
+						a {
+							color: #000;
+						}
 					}
 					&:nth-child(1) {
 						font-family:$peaceSans;
@@ -305,9 +344,6 @@ footer {
 						quotes: "\00ab" "\00bb";
 						font-family:$mirBd;
 						font-size: 26px;
-						a {
-							color: #000;
-						}
 					}
 
 

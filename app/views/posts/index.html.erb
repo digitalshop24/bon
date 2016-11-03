@@ -7,20 +7,20 @@
       <li>Отметка: </li>
       <li></li>
       <li></li>
-
     </ul>
     <% @posts.each do |post|%>
-    <ul class="listAllPost">
-      <li>
-        <%= link_to post do %>
-          <%= post.title %>
-        <% end %>
-      </li>
-      <li><%= post.location %></li>
-      <li><%= post.score %></li>
-      <li><%= link_to 'Редактировать', edit_post_path(post) %></li>
-      <li><%= link_to 'Удалить пост', post, :method => :delete, data: {confirm: 'Вы уверены?'} %></li>
-    </ul>
+      <ul class="listAllPost">
+        <li>
+          <%= link_to post do %>
+            <%= post.title %>
+          <% end %>
+        </li>
+        <li><%= post.location %></li>
+        <li><%= post.score %></li>
+        <li><%= link_to 'Редактировать', edit_post_path(post) %></li>
+        <li><%= link_to 'Удалить пост', post, :method => :delete, data: {confirm: 'Вы уверены?'} %></li>
+      </ul>
     <% end %>
+    <%= link_to 'Добавить пост', new_post_path, class: 'enterBtn fixedBtn' %>
   </div>
 </section>

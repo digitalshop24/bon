@@ -2,7 +2,7 @@
 	<div class="mainWrapper">
 		<div class="redWrap">
 			<div class="imgWrap">
-				<%= image_tag @category.bon_img_type.url %>
+				<%= image_tag @category.bon_img_type.url(:small) %>
 			</div>
 			<div class="infoWrap">
 				<article><%= @category.name %></article>

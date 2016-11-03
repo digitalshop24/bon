@@ -1,0 +1,13 @@
+.bon-sidebar{
+  background-color: $redFon !important;
+  a:first-child {
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+  }
+  a.item {
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 2rem;
+  }
+}

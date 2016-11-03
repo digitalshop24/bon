@@ -14,9 +14,9 @@ gem 'paperclip'
 gem 'aws-sdk', '~> 2.3'
 gem 'rmagick'
 gem 'ckeditor', '~> 4.2'
-gem 'dotenv-rails', :groups => [:development, :test]
+gem 'dotenv-rails', groups: [:development, :test]
 
-gem 'remotipart', github: 'mshibuya/remotipart'
+gem 'remotipart', git: 'https://github.com/mshibuya/remotipart.git'
 gem 'rails_admin', '>= 1.0.0.rc'
 
 gem 'devise'
@@ -24,6 +24,7 @@ gem 'rolify'
 gem 'cancancan'
 gem 'acts-as-taggable-on', '~> 4.0'
 gem 'rails_admin_tag_list'
+gem 'semantic-ui-sass', github: 'doabit/semantic-ui-sass'
 ### TEMPLATES
 gem 'slim-rails'
 
