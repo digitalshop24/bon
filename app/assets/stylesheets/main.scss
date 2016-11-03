@@ -144,6 +144,10 @@ ul {
 		background-color: transparent;
 		color:#000;
 	}
+	&.fixedBtn{
+		width:200px;
+		margin-left: 30px;
+	}
 }
 .mobHeader {
 	display: none;
