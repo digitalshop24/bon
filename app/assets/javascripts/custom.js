@@ -5,6 +5,11 @@ $(document).ready(function() {
 		dots: true
 	});
 
+    $('.postCarousel').on('setPosition', function(event, slick, direction){
+        var width = $(this).find(".slick-slide").first().width();
+        $(this).find(".slick-slide").height(width/4);
+    });
+
     $('.postCarousel').slick({
         arrows: true,
         autoplay: false,

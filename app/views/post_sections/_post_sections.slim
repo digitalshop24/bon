@@ -1,7 +1,7 @@
 #post_sections_container.mainWrapper
   .post_sections_list
     = render @post_sections
-  - if current_user && current_user.has_role?(:admin)
+  - if @is_admin
     #new_post_section_container
     	.text-center
           = link_to 'Добавить новую секцию', new_post_post_section_path(@post), :class => 'btn btn-success', remote: true

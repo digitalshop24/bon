@@ -1,6 +1,6 @@
-<div id="link_<%= link.id %>" class="link-wrapper">
+<div id="link_<%= link.id %>" class="link-wrapper manage-wrapper">
   <%= link_to link.text, link.url, class: "item" %>
-  <% if current_user && current_user.has_role?(:admin) %>
+  <% if @is_admin %>
     <div class="manage">
       <%= link_to link_path(link), method: :delete, class: 'delete', data: { confirm: 'Вы уверены?' }, remote: true do  %>
         <i class="fa fa-remove" aria-hidden="true"></i>

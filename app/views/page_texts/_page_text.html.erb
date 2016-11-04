@@ -1,0 +1,16 @@
+<div class="page_text manage-wrapper" id="page_text_<%= page_text.id %>">
+  <div class="page_text_content">
+    <%= page_text.content.to_s.html_safe %>
+  </div>
+  <% if @is_admin %>
+    <div class="manage">
+      <a href="#" class="edit">Редактировать</a>
+    </div>
+    <%= form_for page_text, remote: true, html: { style: 'display:none' } do |f| %>
+      <%= f.hidden_field :page %>
+      <%= f.hidden_field :position %>
+      <%= f.cktext_area :content, cols: 40, class: 'ckeditor', ckeditor: { language: 'ru'} %>
+      <%= f.submit 'Сохранить' %>
+    <% end %>
+  <% end %>
+</div>

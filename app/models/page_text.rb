@@ -1,0 +1,2 @@
+class PageText < ApplicationRecord
+end

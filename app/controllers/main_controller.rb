@@ -5,6 +5,7 @@ class MainController < ApplicationController
 	end
 
 	def main
+		@main_bottom = PageText.where(page: 'main', position: 'bottom').first_or_create
 		@posts = Post.published.order("created_at desc").limit(4)
 		@slider_posts = Post.to_slider + SliderPost.all
 	end

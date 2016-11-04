@@ -4,7 +4,7 @@
     span.text-muted = comment.created_at
   .commentBody
     = comment.text
-  - if current_user && current_user.has_role?(:admin)
+  - if @is_admin
 	  .navFooter
 	  	= link_to 'Редактировать', edit_post_comment_path(@post, comment), remote: true
 	  	= link_to 'Удалить', post_comment_path(@post, comment), data: {confirm: 'Вы уверены?'}, method: :delete, remote: true

@@ -12,7 +12,7 @@
         p.whatIsIt Оценка
         span.vote = @post.score
         img src="simb/vote.png">
-    - if current_user && current_user.has_role?(:admin)
+    - if @is_admin
     .card-action.clearfix
       .pull-left
         = link_to 'Редактировать', edit_post_path(@post), class: 'btn btn-link btn-icon',
