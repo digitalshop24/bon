@@ -102,8 +102,11 @@ ul {
 }
 
 .horizontalMenu {
-	display: flex;
-	margin: 2rem auto;
+	padding: 1.5rem;
+	box-shadow: 0px 2px 2px -1px rgba(171, 171, 171, 0.56);
+	.mainWrapper{
+		display: flex;
+	}
 	& .burger i {
 		font-size: 3.2rem;
 		color: #CCCCCC;
@@ -302,7 +305,7 @@ footer {
 ////////////////////  MAIN PAGE   ////////////////////
 
 .eventCarouselSec {
-	margin:50px 0;
+	// margin:50px 0;
 	.eventCarousel {
 		.slideWrapper {
 			display: flex;

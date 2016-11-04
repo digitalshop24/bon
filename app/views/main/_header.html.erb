@@ -46,15 +46,17 @@
   </div>
 </div>
 
-<div class="horizontalMenu mainWrapper" style="display:flex">
-  <a class="item burger" href="#">
-    <i class="fa fa-bars" aria-hidden="true"></i>
-  </a>
-  <div class="linksWrapper">
-    <div class="linksBlock">
-      <% @categories.each do |category|%>
-        <%= link_to category.name, category %>
-      <% end %>
+<div class="horizontalMenu">
+  <div class="mainWrapper">
+    <a class="item burger" href="#">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </a>
+    <div class="linksWrapper">
+      <div class="linksBlock">
+        <% @categories.each do |category|%>
+          <%= link_to category.name, category %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
