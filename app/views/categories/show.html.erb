@@ -2,7 +2,7 @@
 	<div class="mainWrapper">
 		<div class="redWrap">
 			<div class="imgWrap">
-				<%= image_tag @category.bon_img_type.url(:small) %>
+				<%= image_tag @category.bon_img_type.url %>
 			</div>
 			<div class="infoWrap">
 				<% if current_user && current_user.has_role?(:admin) %>

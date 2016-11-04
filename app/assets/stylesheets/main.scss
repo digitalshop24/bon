@@ -326,6 +326,17 @@ footer {
 				flex-direction: column;
 				align-items: flex-start;
 				justify-content: space-around;
+				.manage {
+					position: absolute;
+					font-size: 1.6rem;
+					a {
+						display: inline-block;
+						color: #000;
+					}
+					a:hover {
+						text-decoration: underline;
+					}
+				}
 			}
 			.aboutEvent {
 				li {

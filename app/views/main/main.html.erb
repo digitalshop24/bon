@@ -10,6 +10,11 @@
               <div class="imgSide" style="background-image:url(<%= post_rest.preview.url %>)"></div>
             <% end %>
             <div class="contentSide">
+              <% if @is_admin %>
+                <div class="manage">
+                  <%= link_to 'Редактировать', [:edit, post_rest], class: 'edit' %>
+                </div>
+              <% end %>
               <ul class="aboutEvent">
                 <li>
                   <%= link_to post_rest.category.name, post_rest.category if post_rest.respond_to?(:category) %>
@@ -24,6 +29,9 @@
                   <% end %>
                 </ul>
               </ul>
+              <% if @is_admin %>
+                <div></div>
+              <% end %>
             </div>
           </div>
         </div>

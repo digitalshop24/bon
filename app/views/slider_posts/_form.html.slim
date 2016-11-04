@@ -1,0 +1,24 @@
+= bootstrap_form_for(@post, html: { multipart: true, class: "editPostForm" }) do |f|
+  .info
+    ul.aboutParth
+      li
+        .full
+          p Название
+          = f.text_field :title, hide_label: true
+        .full
+          p Описание
+          = f.text_area :description, hide_label: true
+        .full
+          p Ссылка
+          = f.text_field :url, hide_label: true
+        .full 
+          p Превью
+          = f.file_field :preview, hide_label: true
+          - if @post.preview.present?
+            img src="#{@post.preview.url}" id="previewTarget" class="prew"
+          -else
+            img src="" id="previewTarget" class="prew"
+
+    .card-action.white.text-center
+      => link_to 'Отменить', root_path, class: 'btn btn-default btn-link btn-cancel'
+      = f.primary('Применить')

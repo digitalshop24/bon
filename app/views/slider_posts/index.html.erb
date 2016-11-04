@@ -1,0 +1,19 @@
+<section class="allPosts">
+  <div class="mainWrapper">
+    <h1>Все посты для слайдера</h1>
+    <%= link_to 'Добавить пост', new_slider_post_path, class: 'enterBtn fixedBtn' %>
+    <ul class="titleAllPost">
+      <li>Заголовок:</li>
+      <li></li>
+      <li></li>
+    </ul>
+    <% @posts.each do |post|%>
+      <ul class="listAllPost">
+        <li><%= post.title %></li>
+        <li><%= link_to 'Редактировать', [:edit, post] %></li>
+        <li><%= link_to 'Удалить пост', post, method: :delete, data: { confirm: 'Вы уверены?' } %></li>
+      </ul>
+    <% end %>
+    <%= link_to 'Добавить пост', new_slider_post_path, class: 'enterBtn fixedBtn' %>
+  </div>
+</section>

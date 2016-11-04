@@ -23,7 +23,7 @@
       <% Link.sidebar.each do |link| %>
         <%= render partial: 'links/link', locals: { link: link } %>
       <% end %>
-      <% if current_user && current_user.has_role?(:admin) %>
+      <% if @is_admin %>
         <div class="link-wrapper">
           <a href="#" class="item new"><strong>Добавить ссылку</strong></a>
           <%= form_for Link.new, html: { style: 'display:none;' }, remote: true do |f| %>
@@ -36,7 +36,7 @@
       <% end %>
     </div>
     <div class="pusher">
-      <% if current_user && current_user.has_role?(:admin) %>
+      <% if @is_admin %>
         <div class="adminWrap">
           <div class="mainWrapper">
             <ul class="adminNav">

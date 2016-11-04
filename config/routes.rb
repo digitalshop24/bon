@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :links
+  resources :slider_posts
   resources :invitations, only: [:create, :destroy]
   resources :subscriptions, only: [:create, :destroy]
   get 'tags/:name' => 'tags#show', as: 'show_tag'
