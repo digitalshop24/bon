@@ -17,20 +17,11 @@
 
   <body>
     <div class="ui sidebar menu inverted vertical bon-sidebar">
-      <%= link_to root_path do %>
+      <%= link_to root_path, class: 'logo' do %>
         <img src="<%= asset_path('simb/logoMobWhite.png') %>"/>
       <% end %>
-      <a class="item">
-        Рестораны
-      </a>
-      <a class="item">
-        Дома и квартиры
-      </a>
-      <a class="item">
-        Бла бла 3
-      </a>
+      <%= render Link.sidebar %>
     </div>
-    
     <div class="pusher">
       <% if current_user && current_user.has_role?(:admin) %>
         <div class="adminWrap">

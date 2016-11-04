@@ -1,0 +1,16 @@
+<div id="link_<%= link.id %>" class="link-wrapper">
+  <%= link_to link.text, link.url, class: "item" %>
+  <% if current_user && current_user.has_role?(:admin) %>
+    <div class="manage">
+      <%= link_to link_path(link), method: :delete, class: 'delete', data: { confirm: 'Вы уверены?' }, remote: true do  %>
+        <i class="fa fa-remove" aria-hidden="true"></i>
+      <% end %>
+      <a href="#" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+    </div>
+    <%= form_for link, html: { style: 'display:none;' } do |f| %>
+      <%= f.text_field :text %>
+      <%= f.text_field :url %>
+      <%= f.submit 'Сохранить' %>
+    <% end %>
+  <% end %>
+</div>
