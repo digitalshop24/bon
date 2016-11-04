@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
   resources :links
   resources :slider_posts
+  resources :page_texts, only: [:update]
   resources :invitations, only: [:create, :destroy]
   resources :subscriptions, only: [:create, :destroy]
   get 'tags/:name' => 'tags#show', as: 'show_tag'

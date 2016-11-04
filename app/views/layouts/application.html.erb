@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <div class="ui sidebar menu inverted vertical bon-sidebar links">
+    <div class="ui sidebar menu inverted vertical bon-sidebar links editable">
       <%= link_to root_path, class: 'logo' do %>
         <img src="<%= asset_path('simb/logoMobWhite.png') %>"/>
       <% end %>
@@ -24,7 +24,7 @@
         <%= render partial: 'links/link', locals: { link: link } %>
       <% end %>
       <% if @is_admin %>
-        <div class="link-wrapper">
+        <div class="link-wrapper manage-wrapper">
           <a href="#" class="item new"><strong>Добавить ссылку</strong></a>
           <%= form_for Link.new, html: { style: 'display:none;' }, remote: true do |f| %>
             <%= f.hidden_field :position, value: 'sidebar' %>

@@ -4,8 +4,8 @@ $(document).ready(function() {
     $('.sidebar.menu').sidebar('setting',{ transition:'overlay' }).sidebar('toggle');
   });
 
-  $('.links').on('click', '.new,.edit', function(e){
+  $('.editable').on('click', '.new,.edit', function(e){
     e.preventDefault();
-    $(this).parents('.link-wrapper').find('form').toggle();
+    $(this).parents('.manage-wrapper').find('form').toggle();
   })
 });

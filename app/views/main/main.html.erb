@@ -42,10 +42,10 @@
 <%= render 'main/posts' %>
 <section class="aboutSec">
   <div class="mainWrapper">
-    <div class="aboutInfo">
+    <div class="aboutInfo editable">
       <h3>О проекте</h3>
       <img src="<%= asset_path('simb/bone.png') %>" />
-      <p>Я Бон. Я составляю рейтинг и пишу рецензии на заведения Москвы, куда хорошо сходить со своим питомцем.</p>
+      <%= render @main_bottom %>
     </div>
   </div>
 </section>

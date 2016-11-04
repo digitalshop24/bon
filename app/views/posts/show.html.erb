@@ -37,7 +37,7 @@
 					</li>
 
 				</ul>
-        <% if current_user && current_user.has_role?(:admin) %>
+        <% if @is_admin %>
           <div class="card-action clearfix">
             <div class="pull-left">
               <%= link_to 'редактировать', edit_post_path(@post), class: 'btn btn-link btn-icon',
