@@ -16,23 +16,27 @@
   </head>
 
   <body>
-    <div class="ui sidebar menu inverted vertical bon-sidebar">
-      <%= link_to root_path do %>
+    <div class="ui sidebar menu inverted vertical bon-sidebar links">
+      <%= link_to root_path, class: 'logo' do %>
         <img src="<%= asset_path('simb/logoMobWhite.png') %>"/>
       <% end %>
-      <a class="item">
-        Рестораны
-      </a>
-      <a class="item">
-        Дома и квартиры
-      </a>
-      <a class="item">
-        Бла бла 3
-      </a>
+      <% Link.sidebar.each do |link| %>
+        <%= render partial: 'links/link', locals: { link: link } %>
+      <% end %>
+      <% if @is_admin %>
+        <div class="link-wrapper">
+          <a href="#" class="item new"><strong>Добавить ссылку</strong></a>
+          <%= form_for Link.new, html: { style: 'display:none;' }, remote: true do |f| %>
+            <%= f.hidden_field :position, value: 'sidebar' %>
+            <%= f.text_field :text, placeholder: 'Текст ссылки' %>
+            <%= f.text_field :url, placeholder: 'URL' %>
+            <%= f.submit 'Добавить' %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
-    
     <div class="pusher">
-      <% if current_user && current_user.has_role?(:admin) %>
+      <% if @is_admin %>
         <div class="adminWrap">
           <div class="mainWrapper">
             <ul class="adminNav">

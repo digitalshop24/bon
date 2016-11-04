@@ -1,17 +1,13 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, only: [:index, :edit, :update, :destroy, :new, :create]
-  before_filter :require_admin, only: [:edit, :update, :destroy, :new, :create]
+  before_filter :require_admin, only: [:edit, :update, :destroy, :new, :create, :index]
 
   # GET /posts
   # GET /posts.json
   def index
-    if current_user.has_role?(:admin)
-      @posts = Post.all
-      @categories = Category.all
-    else
-      redirect_to root_path
-    end
+    @posts = Post.all
+    @categories = Category.all
   end
 
   # GET /posts/1

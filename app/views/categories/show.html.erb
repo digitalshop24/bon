@@ -2,11 +2,16 @@
 	<div class="mainWrapper">
 		<div class="redWrap">
 			<div class="imgWrap">
-				<%= image_tag @category.bon_img_type.url(:small) %>
+				<%= image_tag @category.bon_img_type.url %>
 			</div>
 			<div class="infoWrap">
+				<% if current_user && current_user.has_role?(:admin) %>
+					<div class="manage">
+						<%= link_to 'Редактировать', edit_category_path(@category), class: 'edit' %>
+					</div>
+				<% end %>
 				<article><%= @category.name %></article>
-				<span><%= @category.description.html_safe %></span>
+				<span><%= @category.description.to_s.html_safe %></span>
 				<ul class="filter">
 					<li>
 						<a href="<%= category_sort_by_date_path(@category) %>">

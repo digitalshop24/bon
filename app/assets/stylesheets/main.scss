@@ -101,15 +101,19 @@ ul {
 	margin: auto;
 }
 
+.burger i {
+	font-size: 3.2rem;
+	color: #CCCCCC;
+	&:hover {
+		color: #C7C7C7;
+	}
+}
+
 .horizontalMenu {
-	display: flex;
-	margin: 2rem auto;
-	& .burger i {
-		font-size: 3.2rem;
-		color: #CCCCCC;
-		&:hover {
-			color: #C7C7C7;
-		}
+	padding: 1.5rem;
+	box-shadow: 0px 2px 2px -1px rgba(171, 171, 171, 0.56);
+	.mainWrapper{
+		display: flex;
 	}
 	.linksWrapper {
 		width: 100%;
@@ -302,7 +306,7 @@ footer {
 ////////////////////  MAIN PAGE   ////////////////////
 
 .eventCarouselSec {
-	margin:50px 0;
+	// margin:50px 0;
 	.eventCarousel {
 		.slideWrapper {
 			display: flex;
@@ -322,6 +326,17 @@ footer {
 				flex-direction: column;
 				align-items: flex-start;
 				justify-content: space-around;
+				.manage {
+					position: absolute;
+					font-size: 1.6rem;
+					a {
+						display: inline-block;
+						color: #000;
+					}
+					a:hover {
+						text-decoration: underline;
+					}
+				}
 			}
 			.aboutEvent {
 				li {
@@ -847,6 +862,19 @@ footer {
 			span {
 				color: #fff;
 				font-size:17px;
+			}
+
+			.manage {
+				position: absolute;
+				margin-top: -30px;
+				font-size: 1.6rem;
+				a {
+					display: inline-block;
+					color: #fff;
+				}
+				a:hover {
+					text-decoration: underline;
+				}
 			}
 		}
 		

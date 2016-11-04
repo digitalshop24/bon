@@ -30,7 +30,7 @@
           p Превью
           = f.file_field :preview, hide_label: true
           - if @post.preview.present?
-            img src="#{@post.preview_url}" id="previewTarget" class="prew"
+            img src="#{@post.preview.url}" id="previewTarget" class="prew"
           -else
             img src="" id="previewTarget" class="prew"
         .full

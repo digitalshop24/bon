@@ -1,0 +1,11 @@
+<div class="mainWrapper">
+<div class="newPostWrapper">
+  <h1>Новый пост в слайдер</h1>
+
+  <%= render 'form', post: @post %>
+</div>
+</div>
+
+<script>
+  new Bon.Posts.PostFormHandler();
+</script>

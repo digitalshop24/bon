@@ -33,11 +33,12 @@ class Post < ApplicationRecord
 		end
   end
 
-  def preview_url
-    preview.present? ? preview.url : "http://s3-eu-central-1.amazonaws.com/bonapplication/noimage/posts/images/missing_original.png"
-  end
   def about_section
     post_sections.first
+  end
+
+  def url
+    self
   end
 
   def other_post_sections

@@ -6,7 +6,7 @@ class MainController < ApplicationController
 
 	def main
 		@posts = Post.published.order("created_at desc").limit(4)
-		@posts_unlim = Post.all
+		@slider_posts = Post.to_slider + SliderPost.all
 	end
 	
 	def invitations

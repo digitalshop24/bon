@@ -2,6 +2,7 @@
 <section class="allPosts">
   <div class="mainWrapper">
     <h1>Все Категории</h1>
+    <%= link_to 'Добавить категорию', new_category_path, class: 'enterBtn fixedBtn' %>
     <ul class="titleAllPost">
       <li>Название:</li>
       <li>Описание:</li>
@@ -15,7 +16,7 @@
           <%= category.name %>
         <% end %>
       </li>
-      <li><%= category.description.html_safe  %></li>
+      <li><%= category.description.to_s.html_safe  %></li>
       <li><%= link_to 'Редактировать', edit_category_path(category) %></li>
     </ul>
     <% end %>
