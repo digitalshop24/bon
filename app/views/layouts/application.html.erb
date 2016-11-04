@@ -20,7 +20,9 @@
       <%= link_to root_path, class: 'logo' do %>
         <img src="<%= asset_path('simb/logoMobWhite.png') %>"/>
       <% end %>
-      <%= render Link.sidebar %>
+      <% Link.sidebar.each do |link| %>
+        <%= render partial: 'links/link', locals: { link: link } %>
+      <% end %>
       <% if current_user && current_user.has_role?(:admin) %>
         <div class="link-wrapper">
           <a href="#" class="item new"><strong>Добавить ссылку</strong></a>
