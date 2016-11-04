@@ -101,18 +101,19 @@ ul {
 	margin: auto;
 }
 
+.burger i {
+	font-size: 3.2rem;
+	color: #CCCCCC;
+	&:hover {
+		color: #C7C7C7;
+	}
+}
+
 .horizontalMenu {
 	padding: 1.5rem;
 	box-shadow: 0px 2px 2px -1px rgba(171, 171, 171, 0.56);
 	.mainWrapper{
 		display: flex;
-	}
-	& .burger i {
-		font-size: 3.2rem;
-		color: #CCCCCC;
-		&:hover {
-			color: #C7C7C7;
-		}
 	}
 	.linksWrapper {
 		width: 100%;
