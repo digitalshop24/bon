@@ -16,11 +16,22 @@
   </head>
 
   <body>
-    <div class="ui sidebar menu inverted vertical bon-sidebar">
+    <div class="ui sidebar menu inverted vertical bon-sidebar links">
       <%= link_to root_path, class: 'logo' do %>
         <img src="<%= asset_path('simb/logoMobWhite.png') %>"/>
       <% end %>
       <%= render Link.sidebar %>
+      <% if current_user && current_user.has_role?(:admin) %>
+        <div class="link-wrapper">
+          <a href="#" class="item new"><strong>Добавить ссылку</strong></a>
+          <%= form_for Link.new, html: { style: 'display:none;' }, remote: true do |f| %>
+            <%= f.hidden_field :position, value: 'sidebar' %>
+            <%= f.text_field :text, placeholder: 'Текст ссылки' %>
+            <%= f.text_field :url, placeholder: 'URL' %>
+            <%= f.submit 'Добавить' %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <div class="pusher">
       <% if current_user && current_user.has_role?(:admin) %>

@@ -4,10 +4,8 @@ $(document).ready(function() {
     $('.sidebar.menu').sidebar('setting',{ transition:'overlay' }).sidebar('toggle');
   });
 
-  $('.manage .edit ').click(function(e){
-    console.log('edit');
+  $('.links').on('click', '.new,.edit', function(e){
     e.preventDefault();
-    // toggleLink($(this));
     $(this).parents('.link-wrapper').find('form').toggle();
   })
 });

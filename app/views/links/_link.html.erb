@@ -7,9 +7,9 @@
       <% end %>
       <a href="#" class="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>
     </div>
-    <%= form_for link, html: { style: 'display:none;' } do |f| %>
-      <%= f.text_field :text %>
-      <%= f.text_field :url %>
+    <%= form_for link, html: { style: 'display:none;' }, remote: true do |f| %>
+      <%= f.text_field :text, placeholder: 'Текст ссылки' %>
+      <%= f.text_field :url, placeholder: 'URL' %>
       <%= f.submit 'Сохранить' %>
     <% end %>
   <% end %>
