@@ -5,7 +5,7 @@
         <div class="item" style="background-image:url(<%= asset_path(image.image.url) %>);"></div>
       <% end %>
     <% else %>
-        <div class="item" style="background-image:url(<%= asset_path(@post.preview_url) %>);"></div>
+        <div class="item" style="background-image:url(<%= asset_path(@post.preview.url) %>);"></div>
     <% end %>
 	</div>
 	<div class="mainWrapper">
