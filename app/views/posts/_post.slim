@@ -7,7 +7,7 @@
           q = @post.title
         span.location
           img src="= asset_path('simb/location.png')"
-          div = @post.location.html_safe
+          div = @post.location.to_s.html_safe
       li
         p.whatIsIt Оценка
         span.vote = @post.score
