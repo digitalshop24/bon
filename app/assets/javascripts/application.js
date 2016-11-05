@@ -4,6 +4,7 @@
 //= require jquery.remotipart
 //= require ckeditor/init
 //= require slick.min
+//= require jquery.Jcrop.min
 
 //= require semantic-ui/sidebar
 //= require custom

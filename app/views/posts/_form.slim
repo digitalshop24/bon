@@ -43,7 +43,9 @@
             - @post.images.each do |image|
               .mediaItem id="post_image_#{image.id}"
                 = image_tag image.image.url(:thumb)
-                = link_to 'x', post_destroy_image_path(@post, image), data: {confirm: 'Вы уверены?'},class: "destroy", method: :delete, remote: true
+                = link_to 'x', post_destroy_image_path(@post, image), data: {confirm: 'Вы уверены?'},class: "manage-image destroy", method: :delete, remote: true
+                = link_to [:edit, image], title: 'Обрезать изображение для слайдера',class: "manage-image edit" do
+                  i.fa.fa-pencil aria-hidden="true"
 
     .card-action.white.text-center
       => link_to 'Отменить', posts_path, class: 'btn btn-default btn-link btn-cancel'

@@ -34,6 +34,8 @@ gem 'bootstrap_form'
 ### STYLES
 gem 'bootstrap-sass'
 
+gem 'jcrop-rails-v2', '~> 0.9.12.3'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry'
