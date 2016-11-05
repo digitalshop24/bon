@@ -35,6 +35,21 @@ class SliderPostsController < ApplicationController
     redirect_to slider_posts_path
   end
 
+  def move
+    @step = params[:direction] == 'up' ? -1 : 1
+    @slider_post = SliderPost.find(params[:id])
+    curr_pos = @slider_post.position_number
+    swap_with_post = if @step == -1
+      SliderPost.where('slider_posts.position_number < ?', curr_pos).last
+    else
+      SliderPost.where('slider_posts.position_number > ?', curr_pos).first
+    end
+    if swap_with_post
+      @slider_post.update(position_number: swap_with_post.position_number)
+      swap_with_post.update(position_number: curr_pos)
+    end
+  end
+
   private
 
   def require_admin
