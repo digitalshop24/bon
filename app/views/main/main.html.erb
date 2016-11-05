@@ -25,7 +25,7 @@
                 <ul class="hash">
                   <% if post_rest.respond_to?(:tag_list) %>
                     <% post_rest.tag_list.each do |tag| %>
-                      <li><%= link_to "##{tag}", tag %></li>
+                      <li class="tag"><%= link_to "##{tag}", show_tag_path(tag) %></li>
                     <% end %>
                   <% end %>
                 </ul>

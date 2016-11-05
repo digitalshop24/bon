@@ -20,7 +20,7 @@
 					min-height:200px;
 				}
 				.aboutEvent { 
-					li {
+					li :not(.tag) {
 						&:nth-child(2) {
 							font-size: 22px;
 						}
