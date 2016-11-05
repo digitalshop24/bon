@@ -6,6 +6,7 @@
       <li>Название:</li>
       <li>Адрес:</li>
       <li>Отметка: </li>
+      <li>В слайдере? </li>
       <li></li>
       <li></li>
     </ul>
@@ -18,6 +19,7 @@
         </li>
         <li><%= post.location %></li>
         <li><%= post.score %></li>
+        <li><%= post.to_slider? ? '✓' : '✗' %></li>
         <li><%= link_to 'Редактировать', edit_post_path(post) %></li>
         <li><%= link_to 'Удалить пост', post, :method => :delete, data: {confirm: 'Вы уверены?'} %></li>
       </ul>
