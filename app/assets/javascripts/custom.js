@@ -1,9 +1,11 @@
 $(document).ready(function() {
 	$('.eventCarousel').slick({
-		arrows: false,
+		arrows: true,
 		autoplay: false,
 		dots: false,
-        adaptiveHeight: true
+        adaptiveHeight: true,
+        nextArrow: $('.slick-next-custom'),
+        prevArrow: $('.slick-prev-custom'),
 	});
 
     $('.postCarousel').on('setPosition', function(event, slick, direction){
