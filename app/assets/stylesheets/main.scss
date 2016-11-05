@@ -306,7 +306,8 @@ footer {
 ////////////////////  MAIN PAGE   ////////////////////
 
 .eventCarouselSec {
-	// margin:50px 0;
+	margin-bottom: 50px;
+	box-shadow: 0px 2px 2px -1px rgba(171, 171, 171, 0.56);
 	.eventCarousel {
 		.slideWrapper {
 			display: flex;
@@ -327,7 +328,7 @@ footer {
 				align-items: flex-start;
 				justify-content: space-around;
 				.manage {
-					position: absolute;
+					align-self: flex-end;
 					font-size: 1.6rem;
 					a {
 						display: inline-block;
@@ -336,6 +337,11 @@ footer {
 					a:hover {
 						text-decoration: underline;
 					}
+				}
+				.slideCounter {
+					align-self: flex-end;
+					font-size: 18px;
+					font-weight: bold;
 				}
 			}
 			.aboutEvent {
@@ -602,6 +608,9 @@ footer {
 				z-index:3;
 				& > * {
 					margin-top:10px;
+				}
+				.manage, form {
+					font-size: 16px;
 				}
 			}
 			&:before {
@@ -880,7 +889,7 @@ footer {
 		}
 		
 		.filter {
-			display: flex;
+			display: none;
 			margin-top:30px;
 
 			li {
@@ -1143,6 +1152,30 @@ footer {
 }
 
 .eventCarousel {
+	.slick-prev,
+	.slick-next {
+		background-color: #F0F0F0;
+		border-radius:50%;
+		width:40px;
+		height:40px;
+		z-index: 2;
+		background-position:center;
+		background-repeat: no-repeat;
+		border-radius:50%;
+		&:before {
+			display: none;
+		}
+
+	}
+	.slick-prev {
+		// left:20px;
+		background-image:asset-url("simb/prev.png");
+	}
+	.slick-next {
+		// right: 20px;
+		background-image:asset-url("simb/next.png");
+	}
+
 	.slick-dots {
 		position: relative;
 		li {
@@ -1154,6 +1187,7 @@ footer {
 		}
 	}
 }
+
 .mediaWrap {
 	display: flex;
 	flex-wrap: wrap;

@@ -8,9 +8,8 @@
 
 				<div class="textWrap">
 					<div class="overlay"></div>
-					<div class="content">
-						<article>Привет!</article>
-						<span>Я Бон. Я составляю рейтинг и пишу рецензии на общественные места и мероприятия Москвы, куда хорошо сходить со своим питомцем.</span>
+					<div class="content editable">
+						<%= render @about_center %>
 						<ul class="hash">
 							<li><%= link_to "#хештег", show_tag_path("хештег") %></li>
 							<li><%= link_to "#ресторан", show_tag_path("ресторан") %></li>

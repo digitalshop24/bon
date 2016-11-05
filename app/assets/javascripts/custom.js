@@ -2,7 +2,8 @@ $(document).ready(function() {
 	$('.eventCarousel').slick({
 		arrows: false,
 		autoplay: false,
-		dots: true
+		dots: false,
+        adaptiveHeight: true
 	});
 
     $('.postCarousel').on('setPosition', function(event, slick, direction){
