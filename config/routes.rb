@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :links
-  resources :slider_posts
+  resources :slider_posts do
+    get 'move/:direction', to: 'slider_posts#move', on: :member, as: :move
+  end
   resources :page_texts, only: [:update]
   resources :invitations, only: [:create, :destroy]
   resources :subscriptions, only: [:create, :destroy]

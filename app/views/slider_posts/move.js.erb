@@ -1,0 +1,6 @@
+var slider_post = $('#slider_post_<%= @slider_post.id %>');
+if (<%= @step %> == 1) {
+  slider_post.next('ul.listAllPost').after(slider_post);
+} else {
+  slider_post.prev('ul.listAllPost').before(slider_post);
+}
