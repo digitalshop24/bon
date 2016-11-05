@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  load_and_authorize_resource
+  
   def edit
     @image = Image.find(params[:id])
   end
