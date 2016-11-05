@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :images
+
 	resources :categories do
     get '/sort_by_date', to: 'categories#sort_by_date'
     get '/sort_by_score', to: 'categories#sort_by_score'
