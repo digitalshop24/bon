@@ -1,6 +1,7 @@
 class MainController < ApplicationController
 	
 	def about
+		@about_center = PageText.where(page: 'about', position: 'center').first_or_create
 		@categories = Category.all
 	end
 

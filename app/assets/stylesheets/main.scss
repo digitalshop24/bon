@@ -609,6 +609,9 @@ footer {
 				& > * {
 					margin-top:10px;
 				}
+				.manage, form {
+					font-size: 16px;
+				}
 			}
 			&:before {
 				content:"";
