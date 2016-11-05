@@ -30,7 +30,11 @@
                   <% end %>
                 </ul>
               </ul>
-              <div class="slideCounter"><%= "#{i + 1}/#{total}" %></div>
+              <div class="slideCounter">
+                <a class="slick-prev-custom"></a>
+                <span class="slick-counter"><%= "#{i + 1}/#{total}" %></span>
+                <a class="slick-next-custom"></a>
+              </div>
             </div>
           </div>
         </div>

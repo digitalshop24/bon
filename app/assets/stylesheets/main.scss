@@ -327,7 +327,7 @@ footer {
 				display: flex;
 				flex-direction: column;
 				align-items: flex-start;
-				justify-content: space-around;
+				justify-content: space-between;
 				.manage {
 					align-self: flex-end;
 					font-size: 1.6rem;
@@ -342,6 +342,8 @@ footer {
 				.slideCounter {
 					align-self: flex-end;
 					font-size: 18px;
+					margin-right: 30px;
+					margin-bottom: 20px;
 					font-weight: bold;
 				}
 			}
@@ -1163,40 +1165,41 @@ footer {
 }
 
 .eventCarousel {
-	.slick-prev,
-	.slick-next {
-		background-color: #F0F0F0;
-		border-radius:50%;
+	.slick-prev-custom,
+	.slick-next-custom,
+	.slick-counter{
+		text-align: center;
+		display: inline-block;
 		width:40px;
 		height:40px;
+	}
+	.slick-counter{
+		vertical-align: top;
+		padding-top: 10px;
+		margin: 0 25px;
+	}
+	.slick-prev-custom,
+	.slick-next-custom {
+		cursor: pointer;
+		background-color: #F5F6F7;
+		border-radius:50%;
 		z-index: 2;
 		background-position:center;
 		background-repeat: no-repeat;
 		border-radius:50%;
-		&:before {
-			display: none;
+		&:hover{
+			transform: scale(1.05);
 		}
-
 	}
-	.slick-prev {
+	.slick-prev-custom {
 		// left:20px;
 		background-image:asset-url("simb/prev.png");
 	}
-	.slick-next {
+	.slick-next-custom {
 		// right: 20px;
 		background-image:asset-url("simb/next.png");
 	}
 
-	.slick-dots {
-		position: relative;
-		li {
-			button {
-				&:before,&:after {
-					font-size:32px;
-				}
-			}
-		}
-	}
 }
 
 .mediaWrap {
