@@ -529,6 +529,16 @@ footer {
 			right: 20px;
 			background-image:asset-url("simb/next.png");
 		}
+		.edit {
+			margin: 20px;
+			position: absolute;
+			background-color: #fff;
+			padding: 10px;
+			font-size: 16px;
+			font-weight: bold;
+			border: 2px solid;
+			border-radius: 15px;
+		}
 		.slick-dots{
 			top: 20px;
 		    right: 20px;

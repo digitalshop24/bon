@@ -2,7 +2,10 @@
 	<div class="postCarousel">
     <% if @post.images.any? %>
       <% @post.images.each do |image| %>
-        <div class="item" style="background-image:url(<%= asset_path(image.image.url(:slider)) %>);"></div>
+        <div class="item" style="background-image:url(<%= asset_path(image.image.url(:slider)) %>);">
+	        <%= link_to 'Обрезать', [:edit, image], title: 'Обрезать изображение', class: "edit" if @is_admin %>
+			  </div>
+	      
       <% end %>
     <% else %>
         <div class="item" style="background-image:url(<%= asset_path(@post.preview.url) %>);"></div>
