@@ -234,6 +234,7 @@ header {
 			justify-content: space-between;
 			align-items: center;
 			min-width: 415px;
+			width: 77%;
 			img {
 				max-width:124px;
 				max-height:140px;
@@ -422,7 +423,7 @@ footer {
 				background-image: linear-gradient(#8b9da9, #fff6e4);
     			box-shadow: inset 0 0 100px hsla(0,0%,0%,.3)
 			}
-			
+
 		}
 	}
 
@@ -435,7 +436,7 @@ footer {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
-	height: 100%; 
+	height: 100%;
 	.whatIsIt {
 		color:$black07;
 		text-transform: uppercase;
@@ -479,14 +480,14 @@ footer {
 			img {
 				margin-right:20px;
 			}
-			
-		}	
+
+		}
 	}
 }
-// @media screen and ( -webkit-min-device-pixel-ratio : 0 )	 { 
-//   .aboutParth { 
+// @media screen and ( -webkit-min-device-pixel-ratio : 0 )	 {
+//   .aboutParth {
 //     height:auto;
-//   } 
+//   }
 // }
 
 // COMPONENT \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -577,7 +578,7 @@ footer {
 	background-color: $gray;
 	margin: 0 0 100px;
 	padding:50px 0 0;
-	
+
 }
 .hiWrapper {
 	display: flex;
@@ -592,7 +593,7 @@ footer {
 	.wrapContent {
 		margin:0 auto 0 0;
 		position: relative;
-		
+
 		.textWrap {
 			position: relative;
 			.overlay {
@@ -611,7 +612,7 @@ footer {
 				position: relative;
 				z-index:1;
 				padding: 40px 50px 50px;
-				
+
 				font-size:28px;
 				display: flex;
 				justify-content: center;
@@ -635,7 +636,7 @@ footer {
 				left:20px;
 				background-image:asset-url("about/hvost.png");
 			}
-			
+
 		}
 		.hash {
 			font-size:22px;
@@ -724,7 +725,7 @@ footer {
 			margin-bottom:50px;
 		}
 	}
-	
+
 }
 
 
@@ -824,7 +825,7 @@ footer {
 				width:100%;
 				display: flex;
 				justify-content: space-between;
-				
+
 				div.uu {
 					align-self:stretch;
 					input {
@@ -859,8 +860,8 @@ footer {
 
 .redCatInfo {
 	background-color:$redFon;
-	
-	
+
+
 	margin-bottom:100px;
 	.redWrap {
 		display: flex;
@@ -872,7 +873,7 @@ footer {
 			margin: auto;
 		}
 		.infoWrap {
-			
+
 			max-width:550px;
 			width:100%;
 			article {
@@ -900,7 +901,7 @@ footer {
 				}
 			}
 		}
-		
+
 		.filter {
 			display: none;
 			margin-top:30px;
@@ -954,9 +955,9 @@ footer {
 			.form-group {
 				width:49%;
 				margin-right:20px;
-			}	
+			}
 		}
-		
+
 	}
 	.redBtn {
 		margin-top:10px;
@@ -1058,7 +1059,7 @@ footer {
 	flex-wrap: wrap;
 	img {
 		max-width:145px;
-		height: 145px;	
+		height: 145px;
 		object-fit:cover;
 	}
 }
@@ -1096,7 +1097,7 @@ footer {
 		width:100%;
 		min-width:280px;
 	}
-	
+
 }
 .thankU {
 	font-size:22px;

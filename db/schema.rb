@@ -88,13 +88,6 @@ ActiveRecord::Schema.define(version: 20161105110304) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "pages", force: :cascade do |t|
-    t.text     "content"
-    t.string   "key"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "post_sections", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
