@@ -238,6 +238,22 @@ header {
 				max-width:124px;
 				max-height:140px;
 			}
+			img:nth-child(1){
+				max-width: 99px;
+				max-height: 144px;
+			}
+			img:nth-child(2){
+				max-width: 129px;
+				max-height: 147px;
+			}
+			img:nth-child(3){
+				max-width: 74px;
+				max-height: 124px;
+			}
+			img:nth-child(4){
+				max-width: 80px;
+				max-height: 106px;
+			}
 		}
 		.logoWrap {
 			img {
