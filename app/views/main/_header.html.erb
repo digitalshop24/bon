@@ -5,6 +5,7 @@
         <% @categories.each do |category|%>
           <%= link_to category do %>
             <%= image_tag category.bon_img_type.url %>
+            <p class="name_category"> <%=category.name%></p>
           <% end %>
         <% end %>
       </div>
@@ -37,12 +38,12 @@
     <a class="item burger" href="#" data-menu="sidebar">
       <i class="fa fa-bars" aria-hidden="true"></i>
     </a>
-    <div class="linksWrapper">
+<!--     <div class="linksWrapper">
       <div class="linksBlock">
         <% @categories.each do |category|%>
           <%= link_to category.name, category %>
         <% end %>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
