@@ -19,7 +19,7 @@
 				.imgSide {
 					min-height:200px;
 				}
-				.aboutEvent { 
+				.aboutEvent {
 					li :not(.tag) {
 						&:nth-child(2) {
 							font-size: 22px;
@@ -33,7 +33,7 @@
 					margin-top:20px;
 				}
 			}
-			
+
 		}
 	}
 	.helloAbout {
@@ -64,7 +64,7 @@
 				}
 			}
 		}
-		
+
 	}
 	footer {
 		.contentWrap {
@@ -159,7 +159,7 @@
 			}
 		}
 	}
-	
+
 	.mainWrapper {
 		max-width:95vw;
 	}
@@ -180,7 +180,14 @@
 				}
 				.contentSide {
 					width:100%;
+					height: 100%;
 					margin-top:15px;
+					bottom: 0;
+  				right: 0;
+  				padding: 0 10px;
+  				.slideCounter{
+  					margin-right: 0;
+  				}
 				}
 			}
 		}
