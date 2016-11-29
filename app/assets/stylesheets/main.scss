@@ -231,7 +231,7 @@ header {
 		.imagesWrap {
 			display: flex;
 			justify-content: space-between;
-			align-items: center;
+			align-items: flex-end;
 			min-width: 415px;
 			width: 77%;
 			img {
