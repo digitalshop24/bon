@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bon</title>
+    <title><%= @meta.title %></title>
+    <meta name="desription" content="<%= @meta.description %>" />
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="Bon"/>
-    <meta property="og:image" content="<%= asset_path('/about/bonAbout.png') %>"/>
-    <meta property="og:description" content="#bon - not just a dog!"/>
-    <meta property="og:url" content="https://bon-staging.herokuapp.com/">
+    <meta property="og:title" content="<%= @meta.title %>"/>
+    <meta property="og:image" content="<%= asset_url('about/bonAbout.png') %>"/>
+    <meta property="og:description" content="<%= @meta.description %>"/>
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta property="twitter:card" content="summary"/>
+    <meta property="twitter:title" content="<%= @meta.title %>"/>
+    <meta property="twitter:image" content="<%= asset_url('about/bonAbout.png') %>"/>
+    <meta property="twitter:description" content="<%= @meta.description %>"/>
     <link rel="shortcut icon" href="<%= asset_path('favicon.png') %>" type="image/x-icon">
   </head>
 
@@ -33,6 +39,7 @@
             <%= f.submit 'Добавить' %>
           <% end %>
         </div>
+        <a href="#" data-toggle="modal" data-target="#metaModal" class="item"><strong>SEO</strong></a>
       <% end %>
     </div>
     <div class="pusher">
@@ -51,6 +58,6 @@
     </div>
     <%= render 'modals/booking' %>
     <%= render 'modals/subscribe' %>
-    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    <%= render 'modals/meta' if @is_admin %>
   </body>
 </html>
