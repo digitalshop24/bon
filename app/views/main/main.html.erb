@@ -1,47 +1,4 @@
-<section class="eventCarouselSec">
-  <div class="mainWrapper">
-    <div class="eventCarousel">
-      <% total = @slider_posts.size %>
-      <% @slider_posts.each_with_index do |post_rest, i|%>
-        <div class="item">
-          <div class="slideWrapper">
-            <% if post_rest.url.present? %>
-              <%= link_to '', post_rest.url, class: 'imgSide', style: "background-image:url(#{post_rest.preview.url})" %>
-            <% else %>
-              <div class="imgSide" style="background-image:url(<%= post_rest.preview.url %>)"></div>
-            <% end %>
-            <div class="contentSide">
-              <div class="manage">
-                <% if @is_admin %>
-                  <%= link_to 'Редактировать', [:edit, post_rest], class: 'edit' %>
-                <% end %>
-              </div>
-              <ul class="aboutEvent">
-                <li>
-                  <%= link_to post_rest.category.name, post_rest.category if post_rest.respond_to?(:category) %>
-                </li>
-                <li><%= link_to_if post_rest.url.present?, post_rest.title, post_rest.url %></li>
-                <li><%= link_to_if post_rest.url.present?, post_rest.description, post_rest.url %></li>
-                <ul class="hash">
-                  <% if post_rest.respond_to?(:tag_list) %>
-                    <% post_rest.tag_list.each do |tag| %>
-                      <li class="tag"><%= link_to "##{tag}", show_tag_path(tag) %></li>
-                    <% end %>
-                  <% end %>
-                </ul>
-              </ul>
-              <div class="slideCounter">
-                <a class="slick-prev-custom"></a>
-                <span class="slick-counter"><%= "#{i + 1}/#{total}" %></span>
-                <a class="slick-next-custom"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</section>
+<%= render 'slider' %>
 <%= render 'main/posts' %>
 <section class="aboutSec">
   <div class="mainWrapper">

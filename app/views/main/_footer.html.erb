@@ -4,20 +4,20 @@
 			<div class="socialWrap">
 				<div class="shape">
 					<p>Рассказать друзьям</p>
-					<ul class="a2a_kit">
+					<ul>
 						<li>
-							<a class="a2a_button_facebook">
-							<img src="<%= asset_path('simb/fb.png') %>" />
+							<a href="https://www.facebook.com/sharer/sharer.php" class="js-social-share" data-url-param-name='u'>
+								<%= image_tag 'simb/fb.png' %>
 							</a>
 						</li>
 						<li>
-							<a class="a2a_button_twitter">
-							<img src="<%= asset_path('simb/twi.png') %>" />
+							<a href="https://twitter.com/intent/tweet" class="js-social-share">
+								<%= image_tag 'simb/twi.png' %>
 							</a>
 						</li>
 						<li>
-							<a class="a2a_button_vk">
-							<img src="<%= asset_path('simb/vk.png') %>" />
+							<a href="https://vk.com/share.php" class="js-social-share">
+								<%= image_tag 'simb/vk.png' %>
 							</a>
 						</li>
 					</ul>

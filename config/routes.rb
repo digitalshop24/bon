@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get 'move/:direction', to: 'slider_posts#move', on: :member, as: :move
   end
   resources :page_texts, only: [:update]
+  resources :page_seos, only: [:update]
   resources :invitations, only: [:create, :destroy]
   resources :subscriptions, only: [:create, :destroy]
   get 'tags/:name' => 'tags#show', as: 'show_tag'
