@@ -4,7 +4,7 @@
       li
         h3 data='post_section-title' = post_section.title
         p.whatIsIt data='post_section-description' = raw post_section.description
-        - if current_user && current_user.has_role?(:admin)
+        - if @is_admin
           .card-action.clearfix
             .linksWrap
               = link_to 'редактировать', edit_post_post_section_path(@post, post_section), class: 'btnLinks',

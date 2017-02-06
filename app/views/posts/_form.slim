@@ -1,4 +1,4 @@
-= bootstrap_form_for(@post, html: { multipart: true, class: "editPostForm" }, remote: true) do |f|
+= bootstrap_form_for(@post, html: { multipart: true, class: "editPostForm" }) do |f|
   .info
     ul.aboutParth
       li
@@ -7,10 +7,10 @@
           = f.text_field :title, hide_label: true
         .full
           p Описание
-          = f.cktext_area :description, hide_label: true, class: 'ckeditor'
+          = f.text_area :description, hide_label: true
         .full
-          p Тэги
-          = f.text_field :tag_list, hide_label: true
+          p Тэги (введите необходимые тэги через запятую)
+          = f.text_field :tag_list, hide_label: true, value: (f.object.tag_list.join(', ') if f.object.tag_list.present?)
         .multi.full
           .uu
             p Категории
@@ -29,11 +29,24 @@
         .full 
           p Превью
           = f.file_field :preview, hide_label: true
-          img src="#{@post.preview.url}" id="previewTarget" class="prew"
+          - if @post.preview.present?
+            img src="#{@post.preview.url}" id="previewTarget" class="prew"
+          -else
+            img src="" id="previewTarget" class="prew"
         .full
           p Загрузка галереи
           = file_field_tag "images[]", type: :file, :class => 'file', :id =>"imagesUpload", multiple: true
-          #previewImages.previewImages
+          
+          label Загруженные изображения
+          #previewImages
+          .mediaWrap
+            - @post.images.each do |image|
+              .mediaItem id="post_image_#{image.id}"
+                = image_tag image.image.url(:thumb)
+                = link_to 'x', post_destroy_image_path(@post, image), data: {confirm: 'Вы уверены?'},class: "manage-image destroy", method: :delete, remote: true
+                = link_to [:edit, image], title: 'Обрезать изображение для слайдера',class: "manage-image edit" do
+                  i.fa.fa-pencil aria-hidden="true"
+
     .card-action.white.text-center
-      => link_to 'Отменить', 'javascript:void(0)', class: 'btn btn-default btn-link btn-cancel'
-      = f.primary('Ок')
+      => link_to 'Отменить', posts_path, class: 'btn btn-default btn-link btn-cancel'
+      = f.primary('Применить')

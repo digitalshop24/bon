@@ -7,12 +7,12 @@
           q = @post.title
         span.location
           img src="= asset_path('simb/location.png')"
-          div = @post.location.html_safe
+          div = @post.location.to_s.html_safe
       li
         p.whatIsIt Оценка
         span.vote = @post.score
         img src="simb/vote.png">
-    - if current_user && current_user.has_role?(:admin)
+    - if @is_admin
     .card-action.clearfix
       .pull-left
         = link_to 'Редактировать', edit_post_path(@post), class: 'btn btn-link btn-icon',

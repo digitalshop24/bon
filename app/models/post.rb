@@ -20,7 +20,7 @@ class Post < ApplicationRecord
   after_create :create_about_section
 
 	validates :category, :title, presence: true
-  validates :score, :inclusion => { :in => 0..5, :message => "Оценка от 0 до 5" }
+  validates :score, inclusion: { in: 0..5, message: "Оценка от 0 до 5", allow_blank: true }
 
 	rails_admin do
 		edit do
@@ -33,11 +33,12 @@ class Post < ApplicationRecord
 		end
   end
 
-  def preview_url
-    preview.present? ? preview.url : "http://s3-eu-central-1.amazonaws.com/bonapplication/noimage/posts/images/missing_original.png"
-  end
   def about_section
     post_sections.first
+  end
+
+  def url
+    self
   end
 
   def other_post_sections

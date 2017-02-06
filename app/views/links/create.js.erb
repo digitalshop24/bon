@@ -1,0 +1,5 @@
+var new_link_wrapper = $('.links.<%= @link.position %>').find('.new').parents('.link-wrapper');
+new_link_wrapper.before("<%= j render @link %>");
+new_link_wrapper.find('form').hide();
+new_link_wrapper.find('input[type="text"]').val('');
+

@@ -1,6 +1,6 @@
-Role.create(name: 'admin') if Role.find_by(name: 'admin').nil?
-Role.create(name: 'subscriber') if Role.find_by(name: 'subscriber').nil?
-Role.create(name: 'editor') if Role.find_by(name: 'editor').nil?
+Role.where(name: 'admin').first_or_create
+Role.where(name: 'subscriber').first_or_create
+Role.where(name: 'editor').first_or_create
 
 unless Role.where(name: 'admin').first.users.any?
   admin = User.create(email: 'admin@bon.com', password: 'password', password_confirmation: 'password')

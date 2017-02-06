@@ -1,0 +1,20 @@
+<div id="metaModal" class="modal fade invitationModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <%= image_tag 'modals/bonLogo.png', class: 'logo' %>
+        <div class="closeCustom">
+          <%= image_tag 'modals/close.png', class: 'logo', data: { dismiss: 'modal' } %>
+        </div>
+      </div>
+      <div class="modal-body">
+        <%= bootstrap_form_for(@meta) do |f| %>
+          <%= f.text_field :title, hide_label: true, placeholder: 'Title', help: "Рекомендуемая длина 80 - 120 символов" %>
+          <%= f.text_area :description, hide_label: true, placeholder: 'Description', help: "Рекомендуемая длина 140 - 180 символов" %>
+          <%= f.submit "Отправить", class:"redBtn" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

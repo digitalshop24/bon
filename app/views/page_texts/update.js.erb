@@ -1,0 +1,2 @@
+$('#page_text_<%= @page_text.id %> .page_text_content').html('<%= j @page_text.content.to_s.html_safe %>');
+$('#page_text_<%= @page_text.id %>').find('form').hide();

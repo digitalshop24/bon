@@ -7,7 +7,7 @@
 			align-items: stretch;
 			justify-content: space-around;
 			.brick {
-				.imgParth {
+				a,.imgParth {
 					height: 250px;
 				}
 			}
@@ -17,10 +17,10 @@
 		.eventCarousel {
 			.slideWrapper {
 				.imgSide {
-					min-height:200px;
+					min-height:480px;
 				}
-				.aboutEvent { 
-					li {
+				.aboutEvent {
+					li :not(.tag) {
 						&:nth-child(2) {
 							font-size: 22px;
 						}
@@ -33,8 +33,38 @@
 					margin-top:20px;
 				}
 			}
-			
+
 		}
+	}
+	.helloAbout {
+		.mainWrapper.full {
+			max-width:95vw;
+		}
+	}
+	.hiWrapper {
+		flex-wrap: wrap;
+		align-items: center;
+		.BonImgWrapp {
+			max-width:320px;
+			margin:0;
+			img {
+				max-width:120%;
+			}
+		}
+		.wrapContent {
+			.social {
+				padding: 40px 0 20px;
+				flex-wrap: wrap;
+				justify-content: center;
+				.sn {
+					margin:10px 0;
+				}
+				.redBtn {
+					margin:10px 30px;
+				}
+			}
+		}
+
 	}
 	footer {
 		.contentWrap {
@@ -68,7 +98,7 @@
 	}
 	.mobHeader {
 		display: block;
-		margin:30px 0 50px;
+		margin:30px 0;
 		.headerContent {
 			display: flex;
 			justify-content: space-between;
@@ -98,10 +128,22 @@
 			margin-top:20px;
 			border-top:1px solid #424242;
 			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
 			padding:10px 0;
 			z-index:1;
 			height: auto;
 			position: relative;
+			&.adminNavMob {
+				margin-top:0px;
+			}
+			li {
+				background-color: #e2e2e2;
+				padding:5px;
+				margin:5px;
+				border-radius:10px;
+			}
 		}
 
 		label {
@@ -117,7 +159,7 @@
 			}
 		}
 	}
-	
+
 	.mainWrapper {
 		max-width:95vw;
 	}
@@ -138,7 +180,42 @@
 				}
 				.contentSide {
 					width:100%;
+					height: 100%;
 					margin-top:15px;
+					bottom: 0;
+  				right: 0;
+  				padding: 0 10px;
+  				.slideCounter{
+  					margin-right: 0;
+  				}
+				}
+			}
+		}
+	}
+	.hiWrapper {
+		.wrapContent {
+			margin: auto;
+			.textWrap {
+				.content {
+					font-size:24px;
+					padding:30px;
+				}
+			}
+		}
+		.BonImgWrapp {
+			display: none;
+		}
+	}
+	.categoryAbout {
+		.categoryWrap {
+			margin:0;
+			li.cat {
+				flex-wrap: wrap-reverse;
+				.sideText {
+					max-width:100%;
+				}
+				.sideImg {
+					margin-bottom:20px;
 				}
 			}
 		}
@@ -178,6 +255,7 @@
 		flex-wrap: wrap;
 		justify-content: center;
 		.info {
+			margin-top: -40px;
 			padding:10px;
 		}
 		.social {
@@ -226,6 +304,12 @@
 					}
 				}
 			}
+		}
+	}
+	.invitationModal {
+		.modal-header {
+			display: flex;
+			justify-content: space-between;
 		}
 	}
 }

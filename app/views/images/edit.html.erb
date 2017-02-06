@@ -1,0 +1,57 @@
+<script type="text/javascript" charset="utf-8">
+$(function() {
+  $('#cropbox').Jcrop({
+    onChange: update_crop,
+    onSelect: update_crop,
+    setSelect: [0, 0, 1920, 480],
+    aspectRatio: 4
+  });
+});
+  
+function update_crop(coords) {
+  var image = {
+    w: $('#cropbox').width(),
+    h: $('#cropbox').height()
+  }
+  var preview = {
+    w: $('#preview').width(),
+    h: Math.round($('#preview').width() / 4)
+  }
+  var bg_ratio = image.w / coords.w;
+  var preview_ratio = preview.w / coords.w;
+  var bg_image = {
+    w: Math.round(image.w * bg_ratio),
+    h: Math.round(image.h * bg_ratio),
+    x: Math.round(coords.x * preview_ratio),
+    y: Math.round(coords.y * preview_ratio)
+  }
+  var preview_css = {
+    h: preview.h + 'px',
+    bg_position: '-' + bg_image.x + 'px -' + bg_image.y + 'px',
+    bg_size: bg_image.w + 'px ' + bg_image.h + 'px'
+  }
+  $('#preview').css({
+    height: preview_css.h,
+    backgroundPosition: preview_css.bg_position,
+    backgroundSize: preview_css.bg_size
+  });
+  
+  var image_displaying_ratio = <%= @image.image_geometry(:original).width %> / image.w;
+  $("#crop_x").val(Math.round(coords.x * image_displaying_ratio));
+  $("#crop_y").val(Math.round(coords.y * image_displaying_ratio));
+  $("#crop_w").val(Math.round(coords.w * image_displaying_ratio));
+  $("#crop_h").val(Math.round(coords.h * image_displaying_ratio));
+}
+</script>
+
+<div style="width:90%;margin:auto">
+  <%= image_tag @image.image.url(:original), id: "cropbox", style: 'width:100%' %>
+  <div style="width:100%; margin: 10px auto; background-size: cover; background:url(<%= @image.image.url(:original) %>);" id="preview" >
+    <%= form_for @image do |f| %>
+      <% for attribute in [:crop_x, :crop_y, :crop_w, :crop_h] %>
+        <%= f.hidden_field attribute, id: attribute %>
+      <% end %>
+      <p><%= f.submit "Обрезать", class: 'btn btn-primary' %></p>
+    <% end %>
+  </div>
+</div>

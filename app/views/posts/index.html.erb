@@ -1,26 +1,29 @@
 <section class="allPosts">
   <div class="mainWrapper">
     <h1>Все посты</h1>
+    <%= link_to 'Добавить пост', new_post_path, class: 'enterBtn fixedBtn' %>
     <ul class="titleAllPost">
       <li>Название:</li>
       <li>Адрес:</li>
       <li>Отметка: </li>
+      <li>В слайдере? </li>
       <li></li>
       <li></li>
-
     </ul>
     <% @posts.each do |post|%>
-    <ul class="listAllPost">
-      <li>
-        <%= link_to post do %>
-          <%= post.title %>
-        <% end %>
-      </li>
-      <li><%= post.location %></li>
-      <li><%= post.score %></li>
-      <li><%= link_to 'Редактировать пост', edit_post_path(post) %></li>
-      <li><%= link_to 'Удалить пост', post, :method => :delete, :confirm => "Вы уверены?" %></li>
-    </ul>
+      <ul class="listAllPost">
+        <li>
+          <%= link_to post do %>
+            <%= post.title %>
+          <% end %>
+        </li>
+        <li><%= post.location %></li>
+        <li><%= post.score %></li>
+        <li><%= post.to_slider? ? '✓' : '✗' %></li>
+        <li><%= link_to 'Редактировать', edit_post_path(post) %></li>
+        <li><%= link_to 'Удалить пост', post, :method => :delete, data: {confirm: 'Вы уверены?'} %></li>
+      </ul>
     <% end %>
+    <%= link_to 'Добавить пост', new_post_path, class: 'enterBtn fixedBtn' %>
   </div>
 </section>

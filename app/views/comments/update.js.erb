@@ -1,0 +1,7 @@
+<% if @comment.errors.any? %>
+  $("#edit_comment_<%= @comment.id %>").replaceWith("<%= j render 'form' %>");
+  new Bon.Comments.CommentFormHandler('<%= @comment.id %>');
+<% else %>
+  $("#edit_comment_<%= @comment.id %>").remove();
+  $("#comment_<%= @comment.id %>").replaceWith("<%= j render @comment %>");
+<% end %>

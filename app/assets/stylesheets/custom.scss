@@ -1,0 +1,31 @@
+.bon-sidebar{
+  background-color: $redFon !important;
+  .logo {
+    display: block;
+    text-align: center;
+    margin: 30px auto;
+  }
+  a.item {
+    font-size: 1.4rem;
+    text-align: center;
+    line-height: 2rem;
+  }
+  .manage {
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 10px;
+    font-size: 1.6rem;
+    a {
+      margin-right: 5px;
+      color: #fff;
+      display: inline-block;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+.dimmed {
+  pointer-events: none;
+}

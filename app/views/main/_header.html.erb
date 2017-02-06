@@ -1,50 +1,49 @@
 <header class="desctop">
-	<div class="mainWrapper">
-		<div class="headerContent">
-			<div class="imagesWrap">
-				
-				<% Category.all.each do |category|%>
-				  <%= link_to category do %>
-				    <%= image_tag category.bon_img_type.url %>
-				  <% end %>
-				<% end %>
-			</div>
-			<div class="logoWrap">
-				<%= link_to root_path do %>
-				<img src="<%= asset_path('simb/logo.png') %>"/>
-				<% end %>
-			</div>
-		</div>
-	</div>
-	
+  <div class="mainWrapper">
+    <div class="headerContent">
+      <div class="imagesWrap">
+        <% @categories.each do |category|%>
+          <%= link_to category do %>
+            <%= image_tag category.bon_img_type.url %>
+            <p class="name_category"> <%=category.name%></p>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="logoWrap">
+        <%= link_to root_path do %>
+          <img src="<%= asset_path('simb/logo.png') %>"/>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </header>
 
 <div class="mobHeader">
-	<div class="mainWrapper">
-		<div class="headerContent">
-			<div class="logo">
-				<%= link_to root_path do %>
-					<img src="<%= asset_path('simb/logoMob.png') %>"/>
-				<% end %>
-			</div>
-			<div class="cllps">
-				<label for="ac">
-					<span></span>
-					<span></span>
-					<span></span>
-					<span></span>
-				</label>
-			</div>
-		</div>
-		<input id="ac" name="accordion" type="checkbox" />
-		<ul class="cllpsShowHide">
-			<% Category.all.each do |category|%>
-			<li>
-				<%= link_to category do %>
-					<%= category.name %>
-				<% end %>
-			</li>
-			<% end %>
-		</ul>
-	</div>
+  <div class="mainWrapper">
+    <div class="headerContent">
+      <a class="item burger" href="#" data-menu="sidebar">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </a>
+      <div class="logo">
+        <%= link_to root_path do %>
+          <img src="<%= asset_path('simb/logoMob.png') %>"/>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="horizontalMenu desctop">
+  <div class="mainWrapper">
+    <a class="item burger" href="#" data-menu="sidebar">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </a>
+<!--     <div class="linksWrapper">
+      <div class="linksBlock">
+        <% @categories.each do |category|%>
+          <%= link_to category.name, category %>
+        <% end %>
+      </div>
+    </div> -->
+  </div>
 </div>

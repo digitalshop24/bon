@@ -1,0 +1,38 @@
+<section class="allPosts">
+  <div class="mainWrapper">
+    <h1>Все посты для слайдера</h1>
+    <%= link_to 'Добавить пост', new_slider_post_path, class: 'enterBtn fixedBtn' %>
+    <ul class="titleAllPost">
+      <li>Заголовок:</li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <style>
+      .posts-table ul.listAllPost:first-child a.up{
+        display: none;
+      }
+      .posts-table ul.listAllPost:last-child a.down{
+        display: none;
+      }
+    </style>
+    <div class="posts-table">
+      <% @posts.each_with_index do |post, i|%>
+        <ul class="listAllPost" id="slider_post_<%= post.id %>">
+          <li><%= post.title %></li>
+          <li>
+            <%= link_to move_slider_post_path(post, 'up'), remote: true, class: 'up' do %>
+              <i class="fa fa-arrow-up" aria-hidden="true"></i>
+            <% end %>
+            <%= link_to move_slider_post_path(post, 'down'), remote: true, class: 'down' do %>
+              <i class="fa fa-arrow-down" aria-hidden="true"></i>
+            <% end %>
+          </li>
+          <li><%= link_to 'Редактировать', [:edit, post] %></li>
+          <li><%= link_to 'Удалить пост', post, method: :delete, data: { confirm: 'Вы уверены?' } %></li>
+        </ul>
+      <% end %>
+    </div>
+    <%= link_to 'Добавить пост', new_slider_post_path, class: 'enterBtn fixedBtn' %>
+  </div>
+</section>

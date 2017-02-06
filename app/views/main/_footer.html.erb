@@ -6,25 +6,29 @@
 					<p>Рассказать друзьям</p>
 					<ul>
 						<li>
-							<a href="">
-								<img src="<%=asset_path('simb/fb.png')%>"/>
+							<a href="https://www.facebook.com/sharer/sharer.php" class="js-social-share" data-url-param-name='u'>
+								<%= image_tag 'simb/fb.png' %>
 							</a>
 						</li>
 						<li>
-							<a href="">
-								<img src="<%=asset_path('simb/twi.png')%>"/>
+							<a href="https://twitter.com/intent/tweet" class="js-social-share">
+								<%= image_tag 'simb/twi.png' %>
 							</a>
 						</li>
 						<li>
-							<a href="">
-								<img src="<%=asset_path('simb/vk.png')%>"/>
+							<a href="https://vk.com/share.php" class="js-social-share">
+								<%= image_tag 'simb/vk.png' %>
 							</a>
 						</li>
 					</ul>
 				</div>
 				<div class="shape">
-					<p>Подписаться на новое</p>
-					<input type="mail" class="inputRound" name="" placeholder="и-меил" />
+					<p>Подпишитесь на новые обзоры!</p>
+          <%= form_for Subscription.new, :html => {:style => 'display:inline-flex; margin-left: 20px;'}, :remote => true do |f| %>
+              <%= f.text_field :email, :class => "inputRound", placeholder: "Введите e-mail" %>
+              <%= f.submit "Отправить", :class => "redBtn", style: "margin-left:5px; padding: 0px 6px;", remote: true%>
+          <% end %>
+
 				</div>
 			</div>
 			<ul class="navWrap">
