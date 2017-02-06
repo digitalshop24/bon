@@ -8,9 +8,7 @@ class ApplicationController < ActionController::Base
   private
 
   def set_meta
-    if request.get?
-      @meta = PageSeo.where(key: request.path).first_or_create
-    end
+    @meta = PageSeo.where(key: request.path).first_or_create
   end
 
   def set_categories
