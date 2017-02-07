@@ -176,7 +176,6 @@
     -webkit-tap-highlight-color: transparent
 }
 
-.fotorama__arr,
 .fotorama__fullscreen-icon,
 .fotorama__video-close,
 .fotorama__video-play {
@@ -185,7 +184,6 @@
 
 @media (-webkit-min-device-pixel-ratio:1.5),
 (min-resolution:2dppx) {
-    .fotorama__arr,
     .fotorama__fullscreen-icon,
     .fotorama__video-close,
     .fotorama__video-play {
@@ -199,7 +197,6 @@
 }
 
 @media print {
-    .fotorama__arr,
     .fotorama__fullscreen-icon,
     .fotorama__thumb-border,
     .fotorama__video-close,
@@ -669,19 +666,6 @@
     transform: translate3d(0, 0, 0)
 }
 
-
-/*.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__arr,
-.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__fullscreen-icon {
-    opacity: 0
-}
-*/
-
-
-/*.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__arr:focus,
-.fotorama__wrap--no-controls.fotorama__wrap--toggle-arrows .fotorama__fullscreen-icon:focus {
-    opacity: 1
-}*/
-
 .fotorama__wrap--video .fotorama__arr,
 .fotorama__wrap--video .fotorama__fullscreen-icon {
     opacity: 0!important
@@ -707,32 +691,10 @@
     transform: translate3d(32px, -32px, 0)
 }
 
-
-/*.fotorama__wrap--css3.fotorama__wrap--no-controls.fotorama__wrap--slide.fotorama__wrap--toggle-arrows .fotorama__arr--prev:not(:focus) {
-    -webkit-transform: translate3d(-48px, 0, 0);
-    transform: translate3d(-48px, 0, 0)
-}
-
-.fotorama__wrap--css3.fotorama__wrap--no-controls.fotorama__wrap--slide.fotorama__wrap--toggle-arrows .fotorama__arr--next:not(:focus) {
-    -webkit-transform: translate3d(48px, 0, 0);
-    transform: translate3d(48px, 0, 0)
-}*/
-
 .fotorama__wrap--css3.fotorama__wrap--video .fotorama__fullscreen-icon {
     -webkit-transform: translate3d(32px, -32px, 0)!important;
     transform: translate3d(32px, -32px, 0)!important
 }
-
-
-/*.fotorama__wrap--css3.fotorama__wrap--video .fotorama__arr--prev {
-    -webkit-transform: translate3d(-48px, 0, 0)!important;
-    transform: translate3d(-48px, 0, 0)!important
-}
-
-.fotorama__wrap--css3.fotorama__wrap--video .fotorama__arr--next {
-    -webkit-transform: translate3d(48px, 0, 0)!important;
-    transform: translate3d(48px, 0, 0)!important
-}*/
 
 .fotorama__wrap--css3 .fotorama__arr:not(:focus),
 .fotorama__wrap--css3 .fotorama__fullscreen-icon:not(:focus),
