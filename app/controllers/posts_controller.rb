@@ -90,6 +90,6 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:title, :location, :score, :preview, :category_id, :status,
-                                   :tag_list, :to_slider, :description)
+                                   :tag_list, :to_slider, :description, gallery_attributes: [:id, images_attributes: [:image]])
     end
 end

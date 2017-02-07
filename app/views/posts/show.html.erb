@@ -79,13 +79,30 @@
 	<div class="mainWrapper ">
 		<ul class="postTags">
 			<% @post.tag_list.each do |tag|%>
-				<li><%= link_to "##{tag}", show_tag_path(tag) %></li>
+				<%= link_to "##{tag}", show_tag_path(tag) %>
 			<% end %>
 		</ul>
 	</div>
 </section>
 
 <%= render 'post_sections/post_sections' %>
+
+<% if @post.gallery %>
+	<section class="postBody">
+		<div class="mainWrapper ">
+			<div class="postInfo ">
+				<div class="post_section ">
+					<div class="fotorama" data-width="100%" data-maxheight="80%" data-allowfullscreen="true" data-loop="true" data-nav="thumbs" data-thumbwidth="140" data-thumbheight="100">
+				    <% @post.gallery.images.each do |image| %>
+				     	<%= image_tag image.image.url, data: { thumb: image.image.url(:small) } %>
+				    <% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+<% end %>
+
 <%= render 'comments/form', post: @post %>
 <%= render 'comments/comments' %>
 

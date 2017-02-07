@@ -140,13 +140,14 @@ ul {
   width: 100%;
   max-width:850px;
   margin:30px 0 30px auto;
-  display: flex;
-  li {
+  // display: flex;
+  a {
   	font-size:18px;
   	font-family:$mirBd;
   	color:$blue;
+  	display: inline-block;
   }
-  li:not(:last-child) {
+  a:not(:last-child) {
   	margin-right:20px;
   }
 }
