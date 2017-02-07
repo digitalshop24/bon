@@ -86,6 +86,19 @@
 </section>
 
 <%= render 'post_sections/post_sections' %>
+
+<% if @post.gallery %>
+	<section class="postBody">
+		<div class="mainWrapper ">
+			<div class="fotorama" data-allowfullscreen="true" data-loop="true" data-nav="thumbs" data-thumbwidth="160" data-thumbheight="106">
+		    <% @post.gallery.images.each do |image| %>
+		     	<%= image_tag image.image.url, data: { thumb: image.image.url(:small) } %>
+		    <% end %>
+			</div>
+		</div>
+	</section>
+<% end %>
+
 <%= render 'comments/form', post: @post %>
 <%= render 'comments/comments' %>
 
