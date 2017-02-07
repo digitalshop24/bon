@@ -92,7 +92,7 @@
 		<div class="mainWrapper ">
 			<div class="postInfo ">
 				<div class="post_section ">
-					<div class="fotorama" data-width="100%" data-ratio="800/600" data-maxheight="100%" data-allowfullscreen="true" data-loop="true" data-nav="thumbs" data-thumbwidth="120" data-thumbheight="100">
+					<div class="fotorama" data-width="100%" data-maxheight="80%" data-allowfullscreen="true" data-loop="true" data-nav="thumbs" data-thumbwidth="140" data-thumbheight="100">
 				    <% @post.gallery.images.each do |image| %>
 				     	<%= image_tag image.image.url, data: { thumb: image.image.url(:small) } %>
 				    <% end %>
